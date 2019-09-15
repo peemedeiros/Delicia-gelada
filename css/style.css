@@ -54,6 +54,9 @@ nav .menu{
 nav .menu a{
 	color: #ffffff;
 	text-decoration: none;
+	display: block;
+	width: inherit;
+	height: 60px;;
 }
 nav .menu_itens{
     font-size: 14px;
@@ -292,6 +295,7 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 .sub_menu_itens:hover{
     background-color:#ededed;
+	text-decoration: underline;
 }
 
 .produtos{
@@ -497,52 +501,82 @@ nav .menu_itens:hover > .menu-dropdown {
     min-height: 500px;
     box-sizing: border-box;
     padding-top: 50px;
+	background-color: #e6e7e8;
+}
+#lojas .conteudo{
+	width: 1100px;
+	height: inherit;
+	display: flex;
+	flex-wrap: wrap;
 }
 .caixa_lojas{
-    width: 300px;
-    height: 310px;
-    background-color: #b9e6a0;
+    width: 330px;
+    height: 360px;
+    background-color:#fff;
     box-sizing: border-box;
-    padding:5px;
+    padding-top:15px;
+    padding-left:10px;
     border-radius: 10px;
     float: left;
-    margin-left: 50px;
-    margin-right: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
     margin-bottom: 50px;
-     box-shadow: 2px 2px 1px #999;
+    /*box-shadow: 1px 1px 1px #999;*/
 }
-.texto_card_loja{
-    text-align: center;
-    text-transform: uppercase;
-    color:#fff;
+.caixa_lojas:hover{
+	transform: translateY(-10px);
+    transition: 0.2s;
+    box-shadow: 0px 5px 15px #cfcfcf;
 }
-.endereco_loja{
-    width: 295;
-    box-sizing: border-box;
-    padding-top: 40px;
-    min-height: 210px;
-    background-color: #fff;
-    padding-left: 40px;
-    margin-bottom: 10px;
-    border-radius: 20px;
+.icone-localizar{
+	width: 50px;
+	height: 50px;
+	background-image: url('../icon/icon-local.png');
+	background-position: center;
+	background-size: cover;
+	margin-right: 5px;
+	float: left;
 }
-.endereco_loja div {
-    margin-bottom: 10px;
+.linha-vertical{
+	width: 1px;
+	height: 330px;
+	background-color: #999;
+	float: left;
+	margin-right: 10px;
+	
 }
-.linha_vert{
-    width: 1px;
-    height: 130px;
-    background-color: #999;
-    float: left;
-    margin-right: 10px;
+.titulo-loja{
+	font-size: 22px;
+	font-weight: bold;
+	color:#b32525;
+	float: left;
+	margin-bottom: 20px;
+	
 }
-.botao_localizar{
-    width: 290px;
-    height: 50px;
-    border-radius: 30px;
-    background-color:#FFF;
-    color:#000;
-
+.endereco-lojas{
+	width: 230px;
+	height: 220px;
+	float: left;
+	box-sizing: border-box;
+	padding-top: 25px;
+	margin-bottom:10px;
+}
+.endereco-lojas div {
+	margin-bottom: 6px;
+}
+.botao-localizar{
+	width: 245px;
+	height: 50px;
+	border:0;
+	background-color: #b32525;
+	float: left;
+	font-size: 16px;
+	color:#fff;
+}
+.botao-localizar:hover{
+	background-color: #8a1d1d;
+	cursor: pointer;
+	transition: 0.5s;
 }
 
 

@@ -1,0 +1,1 @@
+<link rel="icon" href="icon/icon-logo-barra.png" type="image/x-icon" />

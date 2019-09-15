@@ -9,7 +9,9 @@
         </title>
         <meta charset="utf-8">
         <link type="text/css" rel="stylesheet" href="css/style.css">
-		<link rel="icon" href="icon/logo-main.png" type="image/x-icon" />
+		<?php
+			require_once('modulos/icon.php');
+		?>
     </head>
     <body>
         <?php

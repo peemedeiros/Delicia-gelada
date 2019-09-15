@@ -37,117 +37,66 @@
 		</section>
         <section id="lojas">
             <div class="conteudo center">
+				<!--caixa de lojas-->
                 <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 1</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
-                
-                <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 2</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
-                <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 2</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
-                <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 2</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
-                <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 2</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
-                <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 2</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
-                <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 2</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
-                <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 2</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
-                <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 2</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
-                <div class="caixa_lojas">
-                    <h2 class="texto_card_loja">LOJA 2</h2>
-                    <div class="endereco_loja">
-                        <div class="linha_vert"></div>
-                        <div>Av.odin</div>
-                        <div>Bairro: Thor</div>
-                        <div>Cidade - UF</div>
-                        <div>333-666</div>
-                    </div>
-                    <button class="botao_localizar"> VER NO MAPA</button>
-                </div>
+					<div class="icone-localizar"></div>
+					<div class="linha-vertical"></div>
+					<div class="titulo-loja">
+						LOJA
+					</div>
+					<div class="endereco-lojas">
+						<div>Av.Rainbow 333</div>
+						<div>Asgard</div>
+						<div>São Paulo - SP</div>
+						<div>CEP: 06622-000 </div>
+					</div>
+					<button class="botao-localizar"> VER NO MAPA</button>
+				</div>
+				
+				<div class="caixa_lojas">
+					<div class="icone-localizar"></div>
+					<div class="linha-vertical"></div>
+					<div class="titulo-loja">
+						LOJA 
+					</div>
+					<div class="endereco-lojas">
+						<div>Av.Rainbow 333</div>
+						<div>Asgard</div>
+						<div>São Paulo - SP</div>
+						<div>CEP: 06622-000 </div>
+					</div>
+					<button class="botao-localizar"> VER NO MAPA</button>
+				</div>
+				
+				<div class="caixa_lojas">
+					<div class="icone-localizar"></div>
+					<div class="linha-vertical"></div>
+					<div class="titulo-loja">
+						LOJA
+					</div>
+					<div class="endereco-lojas">
+						<div>Av.Rainbow 333</div>
+						<div>Asgard</div>
+						<div>São Paulo - SP</div>
+						<div>CEP: 06622-000 </div>
+					</div>
+					<button class="botao-localizar"> VER NO MAPA</button>
+				</div>
+				
+				<div class="caixa_lojas">
+					<div class="icone-localizar"></div>
+					<div class="linha-vertical"></div>
+					<div class="titulo-loja">
+						LOJA
+					</div>
+					<div class="endereco-lojas">
+						<div>Av.Rainbow 333</div>
+						<div>Asgard</div>
+						<div>São Paulo - SP</div>
+						<div>CEP: 06622-000 </div>
+					</div>
+					<button class="botao-localizar"> VER NO MAPA</button>
+				</div>
             </div>
         </section>
 		<?php
