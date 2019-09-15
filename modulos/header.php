@@ -13,6 +13,7 @@
 				<li class="menu_itens">
 					<a href="sobre.php">
 						SOBRE
+                        <img src="icon/arrow-down.png" alt="seta" name="seta">
 					</a>
 					<ul class="menu-dropdown">
 						<a href="curiosidades.php">
@@ -30,6 +31,7 @@
 				<li class="menu_itens">
 					<a href="promocoes.php">
 						PROMOÇÕES
+                        <img src="icon/arrow-down.png" alt="seta" name="seta">
 					</a>
 					<ul class="menu-dropdown">
 						<a href="destaque.php">
