@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
     <head>
         <title>
             Delicia Gelada   
         </title>
 		<meta charset="utf-8">
 		<link type="text/css" rel="stylesheet" href="css/style.css">
-		<link rel="icon" href="icon/logo-main.png" type="image/x-icon" />
+		<?php
+			require_once('modulos/icon.php');
+		?>
     </head>
     <body>
     	<?php
 			require_once('modulos/header.php');
 		?>
 		<section id="sobre">
+			<h2>Conteudo principal sobre a empresa</h2>
 			<div class="conteudo center">
 				<div class="img_principal_sobre">
 					<!--imagem posta como background-->
@@ -30,6 +33,7 @@
 			</div>
 		</section>
 		<section id="sobre_origem">
+			<h2> Origem da Empresa </h2>
 			<div class="conteudo center">
 				<div class="img_origem_sobre">
 					

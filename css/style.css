@@ -6,14 +6,17 @@ h1, h2, h3, p, ul, li, body,a{
 body{
 	/*background-image: linear-gradient(to right,#6e43c2,#4d77e5);*/
 }
-/*	cabeçalho	*/
-#cabecalho{
-    width: 100%;
-    height: 60px;
-    background-image: linear-gradient(to bottom,#D62D2D,#7A2020);
-	border-bottom: solid 2px #000000;
-    position: fixed;
-    z-index: 1;
+/*classes de padronização*/
+.titulo{
+	font-size: 70px;
+	font-weight: bold;
+	margin-bottom: 50px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+.texto{
+	font-size: 22px;
+	line-height: 1.5;
 }
 .conteudo{
     width: 1500px;
@@ -23,6 +26,49 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+.texto-center{
+	text-align:center;
+}
+.sub-titulo{
+	font-size: 35px;
+	color: #000;
+}
+.margem-media-direita{
+	margin-right: 80px;
+}
+.margem-pequena-baixo{
+	margin-bottom: 40px;
+}
+.margem-media-baixo{
+	margin-bottom: 80px;
+}
+.botao{
+	width: 245px;
+	height: 50px;
+	border:0;
+	background-color: #b32525;
+	float: left;
+	font-size: 16px;
+	color:#fff;
+}
+.botao:hover{
+	background-color: #8a1d1d;
+	cursor: pointer;
+	transition: 0.5s;
+}
+.negrito{
+	font-weight: bold;
+}
+/*	cabeçalho	*/
+#cabecalho{
+    width: 100%;
+    height: 60px;
+    background-image: linear-gradient(to bottom,#D62D2D,#7A2020);
+	border-bottom: solid 2px #000000;
+    position: fixed;
+    z-index: 1;
+}
+
 .logo{
     width: 170px;
     height: 170px;
@@ -157,6 +203,9 @@ nav .menu_itens:hover > .menu-dropdown {
 	background-size: cover;
 	background-position: center;
 }
+#slider h2{
+	display: none;
+}
 #slider .conteudo{
     background-color: #fff;
 }
@@ -166,6 +215,9 @@ nav .menu_itens:hover > .menu-dropdown {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
+}
+#corpo_slider h2{
+	display: none;
 }
 .slideshow {
 	height:450px;
@@ -229,6 +281,9 @@ nav .menu_itens:hover > .menu-dropdown {
     width: 100%;
     height: auto;
     min-height: 750px;
+}
+#corpo h2{
+	display: none;
 }
 #corpo .conteudo{
     background-color: #f8f9fa;
@@ -318,7 +373,7 @@ nav .menu_itens:hover > .menu-dropdown {
     padding-top: 15px; 
 	background-color: #ffffff;
 }
-.caixa_produto:hover{
+.caixa_produto:hover, .card-itens-promocoes:hover{
     transform: translateY(-10px);
     transition: 0.2s;
     box-shadow: 0px 5px 15px #cfcfcf;
@@ -366,6 +421,9 @@ nav .menu_itens:hover > .menu-dropdown {
 	background-image: linear-gradient(to bottom,#b9e6a0,#E2F8AF);
 	padding-top: 100px;
 }
+#sobre h2{
+	display: none;
+}
 .img_principal_sobre{
 	width: 765px;
 	height: 765px;
@@ -383,24 +441,20 @@ nav .menu_itens:hover > .menu-dropdown {
 	box-sizing: border-box;
 	padding-top: 150px;
 }
-.titulo{
-	font-size: 70px;
-	font-weight: bold;
-	margin-bottom: 50px;
-	letter-spacing: 3px;
-}
-.texto{
-	font-size: 22px;
-	line-height: 1.5;
-}
 #sobre_origem{
 	width: 100%;
 	height: 500px;
 }
+#sobre_origem h2{
+	display: none;
+}
 .img_origem_sobre{
 	width: 500px;
 	height: 500px;
-	background-image: url(../img/garrafas.png);
+	background-image: url(../img/sao-paulo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 	float: right;
 }
 .caixa_origem_sobre{
@@ -418,6 +472,9 @@ nav .menu_itens:hover > .menu-dropdown {
     padding-top: 60px;
 	background-image: linear-gradient(to bottom,#b9e6a0,#E2F8AF);
 }
+#curiosidades h2{
+	display: none;
+}
 #curiosidades .titulo{
     text-align: center;
     margin-top: 100px;
@@ -429,10 +486,14 @@ nav .menu_itens:hover > .menu-dropdown {
 
 #numero_um{
     width: 100%;
-    height: 750px;
+	height: auto;
+    min-height: 750px;
     background-color: #ffffff;
     box-sizing: border-box;
     padding-top: 50px;
+}
+#numero_um h2{
+	display: none;
 }
 .curiosidades_imagens_container{
     width: 1150px;
@@ -447,8 +508,36 @@ nav .menu_itens:hover > .menu-dropdown {
     float: left;
     background-color: #ccc;
 }
-#numero_um .texto{
-    text-align: center;
+.frutas-container{
+	width: 1200px;
+	height: inherit;
+}
+.frutas{
+	width: 390px;
+	height: 390px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 10px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	float: left;
+}
+.frutas:hover > .opacidade{
+	visibility: visible;
+	background-color: rgba(255,255,255,0.7);
+	transition: 1s;
+}
+.opacidade{
+	width: inherit;
+	height: inherit;
+	background-color: rgba(255,255,255,0);
+	box-sizing: border-box;
+	padding-top: 150px;
+	visibility: hidden;
+}
+.opacidade .titulo{
+	font-size: 50px;
 }
 /*LOJAS*/
 
@@ -457,6 +546,9 @@ nav .menu_itens:hover > .menu-dropdown {
     height: 360px;
     padding-top: 60px;
     background-image: linear-gradient(to bottom,#b9e6a0,#E2F8AF);
+}
+#localizador h2{
+	display: none;
 }
 .caixa_texto_localizador{
     width: 550px;
@@ -502,6 +594,9 @@ nav .menu_itens:hover > .menu-dropdown {
     box-sizing: border-box;
     padding-top: 50px;
 	background-color: #e6e7e8;
+}
+#lojas h2{
+	display: none;
 }
 #lojas .conteudo{
 	width: 1100px;
@@ -564,20 +659,88 @@ nav .menu_itens:hover > .menu-dropdown {
 .endereco-lojas div {
 	margin-bottom: 6px;
 }
-.botao-localizar{
-	width: 245px;
-	height: 50px;
-	border:0;
-	background-color: #b32525;
+/*DESTAQUES DO MÊS*/
+#destaque{
+	width: 100%;
+	height: auto;
+	min-height: 900px;
+	padding-top: 200px;
+	background-image: url(../img/floresta.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: scroll;
+	background-position: center;
+	box-sizing: border-box;
+}
+#destaque .titulo{
+	margin-bottom:  ;
+	color: #fff;
+}
+#destaque h2{
+	display: none;
+}
+.card-destaque{
+	width: 600px;
+	height: 350px;
+	border-radius: 20px;
+	background-color:rgba(255,255,255,0.8);
+	box-sizing: border-box;
+	padding-top: 50px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.card-destaque .texto{
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+#produtos-destaque{
+	width: 100%;
+	height: auto;
+	min-height: 800px;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	padding-top: 80px;
+}
+#produtos-destaque h2{
+	display:none;
+}
+.itens-container{
+	width: 1000px;
+	height: auto;
+	min-height: 350px;
+	display: flex;
+	justify-content: space-between;
+	
+}
+.card-itens{
+	width: 320px;
+	height: 350px;
 	float: left;
-	font-size: 16px;
-	color:#fff;
+	border-radius: 10px;
 }
-.botao-localizar:hover{
-	background-color: #8a1d1d;
-	cursor: pointer;
-	transition: 0.5s;
+.card-itens img{
+	width: inherit;
+	height: inherit;
+	border-radius: 10px;
 }
+.produto-em-destaque{
+	width: inherit;
+	height: auto;
+	min-height: 350px;
+}
+.desconto{
+	width: 80px;
+	height: 80px;
+	background-image: url(../img/20-off.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	bottom: 84px;
+	left: 240px;
+	
+}
+
 
 
 

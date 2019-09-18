@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
     <head>
         <title>
             Delicia Gelada   
         </title>
 		<meta charset="utf-8">
 		<link type="text/css" rel="stylesheet" href="css/style.css">
-        <link rel="icon" href="icon/logo-main.png" type="image/x-icon" />
+        <?php
+			require_once('modulos/icon.php');
+		?>
     </head>
     <body>
     	<?php
 			require_once('modulos/header.php');
 		?>
 		<section id="localizador">
+			<h2>Localizar lojas</h2>
             <div class="conteudo center">
                 <div class="caixa_texto_localizador">
                     <h2 class="titulo2">
@@ -36,6 +39,7 @@
             </div>
 		</section>
         <section id="lojas">
+			<h2> Lojas </h2>
             <div class="conteudo center">
 				<!--caixa de lojas-->
                 <div class="caixa_lojas">
@@ -50,7 +54,7 @@
 						<div>São Paulo - SP</div>
 						<div>CEP: 06622-000 </div>
 					</div>
-					<button class="botao-localizar"> VER NO MAPA</button>
+					<button class="botao"> VER NO MAPA</button>
 				</div>
 				
 				<div class="caixa_lojas">
@@ -65,7 +69,7 @@
 						<div>São Paulo - SP</div>
 						<div>CEP: 06622-000 </div>
 					</div>
-					<button class="botao-localizar"> VER NO MAPA</button>
+					<button class="botao"> VER NO MAPA</button>
 				</div>
 				
 				<div class="caixa_lojas">
@@ -80,7 +84,7 @@
 						<div>São Paulo - SP</div>
 						<div>CEP: 06622-000 </div>
 					</div>
-					<button class="botao-localizar"> VER NO MAPA</button>
+					<button class="botao"> VER NO MAPA</button>
 				</div>
 				
 				<div class="caixa_lojas">
@@ -95,7 +99,7 @@
 						<div>São Paulo - SP</div>
 						<div>CEP: 06622-000 </div>
 					</div>
-					<button class="botao-localizar"> VER NO MAPA</button>
+					<button class="botao"> VER NO MAPA</button>
 				</div>
             </div>
         </section>

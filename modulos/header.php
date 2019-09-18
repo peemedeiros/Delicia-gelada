@@ -13,32 +13,32 @@
 				<li class="menu_itens">
 					<a href="sobre.php">
 						SOBRE
-                        <img src="icon/arrow-down.png" alt="seta" name="seta">
+                        <img src="icon/arrow-down.png" alt="seta">
 					</a>
 					<ul class="menu-dropdown">
-						<a href="curiosidades.php">
-							<li class="menu-dropdown-itens">
+						<li class="menu-dropdown-itens">
+							<a href="curiosidades.php">
 								CURIOSIDADES
-							</li>
-						</a>
-						<a href="lojas.php">
-							<li class="menu-dropdown-itens">
+							</a>
+						</li>
+						<li class="menu-dropdown-itens">
+							<a href="lojas.php">
 								LOJAS
-							</li>
-						</a>
+							</a>
+						</li>
 					</ul>
 				</li>
 				<li class="menu_itens">
 					<a href="promocoes.php">
 						PROMOÇÕES
-                        <img src="icon/arrow-down.png" alt="seta" name="seta">
+                        <img src="icon/arrow-down.png" alt="seta">
 					</a>
 					<ul class="menu-dropdown">
-						<a href="destaque.php">
-							<li class="menu-dropdown-itens">
+						<li class="menu-dropdown-itens">
+							<a href="destaque.php">
 								DESTAQUES DO MÊS
-							</li>
-						</a>
+							</a>
+						</li>
 					</ul>
 				</li>
 				<li class="menu_itens">

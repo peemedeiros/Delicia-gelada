@@ -2,7 +2,7 @@
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt">
     <head>
         <title>
             Delicia Gelada
@@ -18,9 +18,11 @@
 			require_once('modulos/header.php');
 		?>
         <section id="slider">
+			<h2> Slider </h2>
             <div class="conteudo center">
                 <!--slider-->
                 <section id="corpo_slider">
+					<h2> Corpo do Slider </h2>
                     <div class="slideshow" id="slideshow">
                         <div class="slide_selection">
                             <div class="selector" onclick="MudarSlide(0)"></div>
@@ -63,17 +65,18 @@
             </div>
         </section>
         <section id="corpo">
+			<h2> Conteudo Principal </h2>
             <div class="conteudo center">
                 <div class="menu_vertical">
                     <ul class="menu_vertical_caixa">
                         <li class="menu_vertical_itens"> ITEM 1
-                            <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita" name="seta_direita">
+                            <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita">
                             <ul class="sub_menu">
                                 <li class="sub_menu_itens">sub item</li>
                             </ul>
                         </li>
                         <li class="menu_vertical_itens"> ITEM 2
-                            <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita" name="seta_direita">
+                            <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita">
                             <ul class="sub_menu">
                                 <li class="sub_menu_itens">sub item</li>
                                 <li class="sub_menu_itens">sub item</li>
@@ -166,8 +169,8 @@
         <?php
 			require_once('modulos/footer.php');
 		?>
-        <script type="text/javascript" src="js/slider.js"></script>
-        <script type="text/javascript" src="js/menu.js"></script>
+        <script src="js/slider.js"></script>
+        <script src="js/menu.js"></script>
     </body>
 </html>
 
