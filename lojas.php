@@ -53,60 +53,73 @@
 					<div class="icone-localizar"></div>
 					<div class="linha-vertical"></div>
 					<div class="titulo-loja">
-						LOJA
+						Shopping Iguatemi Alpaville
 					</div>
 					<div class="endereco-lojas">
-						<div>Av.Rainbow 333</div>
-						<div>Asgard</div>
-						<div>São Paulo - SP</div>
-						<div>CEP: 06622-000 </div>
+						<div>Alameda Rio Negro, 111</div>
+						<div>SP</div>
+						<div>Alphaville Industrial,	Barueri</div>
+						<div>CEP: 06454-000</div>
 					</div>
-					<button class="botao"> VER NO MAPA</button>
+					<a href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622">
+						<button class="botao">
+							VER NO MAPA
+						</button>
+					</a>
 				</div>
-				
 				<div class="caixa_lojas">
 					<div class="icone-localizar"></div>
 					<div class="linha-vertical"></div>
 					<div class="titulo-loja">
-						LOJA 
+						Shopping Iguatemi Alpaville
 					</div>
 					<div class="endereco-lojas">
-						<div>Av.Rainbow 333</div>
-						<div>Asgard</div>
-						<div>São Paulo - SP</div>
-						<div>CEP: 06622-000 </div>
+						<div>Alameda Rio Negro, 111</div>
+						<div>SP</div>
+						<div>Alphaville Industrial,	Barueri</div>
+						<div>CEP: 06454-000</div>
 					</div>
-					<button class="botao"> VER NO MAPA</button>
+					<a href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622">
+						<button class="botao">
+							VER NO MAPA
+						</button>
+					</a>
 				</div>
-				
 				<div class="caixa_lojas">
 					<div class="icone-localizar"></div>
 					<div class="linha-vertical"></div>
 					<div class="titulo-loja">
-						LOJA
+						Shopping Iguatemi Alpaville
 					</div>
 					<div class="endereco-lojas">
-						<div>Av.Rainbow 333</div>
-						<div>Asgard</div>
-						<div>São Paulo - SP</div>
-						<div>CEP: 06622-000 </div>
+						<div>Alameda Rio Negro, 111</div>
+						<div>SP</div>
+						<div>Alphaville Industrial,	Barueri</div>
+						<div>CEP: 06454-000</div>
 					</div>
-					<button class="botao"> VER NO MAPA</button>
+					<a href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622">
+						<button class="botao">
+							VER NO MAPA
+						</button>
+					</a>
 				</div>
-				
 				<div class="caixa_lojas">
 					<div class="icone-localizar"></div>
 					<div class="linha-vertical"></div>
 					<div class="titulo-loja">
-						LOJA
+						Shopping Iguatemi Alpaville
 					</div>
 					<div class="endereco-lojas">
-						<div>Av.Rainbow 333</div>
-						<div>Asgard</div>
-						<div>São Paulo - SP</div>
-						<div>CEP: 06622-000 </div>
+						<div>Alameda Rio Negro, 111</div>
+						<div>SP</div>
+						<div>Alphaville Industrial,	Barueri</div>
+						<div>CEP: 06454-000</div>
 					</div>
-					<button class="botao"> VER NO MAPA</button>
+					<a href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622">
+						<button class="botao">
+							VER NO MAPA
+						</button>
+					</a>
 				</div>
             </div>
         </section>

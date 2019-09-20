@@ -94,13 +94,16 @@ body{
 	font-size: 16px;
 	color:#fff;
 }
-.botao:hover,{
+.botao:hover{
 	background-color: #8a1d1d;
 	cursor: pointer;
 	transition: 0.5s;
 }
 .negrito{
 	font-weight: bold;
+}
+.texto-branco{
+	color:#fff;
 }
 /*	cabeçalho	*/
 #cabecalho{
@@ -480,9 +483,10 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 .img_principal_sobre{
 	width: 765px;
-	height: 755px;
+	height: 750px;
 	float: left;
 	background-image: url('../img/section_sobre.png');
+	background-size: cover;
 }
 .img_principal_sobre img{
 	width: inherit;
@@ -522,7 +526,8 @@ nav .menu_itens:hover > .menu-dropdown {
 
 #curiosidades{
 	width: 100%;
-	height: 500px;
+	height: auto;
+	min-height:500px;
     padding-top: 60px;
 	background-image: linear-gradient(to bottom,#b9e6a0,#E2F8AF);
 }
@@ -536,7 +541,6 @@ nav .menu_itens:hover > .menu-dropdown {
 #curiosidades .texto{
     text-align: center;
 }
-
 
 #numero_um{
     width: 100%;
@@ -582,7 +586,7 @@ nav .menu_itens:hover > .menu-dropdown {
 	background-color: rgba(255,255,255,0.7);
 	transition: 1s;
 }
-.opacidade{
+.opacidade,.opacidadebg{
 	width: inherit;
 	height: inherit;
 	background-color: rgba(255,255,255,0);
@@ -590,8 +594,36 @@ nav .menu_itens:hover > .menu-dropdown {
 	padding-top: 150px;
 	visibility: hidden;
 }
+.opacidadebg{
+	height: 1140px;
+	background-color: rgba(0,0,0,0.3);
+	padding-top: 0px;
+	visibility: visible;
+}
 .opacidade .titulo{
 	font-size: 50px;
+}
+#curiosidade-coca{
+	width: 100%;
+	height: 800px;
+	background-image:url('../img/cocacolabg.jpg');
+	background-size: cover;
+	background-position: center;
+}
+#curiosidade-coca h2{
+	display: none;
+}
+.caixa-titulo{
+	width: 700px;
+	height: auto;
+	float: right;
+}
+.caixa-texto{
+	width: 700px;
+	height: auto;
+	clear: both;
+	float: right;
+	clear: both;
 }
 /*LOJAS*/
 
@@ -660,11 +692,13 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 .caixa_lojas{
     width: 330px;
-    height: 360px;
+	height: auto;
+    min-height: 360px;
     background-color:#fff;
     box-sizing: border-box;
     padding-top:15px;
     padding-left:10px;
+	padding-bottom: 10px;
     border-radius: 10px;
     float: left;
     margin-left: 15px;
@@ -688,13 +722,17 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 .linha-vertical{
 	width: 1px;
-	height: 330px;
+	height: 95%;
+	min-height: 330px;
 	background-color: #999;
 	float: left;
 	margin-right: 10px;
 	
 }
 .titulo-loja{
+	width: 250px;
+	height: auto;
+	min-height: 22px;
 	font-size: 22px;
 	font-weight: bold;
 	color:#b32525;
@@ -704,7 +742,7 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 .endereco-lojas{
 	width: 230px;
-	height: 220px;
+	height:200px;
 	float: left;
 	box-sizing: border-box;
 	padding-top: 25px;
@@ -827,8 +865,68 @@ nav .menu_itens:hover > .menu-dropdown {
 .produtos-com-desconto{
 	float: none;
 }
-
-
+/*contatos*/
+#contato{
+	width: 100%;
+	height: 1200px;
+	padding-top: 60px;
+	box-sizing: border-box;
+	background-image: url(../img/contatobs.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+#contato h2 {
+	display: none;
+}
+.caixa-contato{
+	width: 1000px;
+	height: inherit;
+	box-sizing: border-box;
+	padding-top: 50px;
+	padding-left: 10px;
+	background-image: url(../img/formbg.png);
+	background-repeat: no-repeat;
+}
+.itens-formulario{
+	width: inherit;
+	height: 100px;
+}
+.nome-campo{
+	width: 250px;
+	height: inherit;
+	float: left;
+	box-sizing: border-box;
+	padding-top: 5px;
+}
+.campo,.campo-txt-area{
+	width: 700px;
+	height: inherit;
+	float: right;
+	box-sizing: border-box;
+	padding-top: 34px;
+}
+.titulo-forumario{
+	width: 250px;
+	height: 50px;
+	border-radius: 10px;
+	background-color: #a51e36;
+	padding-top: 15px;
+	box-sizing: border-box;
+}
+.label,.mensagem-label{
+	width: 680px;
+	height: 30px;
+	font-size: 25px;
+	border-radius: 10px;
+}
+.campo-txt-area{
+	padding-top: 0px;
+}
+.mensagem-label{
+	height: 90px;
+	resize: none;
+}
 
 
 

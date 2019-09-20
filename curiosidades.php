@@ -35,10 +35,36 @@
 				</div>
 			</div>
 		</div>
+		<section id="curiosidade-coca">
+			<h2> Sobre a coca cola </h2>
+			<div class="conteudo center">
+				<div class="caixa-titulo">
+					<h1 class="titulo texto-branco">
+						Um pouco sobre a nossa coca!
+					</h1>
+				</div>
+				<div class="caixa-texto">
+					<p class="texto texto-branco">
+						A produção de Coca-Cola nunca parou e mesmo durante a Segunda Guerra Mundial a bebida continuou sendo comercializada na Alemanha. No entanto, justamente por causa da guerra, não era possível conseguir todos os ingredientes necessários para fabricar o refrigerante no país. A falta de recursos fez com que a empresa criasse um novo produto para o mercado alemão e assim nasceu a Fanta.
+					</p>
+					<br>
+					<p class="texto texto-branco">
+						A Coca-Cola é dona de aproximadamente 500 marcas, com as quais produz mais de 3,5 mil bebidas diferentes. Isso significa que, se você quisesse experimentar uma bebida nova por dia, levaria cerca de 9 anos para provar todos os rótulos da empresa.
+					</p>
+				</div>
+			</div>
+		</section>
+		<div class="decoracao">
+			<div class="borda-dashed">
+				<div class="separador center">
+					<img src="icon/separador.png" alt="separador">
+				</div>
+			</div>
+		</div>
         <section id="numero_um">
 			<h2> Reconhecimento da empresa </h2>
             <div class="conteudo center">
-				<h1 class="titulo texto-center"> para o seu melhor amigo</h1>
+				<h1 class="titulo texto-center"> Junto ao seu melhor amigo</h1>
                 <div class="curiosidades_imagens_container center">
                     <div class="curiosidades_imagem_caixa">
 						<img src="img/cachorro1.jpg" alt="dog1">
@@ -50,15 +76,19 @@
 						<img src="img/cachorro3.png" alt="dog3">
 					</div>
                 </div>
-                <p class="texto">
-                    Os pets podem comer frutas , seja para substituir os petiscos artificiais, seja como um "lanchinho" antes da refeição principal.  O tutor deve ter em mente que as 13 frutas que o cachorro pode comer sem riscos, devem sempre ser oferecidas na quantidade diária estipulada, para que não ocorra excesso de calorias.
+				<p class="sub-titulo margem-pequena-baixo">
+                    Nós da equipe Delícia Gelada apoiamos e participamos de diversos projotos sociais pela vida dos nossos companheiros fiéis. Por isso, colocamos uma pequena dica para o cuidado do seu amiguinho de quatro patas, veja:
                 </p>
+                <p class="texto">
+                    Os pets podem comer frutas , seja para substituir os petiscos artificiais, seja como um "lanchinho" antes da refeição principal.  O tutor deve ter em mente que as 12 frutas que o cachorro pode comer sem riscos, devem sempre ser oferecidas na quantidade diária estipulada, para que não ocorra excesso de calorias.
+                </p>
+				<br>
 				<p class="texto margem-media-baixo">
 					Nem todas as frutas podem ser oferecidas aos cães , por exemplo, as uvas e passas são proibidas. É importante também tomar alguns cuidados antes de oferecer ao pet como lavar muito bem a fruta, cortar em pedaços que estejam de acordo com o tamanho do pet, retirar cascas e sementes.
 
 				</p>
 				<h3 class="sub-titulo margem-media-baixo">
-					Abaixo listamos as 13 frutas que seu amiguinho pode comer sem riscos:
+					Abaixo listamos as 12 frutas que seu amiguinho pode comer sem riscos:
 				</h3>
 				<div class="frutas-container center">
 					<div class="frutas" style="background-image:url('img/caju.jpg')">
@@ -142,13 +172,6 @@
 						<div class="opacidade">
 							<h1 class="titulo texto-center">
 								goiaba
-							</h1>
-						</div>
-					</div>
-					<div class="frutas" style="background-image:url('img/jabuticaba.jpg')">
-						<div class="opacidade">
-							<h1 class="titulo texto-center">
-								jabuticaba
 							</h1>
 						</div>
 					</div>
