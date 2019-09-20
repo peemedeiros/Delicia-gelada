@@ -17,32 +17,98 @@
 		<section id="promocoes">
 			<h2>Promoções</h2>
 			<div class="conteudo center">
-				<h1 class="titulo texto-center">
-					o guarana chegou!
-				</h1>
-				<p class="texto texto-center">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-				<div class="itens-container center">
-					<div class="card-itens">
-						<img src="img/guarana-jesus.jpg" alt="guarana-jesus">
-						<div class="desconto">
-						
-						</div>
-					</div>
-					<div class="card-itens">
-						<img src="img/guarana-antartica.jpg" alt="guarana-jesus">
-						<div class="desconto">
-						
-						</div>
-					</div>
-					<div class="card-itens">
-						<img src="img/itubaina-guarana.jpg" alt="guarana-jesus">
-						<div class="desconto">
-						
-						</div>
-					</div>
+				<div class="imagem-promocoes">
 				</div>
+				<div class="txt-promocoes titulo texto-center">
+					promoções do mês!
+				</div>
+			</div>
+		</section>
+		<div class="decoracao">
+			<div class="borda-dashed">
+				<div class="separador center">
+					<img src="icon/separador.png" alt="separador">
+				</div>
+			</div>
+		</div>
+		<section id="produtos-desconto">
+			<div class="conteudo center">
+				<div class="produtos-com-desconto center">
+                    <div class="caixa_produto">
+                        <div class="img_produto center">
+                            <img src="img/fanta_guarana.jpg" alt="produto">
+                        </div>
+                        <div class="desc_produto">
+                            <ul>
+                                <li>Nome:</li>
+                                <li>Descrição:</li>
+                                <li>
+									Preço:
+									<span class="preco">
+									 
+									</span> 
+									<span class="preco-antigo">
+										R$6,50
+									</span>
+									<span class="preco-novo">
+										R$4,99
+									</span>
+								</li>
+                                <li class="detalhes">Detalhes</li>
+                            </ul>
+                        </div>
+                    </div>
+					
+					<div class="caixa_produto">
+                        <div class="img_produto center">
+                            <img src="img/fanta_guarana.jpg" alt="produto">
+                        </div>
+                        <div class="desc_produto">
+                            <ul>
+                                <li>Nome:</li>
+                                <li>Descrição:</li>
+                                <li>
+									Preço:
+									<span class="preco">
+									 
+									</span> 
+									<span class="preco-antigo">
+										R$6,50
+									</span>
+									<span class="preco-novo">
+										R$4,99
+									</span>
+								</li>
+                                <li class="detalhes">Detalhes</li>
+                            </ul>
+                        </div>
+                    </div>
+					
+					<div class="caixa_produto">
+                        <div class="img_produto center">
+                            <img src="img/fanta_guarana.jpg" alt="produto">
+                        </div>
+                        <div class="desc_produto">
+                            <ul>
+                                <li>Nome:</li>
+                                <li>Descrição:</li>
+                                <li>
+									Preço:
+									<span class="preco">
+									 
+									</span> 
+									<span class="preco-antigo">
+										R$6,50
+									</span>
+									<span class="preco-novo">
+										R$4,99
+									</span>
+								</li>
+                                <li class="detalhes">Detalhes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</section>
 		<?php

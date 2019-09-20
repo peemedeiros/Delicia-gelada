@@ -38,6 +38,13 @@
                 </div>
             </div>
 		</section>
+		<div class="decoracao">
+			<div class="borda-dashed">
+				<div class="separador center">
+					<img src="icon/separador.png" alt="separador">
+				</div>
+			</div>
+		</div>
         <section id="lojas">
 			<h2> Lojas </h2>
             <div class="conteudo center">

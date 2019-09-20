@@ -28,6 +28,13 @@
 				</p>
             </div>
 		</section>
+		<div class="decoracao">
+			<div class="borda-dashed">
+				<div class="separador center">
+					<img src="icon/separador.png" alt="separador">
+				</div>
+			</div>
+		</div>
         <section id="numero_um">
 			<h2> Reconhecimento da empresa </h2>
             <div class="conteudo center">

@@ -20,16 +20,23 @@
 				<h1 class="titulo">
 					O Guaramês chegou!
 				</h1>
-				<div class="card-destaque">
+				<!--<div class="card-destaque">
 					<p class="texto texto-center">
 						A primavera chegou e trouxe com ela o florecer de diversar novidades para você!
 					</p>
 					<p class="texto texto-center">
 						Chegou o mês do guaraná, o Guaramês!
 					</p>
-				</div>
+				</div>-->
 			</div>
 		</section>
+		<div class="decoracao">
+			<div class="borda-dashed">
+				<div class="separador center">
+					<img src="icon/separador.png" alt="separador">
+				</div>
+			</div>
+		</div>
 		<section id="produtos-destaque">
 			<h2>Produdos em destaque</h2>
 			<div class="conteudo center">

@@ -64,6 +64,13 @@
                 </section>
             </div>
         </section>
+		<div class="decoracao">
+			<div class="borda-dashed">
+				<div class="separador center">
+					<img src="icon/separador.png" alt="separador">
+				</div>
+			</div>
+		</div>
         <section id="corpo">
 			<h2> Conteudo Principal </h2>
             <div class="conteudo center">
@@ -93,7 +100,18 @@
                             <ul>
                                 <li>Nome:</li>
                                 <li>Descrição:</li>
-                                <li>Preço:</li>
+                                <li>
+									Preço:
+									<span class="preco">
+									R$6,50 
+									</span> 
+									<span class="preco-antigo">
+										
+									</span>
+									<span class="preco-novo">
+										
+									</span>
+								</li>
                                 <li class="detalhes">Detalhes</li>
                             </ul>
                         </div>
@@ -106,7 +124,18 @@
                             <ul>
                                 <li>Nome:</li>
                                 <li>Descrição:</li>
-                                <li>Preço:</li>
+                                <li>
+									Preço:
+									<span class="preco">
+									R$6,50 
+									</span> 
+									<span class="preco-antigo">
+										
+									</span>
+									<span class="preco-novo">
+										
+									</span>
+								</li>
                                 <li class="detalhes">Detalhes</li>
                             </ul>
                         </div>
@@ -119,7 +148,18 @@
                             <ul>
                                 <li>Nome:</li>
                                 <li>Descrição:</li>
-                                <li>Preço:</li>
+                                <li>
+									Preço:
+									<span class="preco">
+									 
+									</span> 
+									<span class="preco-antigo">
+										R$6,50
+									</span>
+									<span class="preco-novo">
+										R$4,99
+									</span>
+								</li>
                                 <li class="detalhes">Detalhes</li>
                             </ul>
                         </div>
@@ -132,7 +172,18 @@
                             <ul>
                                 <li>Nome:</li>
                                 <li>Descrição:</li>
-                                <li>Preço:</li>
+                                <li>
+									Preço:
+									<span class="preco">
+									R$6,50 
+									</span> 
+									<span class="preco-antigo">
+										
+									</span>
+									<span class="preco-novo">
+										
+									</span>
+								</li>
                                 <li class="detalhes">Detalhes</li>
                             </ul>
                         </div>
@@ -145,7 +196,18 @@
                             <ul>
                                 <li>Nome:</li>
                                 <li>Descrição:</li>
-                                <li>Preço:</li>
+                                <li>
+									Preço:
+									<span class="preco">
+									R$6,50 
+									</span> 
+									<span class="preco-antigo">
+										
+									</span>
+									<span class="preco-novo">
+										
+									</span>
+								</li>
                                 <li class="detalhes">Detalhes</li>
                             </ul>
                         </div>
@@ -158,7 +220,18 @@
                             <ul>
                                 <li>Nome:</li>
                                 <li>Descrição:</li>
-                                <li>Preço:</li>
+                                <li>
+									Preço:
+									<span class="preco">
+									R$6,50 
+									</span> 
+									<span class="preco-antigo">
+										
+									</span>
+									<span class="preco-novo">
+										
+									</span>
+								</li>
                                 <li class="detalhes">Detalhes</li>
                             </ul>
                         </div>
