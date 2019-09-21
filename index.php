@@ -34,28 +34,28 @@
                             
                             <div class="slide" style="background-image:url('img/floresta.jpg');">
                                 <div class="slideinfo">
-                                    <div class="slideinfo_titulo">Heidelberg</div>
+                                    <div class="slideinfo_titulo"></div>
                                 </div>	
                             </div>
 
 
                             <div class="slide" style="background-image:url('img/cocacafe.jpg')">
                                 <div class="slideinfo">
-                                    <div class="slideinfo_titulo">Muro de Berlim</div>
+                                    <div class="slideinfo_titulo"></div>
                                 </div>	
                             </div>
 
 
                             <div class="slide" style="background-image:url('img/mountain.png')">
                                 <div class="slideinfo">
-                                    <div class="slideinfo_titulo">Annaberg-Buchholz</div>
+                                    <div class="slideinfo_titulo"></div>
                                 </div>	
                             </div>
 
 
                             <div class="slide" style="background-image:url('img/redbull.jpg')">
                                 <div class="slideinfo">
-                                    <div class="slideinfo_titulo">Brandenburg Gate</div>
+                                    <div class="slideinfo_titulo"></div>
                                 </div>	
                             </div>
                             
@@ -73,6 +73,23 @@
 		</div>
         <section id="corpo">
 			<h2> Conteudo Principal </h2>
+			<div id="seta">
+				<div class="icon-rede-social">
+					<a href="http://facebook.com">
+						<img src="icon/facebook2.png" alt="facebook">
+					</a>
+				</div>
+				<div class="icon-rede-social">
+					<a href="http://twitter.com">
+						<img src="icon/twitter2.png" alt="twiter">
+					</a>
+				</div>
+				<div class="icon-rede-social">
+					<a href="http://instagram.com">
+						<img src="icon/instagram2.png" alt="instagram">
+					</a>
+				</div>
+			</div>
             <div class="conteudo center">
                 <div class="menu_vertical">
                     <ul class="menu_vertical_caixa">
@@ -242,6 +259,8 @@
         <?php
 			require_once('modulos/footer.php');
 		?>
+		<script src="js/jquery.js"></script>
+		<script src="js/scroll.js"></script>
         <script src="js/slider.js"></script>
         <script src="js/menu.js"></script>
     </body>

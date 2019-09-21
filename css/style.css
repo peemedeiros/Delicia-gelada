@@ -148,14 +148,15 @@ nav .menu a{
 	text-decoration: none;
 	display: block;
 	width: inherit;
-	height: 60px;;
+	height: 60px;
+	box-sizing: border-box;
+	padding-top: 23px;
 }
 nav .menu_itens{
     font-size: 14px;
     width: 130px;
     height: inherit;
     text-align: center;
-    padding-top: 23px;
     box-sizing: border-box;
     float: left;
 	color: #ffffff;
@@ -187,7 +188,9 @@ nav .menu_itens:hover{
 	height: 60px;
 	text-align: center;
 	box-sizing: border-box;
-	padding-top: 19px;
+}
+.menu-dropdown-itens a{
+	padding-top: 0px;
 }
 .menu-dropdown-itens:hover{
 	background-color:#911919;
@@ -333,6 +336,25 @@ nav .menu_itens:hover > .menu-dropdown {
 #corpo .conteudo{
     background-color: #f8f9fa;
 }
+#seta{
+	width: 80px;
+	height: 240px;
+	float: right;
+	position: fixed;
+	right: 20px;
+	top:300px;
+	display: none;
+}
+.icon-rede-social{
+	width: inherit;
+	height: 80px;
+	box-sizing: border-box;
+	padding: 8px;
+}
+.icon-rede-social img{
+	width: inherit;
+	height: inherit;
+}
 .menu_vertical{
     width: 250px;
     height: inherit;
@@ -451,7 +473,8 @@ nav .menu_itens:hover > .menu-dropdown {
     height: auto;
     margin-bottom: 8px;
     min-height: 20px;
-	
+	padding-left: 10px;
+	padding-right: 10px;
     color:#ffffff;
 }
 .desc_produto .detalhes{
@@ -595,7 +618,7 @@ nav .menu_itens:hover > .menu-dropdown {
 	visibility: hidden;
 }
 .opacidadebg{
-	height: 1140px;
+	height: 1340px;
 	background-color: rgba(0,0,0,0.3);
 	padding-top: 0px;
 	visibility: visible;
@@ -683,6 +706,15 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 #lojas h2{
 	display: none;
+}
+#lojas a {
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	width: 245px;
+	height: 60px;
+	box-sizing: border-box;
+	padding-top: 15px;
 }
 #lojas .conteudo{
 	width: 1100px;
@@ -862,13 +894,16 @@ nav .menu_itens:hover > .menu-dropdown {
 	height: auto;
 	min-height: 600px;
 }
+#produtos-desconto h2{
+	display: none;
+}
 .produtos-com-desconto{
 	float: none;
 }
 /*contatos*/
 #contato{
 	width: 100%;
-	height: 1200px;
+	height: 1400px;
 	padding-top: 60px;
 	box-sizing: border-box;
 	background-image: url(../img/contatobs.jpg);
@@ -881,16 +916,25 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 .caixa-contato{
 	width: 1000px;
-	height: inherit;
+	height: 1200px;
 	box-sizing: border-box;
 	padding-top: 50px;
 	padding-left: 10px;
 	background-image: url(../img/formbg.png);
 	background-repeat: no-repeat;
+	border-bottom-left-radius:10px; 
+	border-bottom-right-radius: 10px;
 }
-.itens-formulario{
+.itens-formulario,.itens-formulario-btn{
 	width: inherit;
 	height: 100px;
+}
+.itens-formulario-btn{
+	width: 245px;
+	height: 50px;
+	box-sizing: border-box;
+	position: relative;
+	left:360px;
 }
 .nome-campo{
 	width: 250px;
@@ -927,17 +971,37 @@ nav .menu_itens:hover > .menu-dropdown {
 	height: 90px;
 	resize: none;
 }
-
-
-
-
-
-
-
-
-
-
-
+/*cadastrou*/
+#cadastrou{
+	width: 100%;
+	height: 700px;
+	padding-top: 250px;
+	box-sizing: border-box;
+}
+#cadastrou h2 {
+	display: none;
+}
+#cadastrou .conteudo{
+	height: 500px;
+}
+.botao-voltar{
+	width: 300px;
+	height: 60px;
+	border-radius: 15px;
+	text-align: center;
+	color: #fff;
+	box-sizing: border-box;
+	background-color: #a51e36;
+}
+.botao-voltar a {
+	width: inherit;
+	height: inherit;
+	display: block;
+	box-sizing: border-box;
+	padding-top: 19px;
+	color: #fff;
+	text-decoration: none;
+}
 /*	rodapé	*/
 #rodape{
     width: 100%;

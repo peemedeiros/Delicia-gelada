@@ -1,5 +1,8 @@
+<?php
+	require_once('bd/conexao.php');
+?>
 <!DOCTYPE html>
-<html>
+<html lang="pt">
     <head>
         <title>
             Delicia Gelada   
@@ -24,7 +27,7 @@
 								contate nos
 					</h1>
 					<div class="caixa-contato center">
-						<form method="post" action="contato.php" name="form-contato">
+						<form method="post" action="bd/inserir.php" name="form-contato">
 							<div class="itens-formulario">
 								<div class="nome-campo">
 									<h4 class="titulo-forumario center texto-center texto-branco">
@@ -32,7 +35,7 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-nome" class="label">
+									<input type="text" value="" name="txt-nome" class="label" onkeypress="return validarEntrada(event,'numeric');" required>
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -42,7 +45,8 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-telefone" class="label">
+									<input type="text" value="" name="txt-telefone" class="label"
+									onkeypress="return mascaraFone(this,event);" id="campo-telefone">
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -52,7 +56,7 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-nome" class="label">
+									<input type="text" value="" name="txt-celular" class="label" onkeypress="return mascaraFone(this,event);" id="campo-celular" required>
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -62,7 +66,7 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-nome" class="label">
+									<input type="url" value="" name="txt-page" class="label">
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -72,7 +76,7 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-nome" class="label">
+									<input type="url" value="" name="txt-facebook" class="label">
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -92,8 +96,35 @@
 									</h4>
 								</div>
 								<div class="campo-txt-area">
-									<textarea class="mensagem-label" name="txt-mensagem" placeholder="Digite sua mensagem"></textarea>
+									<textarea class="mensagem-label" name="txt-mensagem" placeholder="Digite sua mensagem" required></textarea>
 								</div>
+							</div>
+							<div class="itens-formulario">
+								<div class="nome-campo">
+									<h4 class="titulo-forumario center texto-center texto-branco">
+										SEXO
+									</h4>
+								</div>
+								<div class="campo texto">
+									Masculino:
+									<input type="radio" value="M" name="rdoSexo" required>
+									Feminino:
+									<input type="radio" value="F" name="rdoSexo" required>
+								</div>
+							</div>
+							<div class="itens-formulario margem-pequena-baixo">
+								<div class="nome-campo">
+									<h4 class="titulo-forumario center texto-center texto-branco">
+										PROFISSÃO
+									</h4>
+								</div>
+								<div class="campo">
+									<input type="text" value="" name="txt-profissao" class="label"
+										   onkeypress="return validarEntrada(event,'numeric');" required>
+								</div>
+							</div>
+							<div class="itens-formulario-btn">
+								<input type="submit" value="ENVIAR" name="btn-enviar" class="botao">
 							</div>
 						</form>
 					</div>
@@ -103,5 +134,6 @@
 		<?php
 			require_once('modulos/footer.php');
 		?>
+		<script src="js/modulo.js"></script>
     </body>
 </html>

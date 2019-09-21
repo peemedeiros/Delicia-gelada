@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
     <head>
         <title>
             Delicia Gelada   
@@ -32,6 +32,7 @@
 			</div>
 		</div>
 		<section id="produtos-desconto">
+			<h2>Produtos com desconto</h2>
 			<div class="conteudo center">
 				<div class="produtos-com-desconto center">
                     <div class="caixa_produto">
