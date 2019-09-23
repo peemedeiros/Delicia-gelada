@@ -360,7 +360,6 @@ nav .menu_itens:hover > .menu-dropdown {
     height: inherit;
     background-color:#ffffff;
     float: left;
-	margin-right: 200px;
     background-color: #252525;
 }
 .menu_vertical_caixa{
@@ -404,7 +403,7 @@ nav .menu_itens:hover > .menu-dropdown {
     list-style: none;
     position: relative;
     left: 248px;
-    top: -34px;
+    top: -35px;
     display: none;
 }
 .sub_menu_itens{
@@ -440,6 +439,7 @@ nav .menu_itens:hover > .menu-dropdown {
     box-sizing: border-box;
     padding-top: 15px; 
 	background-color: #ffffff;
+	border-radius: 10px;
 }
 .caixa_produto:hover, .card-itens-promocoes:hover{
     transform: translateY(-10px);
@@ -459,12 +459,16 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 .desc_produto{
     width: 297px;
-    height: 120px;
+    min-height: 135px;
+	height: auto;
     box-sizing: border-box;
+	border-radius: 10px;
     background-color: #252525;
+	padding-top: 10px;
 }
 .desc_produto ul{
     width: inherit;
+	height: inherit;
     list-style: none;
 }
 .desc_produto li{
@@ -487,6 +491,10 @@ nav .menu_itens:hover > .menu-dropdown {
 	padding-top: 5px;
 	margin-bottom: 0px;
 	border-radius: 5px;
+}
+.detalhes{
+	margin-right: 5px;
+	margin-bottom: 5px;
 }
 .detalhes:hover{
 	background-color: #8a1d1d;
@@ -828,6 +836,17 @@ nav .menu_itens:hover > .menu-dropdown {
 #produtos-destaque h2{
 	display:none;
 }
+#produtos-destaque a{
+	width: inherit;
+	height: inherit;
+	display: block;
+	box-sizing: border-box;
+	padding-top: 14px;
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+	color:#ffffff;
+}
 .itens-container{
 	width: 1000px;
 	height: auto;
@@ -974,9 +993,8 @@ nav .menu_itens:hover > .menu-dropdown {
 /*cadastrou*/
 #cadastrou{
 	width: 100%;
-	height: 700px;
+	height: 525px;
 	padding-top: 250px;
-	box-sizing: border-box;
 }
 #cadastrou h2 {
 	display: none;
@@ -1002,6 +1020,26 @@ nav .menu_itens:hover > .menu-dropdown {
 	color: #fff;
 	text-decoration: none;
 }
+/*sistema interno*/
+#sistema-int{
+	width: 100%;
+	height: 700px;
+	padding-top: 150px;
+}
+#sistema-int h2{
+	display: none;
+}
+.gif{
+	width: 500px;
+	height: 500px;
+	background-image: url('../img/gifs/eng.gif');
+	background-position: center;
+	background-size: cover;
+}
+.gif img{
+	width: inherit;
+	height: inherit;
+}
 /*	rodapé	*/
 #rodape{
     width: 100%;
@@ -1013,6 +1051,18 @@ nav .menu_itens:hover > .menu-dropdown {
 #rodape .conteudo{
 
 }
+#rodape .sistema_interno a, #rodape .aplicativo a{
+	width: inherit;
+	height: inherit;
+	display: block;
+	text-decoration: none;
+	color:#a51e36;
+	box-sizing: border-box;
+	padding-top: 18px;
+}
+#rodape .sistema_interno a{
+	padding-top: 26px;
+}
 .sistema_interno{
     width: 325px;
     height: inherit;
@@ -1023,9 +1073,17 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 #btn_sistema_interno{
     width: 240px;
-    height: 80px; 
-    border-radius: 20px;
+    height: 80px;
     cursor: pointer;
+	border: 0px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #a51e36;
+}
+#btn_sistema_interno:hover{
+	background-color: #d9d9d9;
 }
 
 .endereco{
@@ -1065,8 +1123,17 @@ nav .menu_itens:hover > .menu-dropdown {
 #btn_app{
     width: 200px;
     height: 60px;
-    border-radius: 20px;
     cursor: pointer;
+	border:0px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #a51e36;
+	float: left;
+}
+#btn_app:hover{
+	background-color: #d9d9d9;
 }
 
 

@@ -115,8 +115,8 @@
                         </div>
                         <div class="desc_produto">
                             <ul>
-                                <li>Nome:</li>
-                                <li>Descrição:</li>
+                                <li>Nome:Produto</li>
+                                <li>Descrição: Descrição deste produto</li>
                                 <li>
 									Preço:
 									<span class="preco">
@@ -139,8 +139,8 @@
                         </div>
                         <div class="desc_produto">
                             <ul>
-                                <li>Nome:</li>
-                                <li>Descrição:</li>
+                                <li>Nome:Produto</li>
+                                <li>Descrição: </li>
                                 <li>
 									Preço:
 									<span class="preco">
@@ -163,8 +163,8 @@
                         </div>
                         <div class="desc_produto">
                             <ul>
-                                <li>Nome:</li>
-                                <li>Descrição:</li>
+                                <li>Nome:Produto</li>
+                                <li>Descrição: Descrição deste produto</li>
                                 <li>
 									Preço:
 									<span class="preco">
@@ -187,8 +187,8 @@
                         </div>
                         <div class="desc_produto">
                             <ul>
-                                <li>Nome:</li>
-                                <li>Descrição:</li>
+                                <li>Nome:Produto</li>
+                                <li>Descrição: Descrição deste produto</li>
                                 <li>
 									Preço:
 									<span class="preco">
@@ -211,8 +211,8 @@
                         </div>
                         <div class="desc_produto">
                             <ul>
-                                <li>Nome:</li>
-                                <li>Descrição:</li>
+                                <li>Nome:Produto</li>
+                                <li>Descrição: Descrição deste produto</li>
                                 <li>
 									Preço:
 									<span class="preco">
@@ -235,8 +235,8 @@
                         </div>
                         <div class="desc_produto">
                             <ul>
-                                <li>Nome:</li>
-                                <li>Descrição:</li>
+                                <li>Nome:Produto</li>
+                                <li>Descrição: Descrição deste produto</li>
                                 <li>
 									Preço:
 									<span class="preco">

@@ -62,7 +62,7 @@
 						<div>CEP: 06454-000</div>
 					</div>
 					<div class="botao texto-center">
-						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622">
+						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622" target="_blank">
 						VER NO MAPA
 						</a>	
 					</div>
@@ -80,7 +80,7 @@
 						<div>CEP: 06454-000</div>
 					</div>
 					<div class="botao texto-center">
-						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622">
+						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622" target="_blank">
 						VER NO MAPA
 						</a>	
 					</div>
@@ -98,7 +98,7 @@
 						<div>CEP: 06454-000</div>
 					</div>
 					<div class="botao texto-center">
-						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622">
+						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622" target="_blank">
 						VER NO MAPA
 						</a>	
 					</div>
@@ -116,7 +116,7 @@
 						<div>CEP: 06454-000</div>
 					</div>
 					<div class="botao texto-center">
-						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622">
+						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622" target="_blank">
 						VER NO MAPA
 						</a>	
 					</div>

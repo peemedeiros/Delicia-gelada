@@ -49,7 +49,9 @@
 					<p class="texto margem-media-baixo">
 						Vindo diretamente do lugar onde se entende o que é verão, Maranhão, o novo e divino Guaraná Jesus vem para exorcisar o seu calor!
 					</p>
-					<button class="botao"> VER NA LOJA </button>
+					<div class="botao">
+						<a href="index.php">VER NA LOJA</a> 
+					</div>
 				</div>
 				<div class="produto-em-destaque margem-media-baixo">
 					<div class="card-itens margem-media-direita">
@@ -59,7 +61,9 @@
 					<p class="texto margem-media-baixo">
 						Tem novidade na família Fanta. A segunda maior marca da Coca-Cola Brasil lança Fanta Guaraná, o primeiro refrigerante que já chega ao mercado com certificação da origem do guaraná 100% Amazonas.
 					</p>
-					<button class="botao"> VER NA LOJA </button>
+					<div class="botao">
+						<a href="index.php">VER NA LOJA</a> 
+					</div>
 				</div>
 				<div class="produto-em-destaque margem-media-baixo">
 					<div class="card-itens margem-media-direita">
@@ -69,7 +73,9 @@
 					<p class="texto margem-media-baixo">
 						A Itubaína amplia seu portfólio e apresenta ao mercado o novo sabor guaraná. A novidade vem acompanhada do novo posicionamento da marca, que busca resgatar a memória afetiva dos seus consumidores e estimular momentos de diversão.
 					</p>
-					<button class="botao"> VER NA LOJA </button>
+					<div class="botao"> 
+						<a href="index.php">VER NA LOJA</a> 
+					</div>
 				</div>
 			</div>
 		</section>
