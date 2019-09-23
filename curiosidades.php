@@ -77,7 +77,7 @@
 					</div>
                 </div>
 				<p class="sub-titulo margem-pequena-baixo">
-                    Nós da equipe Delícia Gelada apoiamos e participamos de diversos projotos sociais pela vida dos nossos companheiros fiéis. Por isso, colocamos uma pequena dica para o cuidado do seu amiguinho de quatro patas, veja:
+                    Nós da equipe Delícia Gelada apoiamos e participamos de diversos projetos sociais pela vida dos nossos companheiros fiéis. Por isso, colocamos uma pequena dica para o cuidado do seu amiguinho de quatro patas, veja:
                 </p>
                 <p class="texto">
                     Os pets podem comer frutas , seja para substituir os petiscos artificiais, seja como um "lanchinho" antes da refeição principal.  O tutor deve ter em mente que as 12 frutas que o cachorro pode comer sem riscos, devem sempre ser oferecidas na quantidade diária estipulada, para que não ocorra excesso de calorias.
