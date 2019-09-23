@@ -23,7 +23,7 @@
 					formulario de contato
 				</h2>
 				<div class="conteudo center">
-					<h1 class="titulo texto-center margem-media-baixo">
+					<h1 class="titulo texto-center margem-pequena-baixo">
 								contate nos
 					</h1>
 					<div class="caixa-contato center">
@@ -31,11 +31,11 @@
 							<div class="itens-formulario">
 								<div class="nome-campo">
 									<h4 class="titulo-forumario center texto-center texto-branco">
-										NOME:
+										* NOME:
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-nome" class="label" onkeypress="return validarEntrada(event,'numeric');" required>
+									<input type="text" value="" name="txt-nome" class="label" onkeypress="return validarEntrada(event,'numeric');" maxlength="100" required>
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -52,11 +52,21 @@
 							<div class="itens-formulario">
 								<div class="nome-campo">
 									<h4 class="titulo-forumario center texto-center texto-branco">
-										CELULAR
+										* CELULAR
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-celular" class="label" onkeypress="return mascaraFone(this,event);" id="campo-celular" required>
+									<input type="text" value="" name="txt-celular" class="label" onkeypress="return mascaraFone(this,event);" id="campo-celular" required placeholder="(0xx)94002-8922">
+								</div>
+							</div>
+							<div class="itens-formulario">
+								<div class="nome-campo">
+									<h4 class="titulo-forumario center texto-center texto-branco">
+										* EMAIL:
+									</h4>
+								</div>
+								<div class="campo">
+									<input type="email" value="" name="txt-email" class="label" onkeypress="return validarEntrada(event,'numeric');" maxlength="100" required>
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -66,7 +76,7 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="url" value="" name="txt-page" class="label">
+									<input type="url" value="" name="txt-page" class="label" maxlength="2048" placeholder="http://">
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -76,7 +86,7 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="url" value="" name="txt-facebook" class="label">
+									<input type="url" value="" name="txt-facebook" class="label" maxlength="2048" placeholder="facebook.com/user">
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -86,23 +96,23 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-criticas" class="label">
+									<input type="text" value="" name="txt-criticas" class="label" maxlength="250">
 								</div>
 							</div>
 							<div class="itens-formulario">
 								<div class="nome-campo">
 									<h4 class="titulo-forumario center texto-center texto-branco">
-										MENSAGEM
+										* MENSAGEM
 									</h4>
 								</div>
 								<div class="campo-txt-area">
-									<textarea class="mensagem-label" name="txt-mensagem" placeholder="Digite sua mensagem" required></textarea>
+									<textarea class="mensagem-label" name="txt-mensagem" placeholder="Digite sua mensagem" maxlength="500" required></textarea>
 								</div>
 							</div>
 							<div class="itens-formulario">
 								<div class="nome-campo">
 									<h4 class="titulo-forumario center texto-center texto-branco">
-										SEXO
+										* SEXO
 									</h4>
 								</div>
 								<div class="campo texto">
@@ -115,12 +125,13 @@
 							<div class="itens-formulario margem-pequena-baixo">
 								<div class="nome-campo">
 									<h4 class="titulo-forumario center texto-center texto-branco">
-										PROFISSÃO
+										* PROFISSÃO
 									</h4>
 								</div>
 								<div class="campo">
 									<input type="text" value="" name="txt-profissao" class="label"
-										   onkeypress="return validarEntrada(event,'numeric');" required>
+										   onkeypress="return validarEntrada(event,'numeric');" maxlength="100" required>
+									Os itens marcados com (*) são obrigatórios.
 								</div>
 							</div>
 							<div class="itens-formulario-btn">

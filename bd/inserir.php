@@ -11,6 +11,7 @@
         $nome = $_POST['txt-nome'];
         $telefone = $_POST['txt-telefone'];
         $celular = $_POST['txt-celular'];
+		$email = $_POST['txt-email'];
         $page = $_POST['txt-page'];
 		$facebook = $_POST['txt-facebook'];
 		$criticas = $_POST['txt-criticas'];
@@ -20,10 +21,10 @@
 		
         
         $sql = "
-                insert into contatos (nome,telefone,celular,
+                insert into contatos (nome,telefone,celular,email,
                 homepage,facebook,criticas,mensagem,sexo,profissao)
                 values('".$nome."','".$telefone."','".$celular."',
-                '".$page."','".$facebook."','".$criticas."',
+				'".$email."','".$page."','".$facebook."','".$criticas."',
                 '".$mensagem."','".$sexo."','".$profissao."')
                 ";
         

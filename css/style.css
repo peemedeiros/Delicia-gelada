@@ -531,7 +531,7 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 #sobre_origem{
 	width: 100%;
-	height: 500px;
+	height: 700px;
 }
 #sobre_origem h2{
 	display: none;
@@ -934,12 +934,15 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 .caixa-contato{
 	width: 1000px;
-	height: 1200px;
+	height: 1160px;
 	box-sizing: border-box;
 	padding-top: 50px;
 	padding-left: 10px;
 	background-image: url(../img/formbg.png);
+	background-color: #f2f2f2;
 	background-repeat: no-repeat;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px; 
 	border-bottom-left-radius:10px; 
 	border-bottom-right-radius: 10px;
 }
@@ -981,6 +984,7 @@ nav .menu_itens:hover > .menu-dropdown {
 	height: 30px;
 	font-size: 25px;
 	border-radius: 10px;
+	margin-bottom: 20px;
 }
 .campo-txt-area{
 	padding-top: 0px;

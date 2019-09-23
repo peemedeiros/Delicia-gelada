@@ -29,6 +29,7 @@ CREATE TABLE `contatos` (
   `nome` varchar(100) NOT NULL,
   `telefone` varchar(15) DEFAULT NULL,
   `celular` varchar(15) NOT NULL,
+  `email` varchar(100) NOT NULL DEFAULT '',
   `homepage` varchar(2048) DEFAULT NULL,
   `facebook` varchar(2048) DEFAULT NULL,
   `criticas` tinytext,
@@ -36,7 +37,7 @@ CREATE TABLE `contatos` (
   `sexo` varchar(1) NOT NULL,
   `profissao` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +46,7 @@ CREATE TABLE `contatos` (
 
 LOCK TABLES `contatos` WRITE;
 /*!40000 ALTER TABLE `contatos` DISABLE KEYS */;
-INSERT INTO `contatos` VALUES (1,'Pedro','42062441','958819879','http://google.com','http://facebook.com','muito bom','ola o site é lindo','M','programador'),(2,'tux','99999999','99999999','','','','sdsasad asdasda','M','lenhador'),(3,'Fabio','(011)5555-5555','(888)98888-8888','','','',' asdad a asd as dsa','M','sadsadasdasdas '),(4,'Anderson','','(444)94444-4444','https://www.youtube.com/watch?v=gLmcGkvJ-e0','','say hello to my little friend!','oi, meu nome é NEO e sou viciado em pilulas vermelhas','M','rh'),(5,'sadasd','(222)2222-2222','(222)92222-2222','','','','dasdsadasd','F','lenhador'),(6,'Odin','(777)7777-7777','(777)97777-7777','','','Eu sou o melhor','Meu filho tem um martelo','M','God'),(7,'Mozila','(444)4444-4444','(444)94444-4444','','','','testando o mozila','M','mozila'),(8,'Edge','(111)1111-1111','(111)91111-1111','','','','testando o IE Edge','M','Edge'),(9,'Chrome','(222)2222-2222','(222)92222-2222','','','','testando o google Chrome','M','Chrome'),(10,'Internet Explorer','(222)2222-2222','(222)92222-2222','','','','testando o internet explorer','M','internet explorer');
+INSERT INTO `contatos` VALUES (1,'Pedro','42062441','958819879','','http://google.com','http://facebook.com','muito bom','ola o site é lindo','M','programador'),(2,'tux','99999999','99999999','','','','','sdsasad asdasda','M','lenhador'),(3,'Fabio','(011)5555-5555','(888)98888-8888','','','','',' asdad a asd as dsa','M','sadsadasdasdas '),(4,'Anderson','','(444)94444-4444','','https://www.youtube.com/watch?v=gLmcGkvJ-e0','','say hello to my little friend!','oi, meu nome é NEO e sou viciado em pilulas vermelhas','M','rh'),(5,'sadasd','(222)2222-2222','(222)92222-2222','','','','','dasdsadasd','F','lenhador'),(6,'Odin','(777)7777-7777','(777)97777-7777','','','','Eu sou o melhor','Meu filho tem um martelo','M','God'),(7,'Mozila','(444)4444-4444','(444)94444-4444','','','','','testando o mozila','M','mozila'),(8,'Edge','(111)1111-1111','(111)91111-1111','','','','','testando o IE Edge','M','Edge'),(9,'Chrome','(222)2222-2222','(222)92222-2222','','','','','testando o google Chrome','M','Chrome'),(10,'Internet Explorer','(222)2222-2222','(222)92222-2222','','','','','testando o internet explorer','M','internet explorer'),(11,'Pedro','(111)1111-1111','(111)91111-1111','','','','','oaosossd','M','lenhador'),(12,'kiko','(011)4220-6666','(015)95555-5555','','','','','validando a pagina de confirmação de cadastro','M','teste'),(13,'Arthas','(000)0000-0000','(777)97777-7777','arthas@blizz.com','','','','Frostmourne hunger','M','Paladino'),(14,'asdasdasddasd','(232)3232-3232','(232)93232-3232','adasdasddasdasdsada@asdasdads','','','','1231231231231sddadasdas','M','sadasdasd');
 /*!40000 ALTER TABLE `contatos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-21  0:32:55
+-- Dump completed on 2019-09-23 11:52:02

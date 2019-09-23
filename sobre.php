@@ -25,9 +25,8 @@
 					<h1 class="titulo">
 						DELÍCIA GELADA
 					</h1>
-					
 					<p class="texto">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						A missão da empresa Delicia Gelada é fornecer bebidas das melhores marcas do mundo inteiro seja para o cliente final quanto ao lojista que pensa em inovar nas suas vendas. Nossos principais clientes são Carrefour e Walmart. Fundada em 2019 pelos senhores Arthas Menethil e Anduin Vryn, na cidade Bofete - SP, atualmente contamos com mais de 100 colaboradores.
 					</p>
 				</div>
 			</div>
@@ -51,7 +50,11 @@
 					</h1>
 						
 					<p class="texto">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						Dos campos verdejantes do interior do estado de São Paulo, surge a ideia, dois amigos muito unidos começam uma pesquisa de campo simples, com a intenção de iniciar um negócio em Bofete – SP, cidade onde ambos viviam. A pesquisa era simples, saber se as pessoas, nos horários das refeições principais, tinham alguma bebida de acompanhamento. A resposta não foi uma surpresa, mais de 80% responderam que possuíam bebidas como acompanhamento.
+					</p>
+					<br>
+					<p class="texto">
+						Com os resultados seguiram com a ideia, fundaram primeiramente uma adega Delícia Gelada em Bofete e Botucatú, ambas cidades do interior de São Paulo e hoje já contam com lojas em quase todos os estados do Brasil, atendendo diversas famílias direta e indiretamente.
 					</p>
 				</div>
 			</div>
