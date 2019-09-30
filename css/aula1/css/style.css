@@ -1,0 +1,60 @@
+/******************** Exemplo de seletor por tag *******************/
+body{
+    background-color:#cccccc;
+}
+h1 {
+    font-family: verdana;
+    font-size: 30px;
+    color: #00ff00;
+}
+p {
+    font-family: comic sans ms;
+    font-size:20;
+
+}
+ul{
+    margin:0;
+    padding:0;
+}
+li{
+    float:right;
+    margin-left:10;
+    list-style:none;
+}
+div{
+    width:100;
+    height:100;
+    background-color: #ccc;
+
+}
+
+/******************* Exemplo de seletor por Id ************************/
+
+#Subtitulo {
+    /****************** sequencia de fonts ******************/
+    font-family:arial;
+    /****************** tamanho da font ******************/
+    font-size:18px;
+    /****************** negrito ******************/
+    font-weight: bold;
+    /****************** sublinhado ******************/
+    text-decoration:line-through;
+     /****************** italico ******************/
+    font-style:italic
+    
+}
+#Subtitulo:hover {
+    cursor:pointer;
+}
+
+/******************* Exemplo de seletor por class ************************/
+.texto{
+    font-family: verdana;
+    font-size: 40px;
+    text-decoration: underline;
+}
+.destaque{
+    font-weight:bold;
+    border: solid 1px #000000;
+}
+    

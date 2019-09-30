@@ -12,12 +12,13 @@
             <div class="conteudo center">
                 <div class="cms-estrutura">
                     <div class="cms-header">
-                        <h1 class="titulo">
+                        <h1 class="titulo texto-branco">
                             CMS
                         </h1>
-                        <h3 class="sub-titulo">
+                        <h3 class="sub-titulo texto-branco">
                             - Sistema de Gerenciamento do Site
                         </h3>
+
                         <div class="cms-img">
                             <img src="../icon/icon-logo-barra.png" alt="logo">
                         </div>
@@ -41,18 +42,41 @@
                             </div>
                             Adm. Usuários
                         </div>
-                        <div class="cms-itens float-right">
-                            <div class="texto">Bem vindo, [xxxxxxxxxx].</div>
+                        <div class="cms-itens_login float-right">
+                            <div class="texto">Bem vindo, Pedro Medeiros.</div>
                             <div class="bnt-log-out">
                                 log out
                             </div>
                         </div>
                     </nav>
                     <div class="cms-conteudo">
-                    
-                    </div>
-                    <div class="cms-footer">
+                        <div class="cms-conteudo-itens">
+                            <img src="../icon/home.png">
+                            <h4 class="titulo4 float-left">home</h4>
+                        </div>
+                        <div class="cms-conteudo-itens">
+                            <img src="../icon/home.png">
+                            <h4 class="titulo4 float-left">home</h4>
+                        </div>
+                        <div class="cms-conteudo-itens">
+                            <img src="../icon/home.png">
+                            <h4 class="titulo4 float-left">home</h4>
+                        </div>
+                         <div class="cms-conteudo-itens">
+                            <img src="../icon/home.png">
+                            <h4 class="titulo4 float-left">home</h4>
+                        </div>
+                         <div class="cms-conteudo-itens">
+                            <img src="../icon/home.png">
+                            <h4 class="titulo4 float-left">home</h4>
+                        </div>
+                         
                         
+                    </div>
+                    <div class="cms-footer texto-center">
+                        <h4 class=" texto-branco">
+                           Desenvolvido por: [XXXXXXXXXXXXXXXXXXXXXXXXXXXXX]
+                        </h4>
                     </div>
                 </div>
             </div>

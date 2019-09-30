@@ -1,0 +1,322 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: verdana;
+}
+/*classes de padronização*/
+.conteudo {
+    width: 1400px;
+    height: inherit;
+    background-color: #ffffff;
+}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+h1, h2{
+    font-family: comic sans ms;
+    font-size:28px;
+    color:#000000;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+}
+h2{
+    font-size: 22px;
+    color:#333333;
+    text-transform: capitalize;
+}
+p {
+    font-size: 18px;
+    color:#000000;
+    text-align: center;
+    line-height: 1.5;
+    width: inherit;
+    min-height: 18px;
+    height: auto;
+    padding: 20px 30px 20px 30px;
+    box-sizing: border-box;
+}
+/*********** SEÇÃO DO MENU****************/
+#caixa_menu{
+    width: 100%;
+    height: 50px;
+    background-color: #000000;
+    position: fixed;
+}
+#caixa_menu .conteudo{
+    background-color: #000000;
+}
+#logo{
+    width: 170px;
+    height: 150px;
+    position: absolute;
+    background-color: #ccc;
+    margin-top: 25px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: -3px -3px 20px #333333;
+}
+#menu{
+    height: inherit;
+    width: 750px;
+    background-color: #000000;
+}
+.menu_itens {
+    width: 150px;
+    height: inherit;
+    float: left;
+    background-color: #000000;
+    text-align: center;
+    font-size: 16px;
+    color:#ffffff;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+.menu_itens:hover{
+    background-color: #555555;
+    transition:1s;
+    cursor: pointer;
+}
+/*SEÇÃO DO CABEÇALHO*/
+#cabecalho{
+    width: 100%;
+    height: 500px;
+    background-image: url("../images/back.jpg");
+    padding-top: 150px;
+    box-sizing: border-box;
+}
+.opacidade{
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0,0,0,0.7);
+}
+.background{
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#slogan{
+    width: 500px;
+    height: 200px;
+    background-color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding-top: 45px;
+    box-sizing: border-box;
+}
+#slogan h2{
+margin-bottom: 30px;
+font-weight: bold;
+font-size: 45px;
+}
+/*SEÇÃO DO SOBRE A EMPRESA*/
+#sobre{
+    width: 100%;
+    height: 400px;
+    background-color: #999999;
+}
+#sobre_texto{
+    width: 350px;
+    height: 300px;
+    background-color: #ccc;
+    margin-left: 70px;
+    margin-right: 50px;
+    float:left;
+}
+#sobre_imagem{
+    width: 300px;
+    height: 300px;
+    background: #ccc;
+    margin-right: 50px;
+    float: left;
+}
+#sobre_historico{
+    width: 500px;
+    height: 300px;
+    background: #ccc;
+    float: left;
+}
+/*SEÇÃO DOS VALORES DA EMPRESA*/
+#valores {
+    width: 100%;
+    height: 550px;
+    background-color: #CCC;
+}
+.valores_caixa{
+    width: 400px;
+    height: 430px;
+    background-color:#ccc;
+    float:left;
+    margin-right:20px;
+    margin-left: 40px
+}
+.valores_icone{
+    width: 200px;
+    height: 200px;
+    background-color:#333;
+}
+.valores_caixa h2{
+    text-align: center;
+    padding-left: 0px;
+}
+/*SEÇÃO SERVIÇOS DA EMPRESA*/
+#servicos{
+    width: 100%;
+    height: 850px;
+    background-color: #cccccc;
+}
+.servicos_caixa{
+    width: 600px;
+    height: 730px;
+    background-color:#ccc;
+    float:left;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.servicos_conteudo{
+    width: inherit;
+    height: 320px;
+    background-color:#222;
+    margin-bottom: 20px;
+}
+.servico_imagem{
+    width: 200px;
+    height: 200px;
+    background-color: #999;
+    float:left;
+}
+.servico_texto{
+    width: 350px;
+    height: 200px;
+    background-color: #999;
+    float:right;
+    margin-bottom: 30px;
+}
+.servico_botao{
+    width: 200px;
+    height: 70px;
+    background-color:#555;
+    border-radius: 20px;
+    text-align: center;
+    color:#ffffff;
+    padding-top: 25px;
+    box-sizing: border-box;
+    clear: both;
+    margin-bottom: 30px;
+}
+.servico_botao:hover{
+    background-color: #999999;
+    transition: 1s;
+    cursor:pointer;
+}
+
+ /*SEÇÃO NOSSAS UNIDADES*/ 
+
+#unidades{
+    width: 100%;
+    height:600px;
+    background-color: #ccc;
+}
+.unidades_imagem{
+    width: 300px;
+    height: 400px;
+    background-color: #999;
+    margin-left: 50px;
+    margin-right: 20px;
+    float: left;
+    padding-top: 330px;
+    box-sizing: border-box;
+}
+.unidades_texto{
+    width: 320px;
+    height: 400px;
+    background-color: #999;
+    float: left;
+}
+.unidades_informacao{
+    width: inherit;
+    height: 70px;
+    background-color: aquamarine;
+}
+
+/*SEÇÃO NOSSOS CLIENTES*/
+
+#clientes{
+    width: 100%;
+    height: 650px;
+    background-color: #ccc;
+}
+.clientes_caixa{
+    width: 400px;
+    height: 550px;
+    background-color: #999;
+    margin-left: 50px;
+    float: left;
+    padding:20px;
+    padding-top: 80px;
+    box-sizing: border-box;
+}
+.clientes_icone{
+    width: 150px;
+    height: 150px;
+    background-color: aquamarine;
+    border-radius: 75px;
+    margin-right: 20px;
+    margin-top: 50px;
+    float: left;
+    
+}
+.clientes_texto{
+    width: 180px;
+    height: 280px;
+    background-color: #777;
+    margin-bottom: 20px;
+    float: left;
+}
+.clientes_texto h2 {
+    margin-bottom: 10px;
+}
+.clientes_texto p {
+    padding: 10px;
+}
+.clientes_texto2{
+    width: 350px;
+    height: 150px;
+    background-color: #777;
+    clear: both;   
+}
+
+/*SEÇÃO RODAPÉ*/
+
+#rodape {
+    width: 100%;
+    height: 200px;
+    background-color:#999;
+}
+.rodape_caixa{
+    width: 500px;
+    height: inherit;
+    background-color: #888;
+    padding-top: 30px;
+    padding-left: 60px;
+}
+.rodape_imagem{
+    width: 80px;
+    height: 80px;
+    background-color: aquamarine;
+    margin-left: 20px;
+    margin-right: 20px;
+    float:left; 
+}
+
+
+
+
+

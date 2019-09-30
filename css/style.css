@@ -1,4 +1,4 @@
-h1, h2, h3, p, ul, li, body,a{
+h1, h2, h3,h4, p, ul, li, body,a{
     margin:0px;
     padding:0px;
     font-family: verdana;
@@ -1139,10 +1139,11 @@ nav .menu_itens:hover > .menu-dropdown {
 	background-color: #d9d9d9;
 }
 
-/*CMS*/
+/**************************CMS*************************/
 #cms{
     width: 100%;
-    height: 1000px;
+    height: 1150px;
+    /*min-height: 1150px;*/
 }
 .cms-estrutura{
     width: inherit;
@@ -1153,14 +1154,13 @@ nav .menu_itens:hover > .menu-dropdown {
 .cms-header{
     width: inherit;
     height: 200px;
-    background-color: #999;
+    background-color: #a51e36;
     border-bottom: solid 2px #000;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     box-sizing: border-box;
     padding-right: 15px;
-    padding-left: 15px;
-    
+    padding-left: 15px;   
 }
 .cms-header .titulo{
     float: left;
@@ -1186,6 +1186,13 @@ nav .menu_itens:hover > .menu-dropdown {
 .cms-conteudo{
     width: inherit;
     height: 730px;
+    box-sizing: border-box;
+    clear: both;
+    padding-top: 50px;
+    padding-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 .cms-footer{
     width: inherit;
@@ -1193,6 +1200,9 @@ nav .menu_itens:hover > .menu-dropdown {
     border-bottom-left-radius:15px; 
     border-bottom-right-radius:15px;
     border-top: solid 2px #000000;
+    box-sizing: border-box;
+    padding-top: 24px;
+    background-color: #a51e36;
 }
 .cms-img{
     width: 300px;
@@ -1208,7 +1218,7 @@ nav .menu_itens:hover > .menu-dropdown {
     height: 175px;
 }
 /*barra de navegação do cms*/
-.cms-itens{
+.cms-itens,.cms-itens_login{
     width: 300px;
     height: inherit;
     float: left;
@@ -1216,29 +1226,71 @@ nav .menu_itens:hover > .menu-dropdown {
     padding-top: 10px;
     text-align: center;
 }
+.cms-itens:hover{
+    border-left: solid 1px #000;
+    border-right: solid 1px #000;
+    cursor: pointer;
+}
 .cms-itens-imagens{
     width: 100px;
     height: 100px;
     margin-bottom: 10px;
 }
-.cms-itens-imagens:hover{
-    cursor: pointer;
-}
-.cms-itens .texto{
-    margin-bottom: 60px;
+.cms-itens .texto,.cms-itens_login .texto{
     font-size: 20px;
+}
+.cms-itens_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
 }
 .float-right{
     float: right;
 }
+.float-left{
+    float: left;
+}
 .bnt-log-out{
     background-color:#a51e36;
-    width: 100px;
+    width: 100%;
     height: 30px;
     float: right;
     box-sizing: border-box;
     padding: 5px;
     color:#fff;
+    margin-right: 20px;
+}
+.bnt-log-out:hover{
+    cursor: pointer;
+    background-color: #8a1d1d;
+    transition: 1s;
+}
+/*conteudo central do cms*/
+
+.cms-conteudo-itens{
+    width: 400px;
+    height: 150px;
+    box-sizing: border-box;
+    padding-top: 25px;
+    padding-left: 10px;
+}
+.cms-conteudo-itens:hover{
+    cursor: pointer;
+    border: solid 1px #000000;
+}
+.cms-conteudo-itens img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 20px;
+}
+.titulo4{
+    width: 250px;
+    height: 100px;
+    box-sizing: border-box;
+    padding-top: 75px;
+    text-transform: uppercase;
 }
 
 
