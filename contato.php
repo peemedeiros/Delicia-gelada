@@ -95,8 +95,11 @@
 										CRITICAS/SUGESTÕES
 									</h4>
 								</div>
-								<div class="campo">
-									<input type="text" value="" name="txt-criticas" class="label" maxlength="250">
+								<div class="campo texto">
+									Criticas:
+									<input type="radio" value="C" name="rdo-tipo">
+									Sugestões:
+									<input type="radio" value="S" name="rdo-tipo">
 								</div>
 							</div>
 							<div class="itens-formulario">

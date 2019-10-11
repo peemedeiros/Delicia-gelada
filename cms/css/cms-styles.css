@@ -1,0 +1,240 @@
+/**************************CMS*************************/
+#cms{
+    width: 100%;
+    height: 700px;
+    /*min-height: 1150px;*/
+}
+.cms-estrutura,.estrutura-adm-conteudo{
+    width: inherit;
+    height: inherit;
+    border: solid 2px #000;
+    clear: both;
+}
+.cms-header{
+    width: 1504px;
+    height: 200px;
+    background-color: #a51e36;
+    border-bottom: solid 2px #000;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-sizing: border-box;
+    padding-right: 15px;
+    padding-left: 15px;
+    border:2px solid #000000; 
+}
+.cms-header .titulo{
+    float: left;
+    height: 198px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+.cms-header .sub-titulo{
+    width: auto;
+    height: 198px;
+    margin-bottom: 0px;
+    float: left;
+    box-sizing: border-box;
+    padding-top: 70px;
+}
+.cms-nav{
+    width: inherit;
+    height: 150px;
+    border-left: solid 2px #000;
+    border-right: solid 2px #000;
+}
+.cms-conteudo{
+    width: inherit;
+    height: 730px;
+    box-sizing: border-box;
+    clear: both;
+    padding-top: 50px;
+    padding-left: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.cms-footer{
+    width: 1504px;
+    height: 68px;
+    border-bottom-left-radius:15px; 
+    border-bottom-right-radius:15px;
+    border: solid 2px #000000;
+    box-sizing: border-box;
+    padding-top: 24px;
+    background-color: #a51e36;
+    clear: both;
+}
+.cms-img{
+    width: 300px;
+    height: 198px;
+    float: right;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+}
+.cms-img img {
+    width: 200px;
+    height: 175px;
+}
+/*barra de navegação do cms*/
+.cms-itens,.cms-itens_login{
+    width: 300px;
+    height: inherit;
+    float: left;
+    box-sizing: border-box;
+    padding-top: 10px;
+    text-align: center;
+}
+.cms-itens a {
+    width: inherit;
+    height: inherit;
+    display:block;
+    text-decoration:none;
+    color:#000;
+}
+.cms-itens:hover{
+    border-left: solid 1px #000;
+    border-right: solid 1px #000;
+    cursor: pointer;
+}
+.cms-itens-imagens{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+.cms-itens .texto,.cms-itens_login .texto{
+    font-size: 20px;
+}
+.cms-itens_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+}
+.float-right{
+    float: right;
+}
+.float-left{
+    float: left;
+}
+.bnt-log-out{
+    background-color:#a51e36;
+    width: 100%;
+    height: 30px;
+    float: right;
+    box-sizing: border-box;
+    padding: 5px;
+    color:#fff;
+    margin-right: 20px;
+}
+.bnt-log-out:hover{
+    cursor: pointer;
+    background-color: #8a1d1d;
+    transition: 1s;
+}
+/*conteudo central do cms*/
+
+.cms-conteudo-itens{
+    width: 400px;
+    height: 150px;
+    box-sizing: border-box;
+    padding-top: 25px;
+    padding-left: 10px;
+}
+.cms-conteudo-itens:hover{
+    cursor: pointer;
+    border: solid 1px #000000;
+}
+.cms-conteudo-itens img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 20px;
+}
+.titulo4{
+    width: 250px;
+    height: 100px;
+    box-sizing: border-box;
+    padding-top: 75px;
+    text-transform: uppercase;
+}
+/* ADM CONTATO */
+.estrutura-adm-conteudo{
+    min-height: 700px;
+    height: auto;
+}
+.adm-conteudo{
+    width: inherit;
+    height: 832px;
+}
+.tabela-contatos{
+    width: 1200px;
+    height: auto;
+    min-height: 200px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.thead{
+    display: flex;
+    background-color: #666;
+    font-weight: bold;
+    color:#fff;
+    font-size: 22px;
+    
+}
+.thead-itens, .tbody-itens{
+    width: 400px;
+    height: 80px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding-top: 27px;
+}
+.tbody{
+    display: flex;
+}
+.tbody:hover{
+    border: solid 1px #000;
+}
+.tbody-itens, .tbody-itens-icons{
+    width: 400px;
+    height: 80px;
+    font-size: 12px;
+    padding-top: 35px;
+    box-sizing: border-box;
+}
+.tbody-itens-icons{
+    display: flex;
+    box-sizing: border-box;
+    padding-top: 30px;
+}
+.tbody-itens-icons img {
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+}
+.zebrado{
+    background-color: #ccc;
+}
+.filtro{
+    widows: inherit;
+    height: 100px;
+    box-sizing: border-box;
+    padding-top: 38px;
+    display: flex;
+    justify-content: center;
+}
+#caixaFiltro{
+    width: 300px;
+    height: 25px;
+    text-align: center;
+    margin-right: 10px;
+}
+.filtro img{
+    width: 23px;
+    height: 23px;
+}

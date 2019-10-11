@@ -14,7 +14,7 @@
 		$email = $_POST['txt-email'];
         $page = $_POST['txt-page'];
 		$facebook = $_POST['txt-facebook'];
-		$criticas = $_POST['txt-criticas'];
+		$tipo = $_POST['rdo-tipo'];
 		$mensagem = $_POST['txt-mensagem'];
 		$sexo = $_POST['rdoSexo'];
 		$profissao =$_POST['txt-profissao'];
@@ -22,9 +22,9 @@
         
         $sql = "
                 insert into contatos (nome,telefone,celular,email,
-                homepage,facebook,criticas,mensagem,sexo,profissao)
+                homepage,facebook,tipo,mensagem,sexo,profissao)
                 values('".$nome."','".$telefone."','".$celular."',
-				'".$email."','".$page."','".$facebook."','".$criticas."',
+				'".$email."','".$page."','".$facebook."','".$tipo."',
                 '".$mensagem."','".$sexo."','".$profissao."')
                 ";
         
