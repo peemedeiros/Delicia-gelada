@@ -230,11 +230,27 @@
 }
 #caixaFiltro{
     width: 300px;
-    height: 25px;
+    height: 35px;
+    font-size: 20px;
     text-align: center;
     margin-right: 10px;
 }
-.filtro img{
-    width: 23px;
-    height: 23px;
+.filtro .img{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    box-sizing: border-box;
+    background: url('../icon/filter.png');
+    background-size: cover;
+}
+.filtro .img:hover{
+    cursor: pointer;
+}
+/* ADM Usuarios */
+
+.adm-users-estrutura{
+    width: inherit;
+    height: 600px;
+    clear: both;
+    background-color: khaki ;
 }

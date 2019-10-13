@@ -12,10 +12,12 @@
 </div>
 <nav class="cms-nav">
     <div class="cms-itens">
-        <div class="cms-itens-imagens center">
-            <img src="../icon/execution.png" alt="adm">
-        </div>
-        Adm. Conteúdo
+        <a href="home.php">
+            <div class="cms-itens-imagens center">
+                <img src="../icon/execution.png" alt="adm">
+            </div>
+            Adm. Conteúdo
+        </a>
     </div>
     <div class="cms-itens">
         <a href="adm-contato.php">
@@ -26,10 +28,12 @@
         </a>
     </div>
     <div class="cms-itens">
-        <div class="cms-itens-imagens center">
-            <img src="../icon/multiple-users-silhouette.png" alt="adm">
-        </div>
-        Adm. Usuários
+        <a href="adm-users.php">
+            <div class="cms-itens-imagens center">
+                <img src="../icon/multiple-users-silhouette.png" alt="adm">
+            </div>
+            Adm. Usuários
+        </a>
     </div>
     <div class="cms-itens_login float-right">
         <div class="texto">Bem vindo, Pedro Medeiros.</div>

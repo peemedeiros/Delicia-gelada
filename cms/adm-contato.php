@@ -1,12 +1,31 @@
 <?php
-require_once('../bd/conexao.php');
 
+//conexao com o banco de dados
+require_once('../bd/conexao.php');
 $conexao = conexaoMysql();
 
-$selecionar = 'select * from contatos';
+// Declaração de variaveis
+$selecionar = "";
+$selectedCriticas = "";
+$selectedSugestoes = "";
+$selectedTodos = "";
+@$tipo = $_GET['opCritica'];
+
+// Verificações para o filtro
+if($tipo == "C"){
+    $selecionar = "select * from contatos where tipo = 'C' ";
+    $selectedCriticas = "selected";
+}elseif($tipo == "S"){
+    $selecionar = "select * from contatos where tipo = 'S' ";
+    $selectedSugestoes = "selected";
+}else{
+    $selecionar = "select * from contatos";
+    $selectedTodos = "selected";
+}
 
 $select = mysqli_query($conexao, $selecionar);
 
+//verificação para o modo EXCLUIR para deletar registros no banco de dados
 if (isset($_GET['modo'])){
 
     if($_GET['modo'] == 'excluir'){
@@ -15,21 +34,19 @@ if (isset($_GET['modo'])){
         $sql = "delete from contatos where id = ".$codigo;
         
         if(mysqli_query($conexao, $sql)){
-            header('adm-contato.php');
+            header('location: ./adm-contato.php');
         }else{
             echo('erro');
         }
     }
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt">
     <head>
         <title>
-            CMS
+            Delicia Gelada - CMS
         </title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -46,11 +63,14 @@ if (isset($_GET['modo'])){
                 ?>
                 <div class="estrutura-adm-conteudo">
                     <div class="filtro">
-                        <select id="caixaFiltro">
-                            <option value="C">Críticas</option>
-                            <option value="S">Sugestões</option>
-                        </select>
-                        <img src="./icon/filter.png">
+                        <form action="adm-contato.php" method="GET">
+                            <select id="caixaFiltro" name="opCritica">
+                                <option name="C"value="C"<?=$selectedCriticas?>>Críticas</option>
+                                <option name="S"value="S"<?=$selectedSugestoes?>>Sugestões</option>
+                                <option name="" value="" <?=$selectedTodos?>>Todos</option>
+                            </select>
+                            <button type="submit" class="img" name="btnFiltro" value="botao"></button>
+                        </form>
                     </div>
                     <div class="tabela-contatos center">
                    
@@ -61,28 +81,33 @@ if (isset($_GET['modo'])){
                             <div class="thead-itens"> OPçÃO </div>
                         </div>
                         <?php
+                        //Zebrar a exibição da tabela de registros
+                        $cor = (string) "";
+                        $ativarZebrado = true;
 
+                        //Exibe os registros de mensagens no banco de dados
                         while($rsConsulta = mysqli_fetch_array($select)){
-                            $cor = (string) "";
-                            if($rsConsulta['id'] % 2 == 0 ){
+                            if($ativarZebrado == true){
                                 $cor = 'zebrado';
-                            }else if($rsConsulta['id'] % 2 != 0){
+                                $ativarZebrado = false;
+                            }else if($ativarZebrado == false){
                                 $cor = '';
+                                $ativarZebrado = true;
                             }
                         ?>
-                        <div class="tbody <?=$cor?>" id="<?=$rsConsulta['id']?>">
+                        <div class="tbody <?=$cor?>">
                             <div class="tbody-itens"> <?=$rsConsulta['nome']?> </div>
                             <div class="tbody-itens"> <?=$rsConsulta['email']?> </div>
                             <div class="tbody-itens"> <?=$rsConsulta['celular']?> </div>
                             <div class="tbody-itens-icons">
                                <img src="./icon/lupa.png" alt="lupa">
                                 <a href="adm-contato.php?modo=excluir&id=<?=$rsConsulta['id']?>">                            
-                                    <img src="./icon/cancelar.png" alt="cancelar">
+                                    <img src="./icon/cancelar.png" alt="cancelar" onclick="return confirmar('deseja realmente excluir esse registro???');" >
                                 </a>
                             </div>
                         </div>
                         <?php
-                            
+
                         }
 
                         ?>
@@ -93,5 +118,6 @@ if (isset($_GET['modo'])){
                 ?>
             </div>
         </section> 
+        <script src="./js/confirmacao.js"></script>
     </body>
 </html>
