@@ -53,9 +53,48 @@ if (isset($_GET['modo'])){
         <link rel="stylesheet" type="text/css" href="./css/cms-styles.css">
         <?php
 			require_once('../modulos/icon.php');
-		?>
+        ?>
+       
+        <script src="./js/jquery.js"></script>
+        <script src="./js/confirmacao.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('.visualizar').click(function(){
+                    $('#container-modal').fadeIn(500);
+                });
+
+                $('#fechar').click(function(){
+                    $('#container-modal').fadeOut(500);
+                });
+            });
+
+            function visualizarDados(idItem){
+                $.ajax({
+                    type:"GET",
+                    url:"modalContatos.php",
+                    data: {
+                        modo: 'visualizar',
+                        codigo: idItem
+                    },
+                    success: function(dados){
+                        $('#modalDados').html(dados);
+                    }
+                });
+            }
+        </script>
+        
+
     </head>
     <body>
+    <div id="container-modal">
+        <div id="modal">
+            <div id="fechar">Close</div>
+            <div id="modalDados">
+            
+            </div>
+        </div>
+    </div>
         <section id="cms">
             <div class="conteudo center">
                 <?php
@@ -69,7 +108,9 @@ if (isset($_GET['modo'])){
                                 <option name="S"value="S"<?=$selectedSugestoes?>>Sugestões</option>
                                 <option name="" value="" <?=$selectedTodos?>>Todos</option>
                             </select>
-                            <button type="submit" class="img" name="btnFiltro" value="botao"></button>
+                            <button type="submit" class="img" name="btnFiltro" value="botao">
+
+                            </button>
                         </form>
                     </div>
                     <div class="tabela-contatos center">
@@ -100,7 +141,7 @@ if (isset($_GET['modo'])){
                             <div class="tbody-itens"> <?=$rsConsulta['email']?> </div>
                             <div class="tbody-itens"> <?=$rsConsulta['celular']?> </div>
                             <div class="tbody-itens-icons">
-                               <img src="./icon/lupa.png" alt="lupa">
+                               <img src="./icon/lupa.png" class="visualizar" onclick="visualizarDados(<?=$rsConsulta['id']?>);" alt="lupa">
                                 <a href="adm-contato.php?modo=excluir&id=<?=$rsConsulta['id']?>">                            
                                     <img src="./icon/cancelar.png" alt="cancelar" onclick="return confirmar('deseja realmente excluir esse registro???');" >
                                 </a>
@@ -118,6 +159,6 @@ if (isset($_GET['modo'])){
                 ?>
             </div>
         </section> 
-        <script src="./js/confirmacao.js"></script>
+        
     </body>
 </html>
