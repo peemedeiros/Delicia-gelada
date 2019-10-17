@@ -9,7 +9,7 @@ $selecionar = "";
 $selectedCriticas = "";
 $selectedSugestoes = "";
 $selectedTodos = "";
-@$tipo = $_GET['opCritica'];
+@$tipo = $_POST['opCritica'];
 
 // Verificações para o filtro
 if($tipo == "C"){
@@ -26,6 +26,7 @@ if($tipo == "C"){
 $select = mysqli_query($conexao, $selecionar);
 
 //verificação para o modo EXCLUIR para deletar registros no banco de dados
+
 if (isset($_GET['modo'])){
 
     if($_GET['modo'] == 'excluir'){
@@ -71,11 +72,11 @@ if (isset($_GET['modo'])){
 
             function visualizarDados(idItem){
                 $.ajax({
-                    type:"GET",
+                    type:"POST",
                     url:"modalContatos.php",
                     data: {
                         modo: 'visualizar',
-                        codigo: idItem
+                        id: idItem
                     },
                     success: function(dados){
                         $('#modalDados').html(dados);
@@ -89,7 +90,9 @@ if (isset($_GET['modo'])){
     <body>
     <div id="container-modal">
         <div id="modal">
-            <div id="fechar">Close</div>
+            <div id="fechar">
+                <img src="./icon/cancel.png" alt="fechar">
+            </div>
             <div id="modalDados">
             
             </div>
@@ -102,7 +105,8 @@ if (isset($_GET['modo'])){
                 ?>
                 <div class="estrutura-adm-conteudo">
                     <div class="filtro">
-                        <form action="adm-contato.php" method="GET">
+                        <h3>filtrar mensagens</h3>
+                        <form action="adm-contato.php" method="POST">
                             <select id="caixaFiltro" name="opCritica">
                                 <option name="C"value="C"<?=$selectedCriticas?>>Críticas</option>
                                 <option name="S"value="S"<?=$selectedSugestoes?>>Sugestões</option>

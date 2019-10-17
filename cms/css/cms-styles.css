@@ -226,22 +226,29 @@
     box-sizing: border-box;
     padding-top: 38px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.filtro h3{
+    text-transform: uppercase;
+    color:#8a1d1d;
+    font-weight: bold;
 }
 #caixaFiltro{
-    width: 300px;
+    width: 400px;
     height: 35px;
     font-size: 20px;
     text-align: center;
     margin-right: 10px;
 }
 .filtro .img{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     padding: 5px;
     box-sizing: border-box;
     background: url('../icon/filter.png');
     background-size: cover;
+    padding: 12px;
 }
 .filtro .img:hover{
     cursor: pointer;
@@ -256,6 +263,11 @@
 }
 
 /* MODAL */
+    /* classes de padronização MODAL */
+.padtop{
+    padding-top: 4px;
+}
+    /*********************************/
 #container-modal{
     width: 100%;
     height: 100%;
@@ -266,12 +278,93 @@
 }
 #modal{
     width: 800px;
-    height: 500px;
-    background-color: #ffffff;
+    height: 650px;
+    border-radius: 8px;
+    background-color: rgb(241, 239, 255);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20vh;
+    margin-top: 10vh;
+    box-sizing: border-box;
+    
 }
 .visualizar:hover{
     cursor: pointer;
+}
+#fechar{
+    width: 50px;
+    height: 60px;
+    float: right;
+    padding: 5px;
+}
+#fechar:hover{
+    cursor: pointer;
+}
+#fechar img{
+    width: 50px;
+    height: 50px;
+}
+.modalInfo-head{
+    width: inherit;
+    height: 60px;
+    background-color: #8a1d1d;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    padding-top: 17px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+.titulo-modal{
+    text-align: center;
+    color:#fff;
+}
+.modalInfo-body{
+    width: 600px;
+    height: 500px;
+    box-shadow: 3px 3px 7px #ccc;
+    background-color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.linha-modal,
+.linha-modal-mensagem,
+.linha-modal-input{
+    width: inherit;
+    height: 30px;
+    display:flex;
+    box-sizing: border-box;
+    padding-top: 6px;
+    margin-bottom: 10px;
+}
+.linha-modal-mensagem{
+    height: 100px;
+}
+.linha-modal-input{
+    padding: 0;
+}
+.coluna-modal,
+.coluna-campo-modal,
+.coluna-modal-mensagem{
+    width: 445px;
+    height: inherit;
+    font-size: 18px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.coluna-campo-modal{
+    width: 130px;
+}
+.coluna-modal-mensagem{
+    background-color: rgb(241, 239, 255);
+    box-shadow: 3px 3px 7px #ccc;
+    height: 85px;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.input-modal{
+    height: 25px;
+    width: 445px;
+    font-size: 18px;
+    padding-left: 5px;
+    box-sizing: border-box;
 }

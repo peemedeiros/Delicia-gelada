@@ -66,7 +66,7 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="email" value="" name="txt-email" class="label" onkeypress="return validarEntrada(event,'numeric');" maxlength="100" required>
+									<input type="email" value="" name="txt-email" class="label" maxlength="100" required>
 								</div>
 							</div>
 							<div class="itens-formulario">

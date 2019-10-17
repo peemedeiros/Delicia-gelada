@@ -1,26 +1,41 @@
 <?php
-    if(isset($GET['modo'])){
-        if(strtoupper($GET['modo']) == 'VISUALIZAR'){
-            $codigo = $GET['codigo'];
+    if(isset($_POST['modo'])){
 
-            require_once('../../bd/conexao.php');
+        if(strtoupper($_POST['modo']) == 'VISUALIZAR'){
 
-            $conexao = conexaoMsql();
+            require_once('../bd/conexao.php');
 
-            $sql = "select * from contatos where codigo =".$codigo;
+            $conexao = conexaoMysql();
+
+            $codigo = $_POST['id'];
+
+            $sql = "select * from contatos where id =".$codigo;
 
             $select = mysqli_query($conexao, $sql);
 
             if($rsVisualizar = mysqli_fetch_array($select)){
-                $nome = $rsVisualizar['nome'];
+                $nome = strtoupper($rsVisualizar['nome']);
                 $telefone = $rsVisualizar['telefone'];
                 $celular = $rsVisualizar['celular'];
                 $email = $rsVisualizar['email'];
                 $homepage = $rsVisualizar['homepage'];
                 $facebook = $rsVisualizar['facebook'];
                 $tipo = $rsVisualizar['tipo'];
+                    if( $tipo == "C")
+                        $tipo = "CRÍTICA";
+                    elseif( $tipo == "S")
+                        $tipo = "SUGESTÃO";
+                    else
+                        $tipo = "NÃO ESPECÍFICADO";
+                $mensagem = $rsVisualizar['mensagem'];
                 $sexo = $rsVisualizar['sexo'];
-                $profissao = $rsVisualizar['profissao'];
+                    if( $sexo == "M")
+                        $sexo = "MASCULINO";
+                    elseif( $sexo == "F" )
+                        $sexo = "FEMININO";
+                $profissao = strtoupper($rsVisualizar['profissao']);
+
+                 
             }
         }
     }
@@ -36,88 +51,55 @@
         </title>
     </head>
     <body>
-        <table border="1">
-            <tr>
-                <td>
-                    nome:
-                </td>
-                <td>
-                    <?=$nome?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    telefone:
-                </td>
-                <td>
-                <?=$telefone?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    celular
-                </td>
-                <td>
-                <?=$celular?>
-                </td>
-            </tr>
-            <tr>
-                <td>    
-                    email
-                </td>
-                <td>
-                <?=$email?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    data nascimento
-                </td>
-                <td>
-                <?=$dt_nasc?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    homepage
-                </td>
-                <td>
-                <?=$homepage?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    facebook
-                </td>
-                <td>
-                <?=$facebook?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    tipo
-                </td>
-                <td>
-                <?=$tipo?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    mensagem
-                </td>
-                <td>
-                <?=$mensagem?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    profissao
-                </td>
-                <td>
-                <?=$profissao?>
-                </td>
-            </tr>
-            
-        </table>
+        <div class="modalInfo-head">
+            <h3 class="titulo-modal">Mensagem de <?=$nome?></h3>
+        </div>
+
+        <div class="modalInfo-body center">
+            <div class="linha-modal">
+                <div class="coluna-campo-modal">NOME:</div>
+                <div class="coluna-modal"><?=$nome?></div>
+            </div>
+            <div class="linha-modal">
+                <div class="coluna-campo-modal">TELEFONE:</div>
+                <div class="coluna-modal"><?=$telefone?></div>
+            </div>
+            <div class="linha-modal">
+                <div class="coluna-campo-modal">CELULAR:</div>
+                <div class="coluna-modal"><?=$celular?></div>
+            </div>
+            <div class="linha-modal">
+                <div class="coluna-campo-modal">E-MAIL:</div>
+                <div class="coluna-modal"><?=$email?></div>
+            </div>
+            <div class="linha-modal-input">
+                <div class="coluna-campo-modal padtop">HOME PAGE:</div>
+                <div class="coluna-modal">
+                    <input type="text" name="homepage" class="input-modal" value="<?=$homepage?>" disabled>
+                </div>
+            </div>
+            <div class="linha-modal-input">
+                <div class="coluna-campo-modal padtop">FACEBOOK:</div>
+                <div class="coluna-modal">
+                    <input type="text" name="facebook" class="input-modal" value="<?=$facebook?>" disabled>
+                </div>
+            </div>
+            <div class="linha-modal">
+                <div class="coluna-campo-modal">TIPO:</div>
+                <div class="coluna-modal"><?=$tipo?></div>
+            </div>
+            <div class="linha-modal-mensagem">
+                <div class="coluna-campo-modal">MENSAGEM:</div>
+                <div class="coluna-modal-mensagem"><?=$mensagem?></div>
+            </div>
+            <div class="linha-modal">
+                <div class="coluna-campo-modal">SEXO:</div>
+                <div class="coluna-modal"><?=$sexo?></div>
+            </div>
+            <div class="linha-modal">
+                <div class="coluna-campo-modal">PROFISSAO:</div>
+                <div class="coluna-modal"><?=$profissao?></div>
+            </div>
+        </div>
     </body>
 </html>
