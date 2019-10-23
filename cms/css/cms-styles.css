@@ -253,16 +253,8 @@
 .filtro .img:hover{
     cursor: pointer;
 }
-/* ADM Usuarios */
 
-.adm-users-estrutura{
-    width: inherit;
-    height: 600px;
-    clear: both;
-    background-color: khaki ;
-}
-
-/* MODAL */
+/************************************** MODAL *******************************************/
     /* classes de padronização MODAL */
 .padtop{
     padding-top: 4px;
@@ -367,4 +359,140 @@
     font-size: 18px;
     padding-left: 5px;
     box-sizing: border-box;
+}
+/************************* ADM USUARIOS ********************/
+.adm-users-estrutura{
+    width: inherit;
+    height: 900px;
+    clear: both;
+    background-color: khaki;
+    border:solid 2px #000;
+}
+.cadastrarUsuarios, .cadastrarUsuarios form{
+    width:inherit;
+    height:800px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cadastrarUsuarios .titulo{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.cadastrarUsuarios .sub-titulo{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.tipoDeUsuario{
+    width: 600px;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+#nivelAdm,#nivelContato,#nivelConteudo{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    background-color: #a51e36;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#nivelAdm:hover,#nivelContato:hover,#nivelConteudo:hover{
+    border:solid 5px #000;
+    cursor: pointer;
+}
+#nivelAdm:hover > .legenda{
+    top:640px;
+    opacity:1;
+    visibility: visible;
+    transition:1s;
+}
+#nivelContato:hover > .legenda{
+    top:640px;
+    opacity:1;
+    visibility: visible;
+    transition:1s;
+}
+#nivelConteudo:hover > .legenda{
+    top:640px;
+    opacity:1;
+    visibility: visible;
+    transition:1s;
+}
+#nivelAdm img, #nivelContato img, #nivelConteudo img{
+    width: 115px;
+    height: 115px;
+    border-radius: inherit;
+}
+.legenda{
+    width: auto;
+    height: 25px;
+    display: block;
+    position: absolute;
+    top:600px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+}
+.formularioCadastroUsuario{
+    width: 500px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px #666;
+    background-color: rgb(241, 239, 255);
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.linhaFormularioCadastro{
+    width: inherit;
+    height: 75px;
+    display:flex;
+}
+.nomeDoCampo{
+    width: 150px;
+    height: inherit;
+    display: flex;
+    font-size: 16px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 5px;
+
+}
+.valorDoCampo{
+    width: 350px;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cadastroUsuarioInput{
+    width:310px;
+    height:25px;
+}
+#nivelAdm label, #nivelContato label, #NivelConteudo label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 75px;
+}
+
+#ativarNivelAdm, #ativarNivelContato, #ativarNivelConteudo{
+    width: 13px;
+    height: 13px;
+    position: absolute;
+    opacity: 0;
 }
