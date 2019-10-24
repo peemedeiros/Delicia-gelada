@@ -91,6 +91,9 @@ h1, h2, h3,h4, p, ul, li, body,a{
 	font-size: 16px;
 	color:#fff;
 }
+.table-head{
+	background-color: #444;
+}
 .botao:hover{
 	background-color: #8a1d1d;
 	cursor: pointer;
@@ -431,7 +434,6 @@ nav .menu_itens:hover > .menu-dropdown {
     margin-bottom: 30px;
     float: left;
     border:2px solid #ededed;
-    box-shadow:;
     box-sizing: border-box;
     padding-top: 15px; 
 	background-color: #ffffff;
@@ -801,7 +803,6 @@ nav .menu_itens:hover > .menu-dropdown {
 	box-sizing: border-box;
 }
 #destaque .titulo{
-	margin-bottom:  ;
 	color: #fff;
 }
 #destaque h2{

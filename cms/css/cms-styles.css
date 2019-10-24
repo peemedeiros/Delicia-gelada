@@ -363,10 +363,17 @@
 /************************* ADM USUARIOS ********************/
 .adm-users-estrutura{
     width: inherit;
-    height: 900px;
+    height: 1500px;
     clear: both;
-    background-color: khaki;
+    /* background-color: khaki; */
     border:solid 2px #000;
+}
+.adm-users-estrutura .decoracao{
+    margin-bottom: 40px;
+}
+.adm-users-estrutura .sub-titulo{
+    text-transform: uppercase;
+    letter-spacing: 3;
 }
 .cadastrarUsuarios, .cadastrarUsuarios form{
     width:inherit;
@@ -378,6 +385,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.cadastrarUsuarios{
+    margin-bottom: 50px;
 }
 .cadastrarUsuarios .titulo{
     font-size: 30px;
@@ -403,10 +413,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-#nivelAdm:hover,#nivelContato:hover,#nivelConteudo:hover{
-    border:solid 5px #000;
-    cursor: pointer;
 }
 #nivelAdm:hover > .legenda{
     top:640px;
@@ -489,10 +495,55 @@
     justify-content: center;
     border-radius: 75px;
 }
+.nivelAdministrador:hover {
+    border:solid 5px #000;
+}
+.nivelAdministrador:hover{
+    cursor: pointer;
+}
 
 #ativarNivelAdm, #ativarNivelContato, #ativarNivelConteudo{
-    width: 13px;
-    height: 13px;
+    width: inherit;
+    height: inherit;
     position: absolute;
     opacity: 0;
+}
+.usuarios-cadastrados{
+    width: 800px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(241, 239, 255);
+    box-shadow: 3px 3px 8px #666;
+}
+.usuarios-cadastrados .sub-titulo{
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.tabela-usuarios{
+    width: 100%;
+    height: 95%;
+    overflow: auto;
+}
+.linha-tabela-usuarios{
+    width:inherit;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.coluna-tabela-usuarios{
+    width: 255px;
+    height: inherit;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
 }

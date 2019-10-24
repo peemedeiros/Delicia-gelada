@@ -1,3 +1,29 @@
+<?php
+
+    $idsetor = (String) 0;
+    $setorNome = "";
+    
+    if(isset($_POST['btn-cadastrar'])){
+    
+        require_once('../bd/conexao.php');
+        $conexao = conexaoMysql();
+        
+        $nome = $_POST['nomeUsuario'];
+        $email = $_POST['emailUsuario'];
+        $senha = $_POST['senhaUsuario'];
+        $dt_nasc = $_POST['dtNascimentoUsuario'];
+        $idsetor = $_POST['setor'];
+    
+        $sql = "insert into usuarios(nome,email,senha,dt_nasc,idsetor)
+        values('".$nome."','".$email."','".$senha."','".$dt_nasc."','".$idsetor."')";
+    
+        if(mysqli_query($conexao, $sql))
+            header('location:adm-users.php');
+        else
+            echo("erro ao executar o script");
+    }
+
+?>
 <html>
     <head>
         <title>
@@ -26,7 +52,7 @@
                     <div class="cadastrarUsuarios">
                         <h1 class="titulo texto-center">Criar novo usuario</h1>
                         <h1 class="sub-titulo texto-center">Nivel do usuario</h1>
-                        <form action="adm-users.php" method="get">
+                        <form action="adm-users.php" method="post">
                             <div class="tipoDeUsuario center">
                                 <div id="nivelAdm" class="nivelAdministrador" onclick="selecionado(this);">
                                     <div class="legenda" value="1">
@@ -104,22 +130,89 @@
                                     <div class="valorDoCampo">
                                         <select name="setor" class="cadastroUsuarioInput">
                                             <option value="">Selecione Setor</option>
-                                            <option value="A">Administrativo</option>
-                                            <option value="B">Comercial</option>
-                                            <option value="C">Operacional</option>
-                                            <option value="D">Externo</option>
+                                            <?php
+                                                require_once('../bd/conexao.php');
+                                                $conexao = conexaoMysql();
+
+                                                $sql = "select * from setores";
+
+                                                $select = mysqli_query($conexao, $sql);
+
+                                                while($rsSetores = mysqli_fetch_array($select)){
+                                                   
+                                                ?>
+                                                <option value="<?=$rsSetores['id']?>"> 
+                                                    <?=$rsSetores['nome']?>
+                                                </option>
+                                            <?php
+                                                }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" value="Cadastrar" class="botao">
+                            <input type="submit" value="Cadastrar" class="botao" name="btn-cadastrar">
                         </form>
+                    </div>
+                    <div class="decoracao">
+                        <div class="borda-dashed">
+                            <div class="separador center">
+                                <img src="icon/separador.png" alt="separador">
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="sub-titulo texto-center margem-pequena-baixo">
+                        Usuarios cadastrados
+                    </h2>
+                    <div class="usuarios-cadastrados center">
+                        <div class="tabela-usuarios">
+                            <div class="linha-tabela-usuarios table-head texto-branco">
+                                <div class="coluna-tabela-usuarios">
+                                    NOME
+                                </div>
+                                <div class="coluna-tabela-usuarios">
+                                    EMAIL
+                                </div>
+                                <div class="coluna-tabela-usuarios">
+                                    SETOR
+                                </div>
+                            </div>
+
+                            <?php
+
+                                require_once('../bd/conexao.php');
+                                $conexao = conexaoMysql();
+                                
+                                $sql = "select usuarios.*,setores.nome as nomesetor from usuarios inner join
+                                        setores on setores.id = usuarios.idsetor";
+
+                                $select = mysqli_query($conexao, $sql);
+
+                                while($rsConsulta = mysqli_fetch_array($select))
+                                {  
+                            ?>
+                            <div class="linha-tabela-usuarios">
+                                <div class="coluna-tabela-usuarios">
+                                    <?=$rsConsulta['nome']?>
+                                </div>
+                                <div class="coluna-tabela-usuarios">
+                                    <?=$rsConsulta['email']?>
+                                </div>
+                                <div class="coluna-tabela-usuarios">
+                                    <?=$rsConsulta['nomesetor']?>
+                                </div>
+                            </div>
+                            <?php
+                                }
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <?php
                     require_once('./modulos/cms-footer.php');
                 ?>
             </div>
+            
         </section>
         
         
