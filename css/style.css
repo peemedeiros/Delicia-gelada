@@ -427,9 +427,9 @@ nav .menu_itens:hover > .menu-dropdown {
     padding-left:10px;
 }
 .caixa_produto{
-    width: 300px;
+    width: 310px;
 	height: auto;
-    min-height: 310px;
+    min-height: 400px;
     margin-left: 20px;
     margin-bottom: 30px;
     float: left;
@@ -438,6 +438,8 @@ nav .menu_itens:hover > .menu-dropdown {
     padding-top: 15px; 
 	background-color: #ffffff;
 	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
 }
 .caixa_produto:hover, .card-itens-promocoes:hover{
     transform: translateY(-10px);
@@ -446,8 +448,8 @@ nav .menu_itens:hover > .menu-dropdown {
     cursor:pointer;
 }
 .img_produto{
-    width: 170px;
-    height: 170px;
+    width: 250px;
+    height: 250px;
     margin-bottom: 15px;
 }
 .img_produto img{
@@ -456,39 +458,46 @@ nav .menu_itens:hover > .menu-dropdown {
     background-color: #ffffff;
 }
 .desc_produto{
-    width: 297px;
+    width: inherit;
     min-height: 135px;
 	height: auto;
     box-sizing: border-box;
 	border-radius: 10px;
-    background-color: #252525;
 	padding-top: 10px;
+	color:#000000;
+	display: flex;
+	flex-direction: column;
+	
 }
 .desc_produto ul{
     width: inherit;
 	height: inherit;
-    list-style: none;
+	list-style: none;
+	display:flex;
+	flex-direction: column;
+	align-items:flex-end;
 }
 .desc_produto li{
-    width: 280px;
+    width: 94%;
 	font-size:14px;
     height: auto;
     margin-bottom: 8px;
     min-height: 20px;
 	padding-left: 10px;
 	padding-right: 10px;
-    color:#ffffff;
+	color:#000000;
 }
 .desc_produto .detalhes{
     text-align: center;
 	background-color: #a51e36;
 	width: 80px;
 	height: 30px;
-	float: right;
 	box-sizing: border-box;
 	padding-top: 5px;
 	margin-bottom: 0px;
 	border-radius: 5px;
+	color:#ffffff;
+	display: flex;
 }
 .detalhes{
 	margin-right: 5px;
