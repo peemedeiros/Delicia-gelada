@@ -125,6 +125,34 @@
 
                                 <div class="linhaFormularioCadastro">
                                     <div class="nomeDoCampo">
+                                        Nivel
+                                    </div>
+                                    <div class="valorDoCampo">
+                                        <select name="nivel" class="cadastroUsuarioInput">
+                                                <option value="">Selecione Nivel</option>
+                                                <?php
+                                                    require_once('../bd/conexao.php');
+                                                    $conexao = conexaoMysql();
+
+                                                    $sql = "select * from niveis";
+
+                                                    $select = mysqli_query($conexao, $sql);
+
+                                                    while($rsNiveis = mysqli_fetch_array($select)){
+                                                    
+                                                    ?>
+                                                    <option value="<?=$rsNiveis['id']?>"> 
+                                                        <?=$rsNiveis['nome']?>
+                                                    </option>
+                                                <?php
+                                                    }
+                                                ?>
+                                            </select>
+                                    </div>
+                                </div>
+
+                                <div class="linhaFormularioCadastro">
+                                    <div class="nomeDoCampo">
                                         setor
                                     </div>
                                     <div class="valorDoCampo">

@@ -363,7 +363,7 @@
 /************************* ADM USUARIOS ********************/
 .adm-users-estrutura{
     width: inherit;
-    height: 1500px;
+    height: auto;
     clear: both;
     /* background-color: khaki; */
     border:solid 2px #000;
@@ -377,7 +377,7 @@
 }
 .cadastrarUsuarios, .cadastrarUsuarios form{
     width:inherit;
-    height:800px;
+    height:1000px;
     background-color: #fff;
     box-sizing: border-box;
     padding-top: 20px;
@@ -450,7 +450,7 @@
 }
 .formularioCadastroUsuario{
     width: 500px;
-    height: 400px;
+    height: 500px;
     border-radius: 10px;
     box-shadow: 3px 3px 8px #666;
     background-color: rgb(241, 239, 255);
