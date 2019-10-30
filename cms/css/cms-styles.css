@@ -389,7 +389,7 @@
 .cadastrarUsuarios{
     margin-bottom: 50px;
 }
-.cadastrarUsuarios .titulo{
+.cadastrarUsuarios .titulo, .cadastrarNivel .titulo{
     font-size: 30px;
     margin-bottom: 20px;
 }
@@ -448,7 +448,7 @@
     opacity: 0;
     visibility: hidden;
 }
-.formularioCadastroUsuario{
+.formularioCadastroUsuario, .formularioCadastroNivel{
     width: 500px;
     height: 500px;
     border-radius: 10px;
@@ -521,6 +521,7 @@
     align-items: center;
     background-color: rgb(241, 239, 255);
     box-shadow: 3px 3px 8px #666;
+    margin-bottom: 50px;
 }
 .usuarios-cadastrados .sub-titulo{
     margin-bottom: 10px;
@@ -545,5 +546,11 @@
     display:flex;
     align-items: center;
     justify-content: center;
-
+}
+.cadastrarNivel{
+    width: inherit;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

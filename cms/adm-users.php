@@ -23,6 +23,15 @@
             echo("erro ao executar o script");
     }
 
+    if(isset($_POST['btn-cadastrar-nivel'])){
+        require_once('../bd/conexao.php');
+        $conexao = conexaoMysql();
+
+        $nomeNivel = $_POST['nomeNivel'];
+
+        
+    }
+
 ?>
 <html>
     <head>
@@ -235,6 +244,76 @@
                             ?>
                         </div>
                     </div>
+
+                    <div class="decoracao">
+                        <div class="borda-dashed">
+                            <div class="separador center">
+                                <img src="icon/separador.png" alt="separador">
+                            </div>
+                        </div>
+                    </div>
+                    <form action="adm-users.php">
+                        <div class="cadastrarNivel">
+
+                            <h1 class="titulo texto-center">Criar novo nível</h1>
+
+                            <div class="formularioCadastroNivel center">
+                                <div class="linhaFormularioCadastro">
+                                    <div class="nomeDoCampo"> 
+                                        nome 
+                                    </div>
+                                    <div class="valorDoCampo">
+                                        <input type="text" name="nomeNivel" class="cadastroUsuarioInput">
+                                    </div>
+                                </div>
+
+                                <div class="linhaFormularioCadastro">
+                                    <div class="nomeDoCampo center"> 
+                                        Permissões
+                                    </div>
+                                </div>
+                                <?php
+                                    require_once('../bd/conexao.php');
+                                    $conexao = conexaoMysql();
+
+                                    $sql = "select nivel_menu.*,menus.nome as nomeMenu from nivel_menu inner join
+                                    menus on menus.id = nivel_menu.id_menu";
+
+                                    $select = mysqli_query($conexao, $sql);
+
+                                    while($rsMenus = mysqli_fetch_array($select))
+                                    {
+                                ?>
+                                <div class="linhaFormularioCadastro">
+                                    <div class="nomeDoCampo center"> 
+                                        <?=$rsMenus['nome'];?> <input type="checkBox" name="<?=$rsMenus['nome'];?>" value="<?=$rsMenus['id']?>" class="checkBox">
+                                    </div>
+                                </div>
+                                <?php
+                                    }
+                                ?>
+                                
+
+                                <!-- <div class="linhaFormularioCadastro">
+                                    <div class="nomeDoCampo center"> 
+                                        Operador de conteudo: <input type="checkBox" name="boxAdm" value="ADM" class="checkBox">
+                                    </div>
+                                </div>
+
+                                <div class="linhaFormularioCadastro">
+                                    <div class="nomeDoCampo center"> 
+                                        Administrador de contatos <input type="checkBox" name="boxAdm" value="ADM" class="checkBox">
+                                    </div>
+                                </div> -->
+
+                            </div>
+                                
+                            <input type="submit" value="Cadastrar" class="botao center" name="btn-cadastrar-nivel">
+
+                        </div>
+
+                        
+                    </form>
                 </div>
                 <?php
                     require_once('./modulos/cms-footer.php');
@@ -246,3 +325,6 @@
         
     </body>
 </html>
+
+<!-- select niveis.*,nivel_menu.*,menus.nome as nomeMenu from niveis inner join
+                                    nivel_menu inner join menus on menus.id = nivel_menu.id_menu -->
