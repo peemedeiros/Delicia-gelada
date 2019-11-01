@@ -1,38 +1,4 @@
-<?php
 
-    $idsetor = (String) 0;
-    $setorNome = "";
-    
-    if(isset($_POST['btn-cadastrar'])){
-    
-        require_once('../bd/conexao.php');
-        $conexao = conexaoMysql();
-        
-        $nome = $_POST['nomeUsuario'];
-        $email = $_POST['emailUsuario'];
-        $senha = $_POST['senhaUsuario'];
-        $dt_nasc = $_POST['dtNascimentoUsuario'];
-        $idsetor = $_POST['setor'];
-    
-        $sql = "insert into usuarios(nome,email,senha,dt_nasc,idsetor)
-        values('".$nome."','".$email."','".$senha."','".$dt_nasc."','".$idsetor."')";
-    
-        if(mysqli_query($conexao, $sql))
-            header('location:adm-users.php');
-        else
-            echo("erro ao executar o script");
-    }
-
-    if(isset($_POST['btn-cadastrar-nivel'])){
-        require_once('../bd/conexao.php');
-        $conexao = conexaoMysql();
-
-        $nomeNivel = $_POST['nomeNivel'];
-
-        
-    }
-
-?>
 <html>
     <head>
         <title>
@@ -61,40 +27,7 @@
                     <div class="cadastrarUsuarios">
                         <h1 class="titulo texto-center">Criar novo usuario</h1>
                         <h1 class="sub-titulo texto-center">Nivel do usuario</h1>
-                        <form action="adm-users.php" method="post">
-                            <div class="tipoDeUsuario center">
-                                <div id="nivelAdm" class="nivelAdministrador" onclick="selecionado(this);">
-                                    <div class="legenda" value="1">
-                                        Administrador
-                                    </div>
-                                    <!-- <img src="./icon/boss.png" alt=""> -->
-                                    <input type="radio" name="rdoNivel" id="ativarNivelAdm" value="A">
-                                    <label for="ativarNivelAdm">
-                                        <img src="./icon/boss.png" alt="boss">
-                                    </label>
-                                </div>
-
-                                <div id="nivelContato" class="nivelAdministrador" onclick="selecionado(this);">
-                                    <div class="legenda">
-                                        Relacionamento com o cliente
-                                    </div>
-                                    <input type="radio" name="rdoNivel" id="ativarNivelContato" value="B">
-                                    <label for="ativarNivelContato">
-                                        <img src="./icon/customer-service.png" alt="contato">
-                                    </label>
-                                </div>
-
-                                <div id="nivelConteudo" class="nivelAdministrador" onclick="selecionado(this);">
-                                    <div class="legenda">
-                                        Operador de conteudo
-                                    </div>
-                                    <input type="radio" name="rdoNivel" id="ativarNivelConteudo" value="C">
-                                    <label for="ativarNivelConteudo">
-                                        <img src="./icon/responsive.png" alt="conteudo">
-                                    </label>
-                                </div>
-                            </div>
-
+                        <form action="bd/inserir.php" method="post">
                             <div class="formularioCadastroUsuario center">
                                 <div class="linhaFormularioCadastro">
                                     <div class="nomeDoCampo">
@@ -252,7 +185,7 @@
                             </div>
                         </div>
                     </div>
-                    <form action="adm-users.php">
+                    <form action="bd/inserirNivel.php" method="POST">
                         <div class="cadastrarNivel">
 
                             <h1 class="titulo texto-center">Criar novo nível</h1>
@@ -276,8 +209,7 @@
                                     require_once('../bd/conexao.php');
                                     $conexao = conexaoMysql();
 
-                                    $sql = "select nivel_menu.*,menus.nome as nomeMenu from nivel_menu inner join
-                                    menus on menus.id = nivel_menu.id_menu";
+                                    $sql = "select menus.* from menus";
 
                                     $select = mysqli_query($conexao, $sql);
 
@@ -292,19 +224,6 @@
                                 <?php
                                     }
                                 ?>
-                                
-
-                                <!-- <div class="linhaFormularioCadastro">
-                                    <div class="nomeDoCampo center"> 
-                                        Operador de conteudo: <input type="checkBox" name="boxAdm" value="ADM" class="checkBox">
-                                    </div>
-                                </div>
-
-                                <div class="linhaFormularioCadastro">
-                                    <div class="nomeDoCampo center"> 
-                                        Administrador de contatos <input type="checkBox" name="boxAdm" value="ADM" class="checkBox">
-                                    </div>
-                                </div> -->
 
                             </div>
                                 
@@ -325,6 +244,3 @@
         
     </body>
 </html>
-
-<!-- select niveis.*,nivel_menu.*,menus.nome as nomeMenu from niveis inner join
-                                    nivel_menu inner join menus on menus.id = nivel_menu.id_menu -->
