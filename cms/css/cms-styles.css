@@ -75,6 +75,13 @@
     padding-bottom: 15px;
     padding-left: 30px;
 }
+.disable-adm-conteudo,.disable-adm-users,.disable-adm-contato{
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: no-drop;
+}
+
 .cms-img img {
     width: 200px;
     height: 175px;
@@ -134,6 +141,11 @@
     cursor: pointer;
     background-color: #8a1d1d;
     transition: 1s;
+}
+.bnt-log-out a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
 }
 /*conteudo central do cms*/
 

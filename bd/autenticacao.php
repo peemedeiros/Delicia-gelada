@@ -1,31 +1,54 @@
 <?php
+if(!isset($_SESSION)){
 
-if(isset($_POST['btnLogin'])){
+    session_start();
 
-    require_once('conexao.php');
-    $conexao = conexaoMysql();
+    if(isset($_POST['btnLogin'])){
 
-	$usuario = $_POST['txtUsuario'];
-    $senha = $_POST['txtSenha'];
+        require_once('conexao.php');
+        $conexao = conexaoMysql();
     
-    if($usuario != "" && $senha != ""){
+        $usuario = $_POST['txtUsuario'];
+        $senha = $_POST['txtSenha'];
+        
+        if($usuario != "" && $senha != ""){
+    
+            $sql = "select usuarios.* from usuarios 
+            where email='".$usuario."'
+            and senha ='".$senha."'";
+    
+            $logar = mysqli_query($conexao, $sql);
+    
+            $rsUsuario = mysqli_fetch_array($logar);
 
-        $sql = "select usuarios.* from usuarios 
-        where email='".$usuario."'
-        and senha ='".$senha."'";
+            $_SESSION['nome'] = $rsUsuario['nome'];
+    
+            if($rsUsuario['email'] == $usuario && $rsUsuario['senha'] == $senha){
+    
+                $sqlNivel ="select menus.* from nivel_menu 
+                inner join menus on nivel_menu.id_menu = menus.id where nivel_menu.id_nivel =".$rsUsuario['idnivel']."";
+    
+                $permissoes = mysqli_query($conexao, $sqlNivel);
+    
+                while($rsPermissoes = mysqli_fetch_array($permissoes)){
 
-        $logar = mysqli_query($conexao, $sql);
+                    $niveisPermissoes[] = $rsPermissoes['link'];
 
-        $rsUsuario = mysqli_fetch_array($logar);
+                    // var_dump($niveisPermissoes);
+                }
 
-        if($rsUsuario['email'] == $usuario && $rsUsuario['senha'] == $senha){
-            $_SESSION['']
-            header('location: ../cms/home.php');
+                var_dump($_SESSION['menus']);
+                $_SESSION['menus'] = $niveisPermissoes;
+                
+
+                header('location: ../cms/'.$niveisPermissoes[0]);
+            }else{
+                echo("usuario ou senha incorretos");
+            }
         }else{
-            echo("usuario ou senha incorretos");
+            echo("Os campos de usuario e senha devem ser preenchidos");
         }
-    }else{
-        echo("Os campos de usuario e senha devem ser preenchidos");
     }
 }
+
 ?>

@@ -41,7 +41,6 @@ if (isset($_GET['modo'])){
         }
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt">
