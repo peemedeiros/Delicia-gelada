@@ -1,3 +1,4 @@
+
 <header id="cabecalho">
 	<div class="conteudo center">                
 		<div class="logo">
@@ -48,7 +49,7 @@
 				</li>
 			</ul>
 		</nav>
-		<div class="login">
+		<form class="login" action="bd/autenticacao.php" method="post">
 			<div class="usuario">
 				USUARIO:
 				<input type="email" name="txtUsuario" placeholder="exemple@exemple.com" id="caixaUsuario">
@@ -60,6 +61,6 @@
 			<div class="caixaBotao">
 				<input type="submit" name="btnLogin" class="botaoLogin" value="OK">
 			</div>
-		</div>
+		</form>
 	</div>
 </header>
