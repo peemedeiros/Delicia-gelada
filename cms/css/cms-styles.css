@@ -401,7 +401,7 @@
 .cadastrarUsuarios{
     margin-bottom: 50px;
 }
-.cadastrarUsuarios .titulo, .cadastrarNivel .titulo{
+.cadastrarUsuarios .titulo, .cadastrarNivel .titulo, .container_niveis_cadastrados .titulo{
     font-size: 30px;
     margin-bottom: 20px;
 }
@@ -521,7 +521,7 @@
     opacity: 0;
 }
 .usuarios-cadastrados{
-    width: 800px;
+    width: 1200px;
     height: 400px;
     background-color: #fff;
     border-radius: 10px;
@@ -545,19 +545,28 @@
     height: 95%;
     overflow: auto;
 }
-.linha-tabela-usuarios{
+.linha-tabela-usuarios,.linha-tabela-niveis{
     width:inherit;
     height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.coluna-tabela-usuarios{
+.coluna-tabela-usuarios,.coluna-tabela-niveis{
     width: 255px;
     height: inherit;
     display:flex;
     align-items: center;
     justify-content: center;
+}
+.coluna-tabela-usuarios img{
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+}
+.container_cadastro_nivel{
+    width: 550px;
+    height: 650px;
 }
 .cadastrarNivel{
     width: inherit;
@@ -565,4 +574,24 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.container_niveis_cadastrados{
+    width: 900px;
+    height: 650px;
+    background-color: #ccc;
+    box-sizing: border-box;
+    padding:10px;
+}
+.formulario_nivel{
+    display: flex;
+    justify-content: space-between;
+}
+.niveis_cadastrados{
+    width: 100%;
+    height: 90%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px #666;
+    background-color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
 }

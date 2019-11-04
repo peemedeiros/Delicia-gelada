@@ -1,6 +1,6 @@
 <?php
 
-
+    //verifica se o botão exite.
     if(isset($_POST['btn-cadastrar-nivel'])){
         require_once('../../bd/conexao.php');
         $conexao = conexaoMysql();
@@ -10,16 +10,22 @@
         $adm_contatos = $_POST['adm_contato'];
         $adm_usuarios = $_POST['adm_user'];
         
+        //cadastra o nível
         $sql = "insert into niveis (nome) values ('".$nomeNivel."')";
 
         if(mysqli_query($conexao, $sql)){
+
+            //implementações, trazer o comando que irá buscar o ultimo item que foi adicionado no banco de dados;
+            //com isso nos iremos dar o comando para busca pelo ID esse ultimo item que foi adicionado, não buscar o ID pelo nome. 
+            //mysqli_insert_id
             
             if($adm_conteudo != 0){
 
+                //script que seleciona o nível que acabou de ser criado.
                 $sqlNivel = "select niveis.id from niveis where nome = '".$nomeNivel."'";
-
+                
                 $idNivel = mysqli_query($conexao, $sqlNivel);
-
+                
                 $rsNivelId = mysqli_fetch_array($idNivel);
 
                 $sqlAdmConteudo = "insert into nivel_menu (id_nivel, id_menu) values ('".$rsNivelId['id']."','".$adm_conteudo."')";

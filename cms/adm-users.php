@@ -146,6 +146,9 @@
                                 <div class="coluna-tabela-usuarios">
                                     SETOR
                                 </div>
+                                <div class="coluna-tabela-usuarios">
+                                    OPÇÕES
+                                </div>
                             </div>
 
                             <?php
@@ -171,6 +174,11 @@
                                 <div class="coluna-tabela-usuarios">
                                     <?=$rsConsulta['nomesetor']?>
                                 </div>
+                                <div class="coluna-tabela-usuarios">
+                                    <img src="icon/cancel.png" alt="icon_cancel">
+                                    <img src="icon/edit1.png" alt="icon_edit">
+                                    <img src="icon/switch_on.png" alt="icon_togle">
+                                </div>
                             </div>
                             <?php
                                 }
@@ -185,53 +193,88 @@
                             </div>
                         </div>
                     </div>
-                    <form action="bd/inserirNivel.php" method="POST">
-                        <div class="cadastrarNivel">
+                    <form action="bd/inserirNivel.php" method="POST" class="formulario_nivel">
+                        <div class="container_cadastro_nivel">
+                            <div class="cadastrarNivel">
 
-                            <h1 class="titulo texto-center">Criar novo nível</h1>
+                                <h1 class="titulo texto-center">Criar novo nível</h1>
 
-                            <div class="formularioCadastroNivel center">
-                                <div class="linhaFormularioCadastro">
-                                    <div class="nomeDoCampo"> 
-                                        nome 
+                                <div class="formularioCadastroNivel center">
+                                    <div class="linhaFormularioCadastro">
+                                        <div class="nomeDoCampo"> 
+                                            nome 
+                                        </div>
+                                        <div class="valorDoCampo">
+                                            <input type="text" name="nomeNivel" class="cadastroUsuarioInput">
+                                        </div>
                                     </div>
-                                    <div class="valorDoCampo">
-                                        <input type="text" name="nomeNivel" class="cadastroUsuarioInput">
+
+                                    <div class="linhaFormularioCadastro">
+                                        <div class="nomeDoCampo center"> 
+                                            Permissões
+                                        </div>
                                     </div>
+                                    <?php
+                                        require_once('../bd/conexao.php');
+                                        $conexao = conexaoMysql();
+
+                                        $sql = "select menus.* from menus";
+
+                                        $select = mysqli_query($conexao, $sql);
+
+                                        while($rsMenus = mysqli_fetch_array($select))
+                                        {
+                                    ?>
+                                    <div class="linhaFormularioCadastro">
+                                        <div class="nomeDoCampo center"> 
+                                            <?=$rsMenus['nome'];?> <input type="checkBox" name="<?=$rsMenus['nome'];?>" value="<?=$rsMenus['id']?>" class="checkBox">
+                                        </div>
+                                    </div>
+                                    <?php
+                                        }
+                                    ?>
+
                                 </div>
+                                    
+                                <input type="submit" value="Cadastrar" class="botao center" name="btn-cadastrar-nivel">
 
-                                <div class="linhaFormularioCadastro">
-                                    <div class="nomeDoCampo center"> 
-                                        Permissões
+                            </div>
+                        </div>
+                        <div class="container_niveis_cadastrados">
+                            <h1 class="titulo texto-center">Niveis cadastrados</h1>
+                            <div class="niveis_cadastrados">
+                                <div class="linha-tabela-niveis table-head texto-branco">
+                                    <div class="coluna-tabela-niveis">
+                                        NOME
+                                    </div>
+                                    
+                                    <div class="coluna-tabela-niveis">
+                                        PERMISSÕES
                                     </div>
                                 </div>
                                 <?php
-                                    require_once('../bd/conexao.php');
-                                    $conexao = conexaoMysql();
-
-                                    $sql = "select menus.* from menus";
+                                   
+                                    $sql = "select niveis.nome from niveis";
 
                                     $select = mysqli_query($conexao, $sql);
 
-                                    while($rsMenus = mysqli_fetch_array($select))
+                                    while($rsNiveisCadastrados = mysqli_fetch_array($select))
                                     {
                                 ?>
-                                <div class="linhaFormularioCadastro">
-                                    <div class="nomeDoCampo center"> 
-                                        <?=$rsMenus['nome'];?> <input type="checkBox" name="<?=$rsMenus['nome'];?>" value="<?=$rsMenus['id']?>" class="checkBox">
+                                <div class="linha-tabela-niveis table-head texto-branco">
+                                    <div class="coluna-tabela-niveis">
+                                        <?=$rsNiveisCadastrados['nome'];?>
+                                    </div>
+                                    
+                                    <div class="coluna-tabela-niveis">
+                                        <!-- $rsNiveisCadastrados['menuNome']; -->
                                     </div>
                                 </div>
                                 <?php
                                     }
                                 ?>
-
                             </div>
-                                
-                            <input type="submit" value="Cadastrar" class="botao center" name="btn-cadastrar-nivel">
-
                         </div>
-
-                        
                     </form>
                 </div>
                 <?php
