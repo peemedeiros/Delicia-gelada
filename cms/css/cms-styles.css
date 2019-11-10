@@ -540,7 +540,6 @@
     flex-direction:column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(241, 239, 255);
     box-shadow: 3px 3px 8px #666;
     margin-bottom: 50px;
 }
@@ -613,16 +612,20 @@
 }
 .niveis_cadastrados{
     width: 100%;
-    height: 90%;
+    height: 82%;
     border-radius: 10px;
     box-shadow: 3px 3px 8px #666;
     background-color: #fff;
     padding: 10px;
     box-sizing: border-box;
+    overflow: auto;
 }
 #adm-conteudo,
 #adm-contato,
-#adm-user{
+#adm-user,
+#adm-conteudo-sombra-off,
+#adm-contato-sombra-off,
+#adm-usuario-sombra-off{
     position: relative;
     bottom:200px;
     display: flex;
@@ -634,12 +637,27 @@
     border:solid 1px #ccc;
     transition: 200ms;
 }
-#adm-contato{
+#adm-contato,
+#adm-contato-sombra-off{
     bottom:150px;
 }
-#adm-user{
+#adm-user,
+#adm-usuario-sombra-off{
     bottom: 100px;
 }
+
+#adm-conteudo-sombra-off,
+#adm-contato-sombra-off,
+#adm-usuario-sombra-off{
+    box-shadow: none;
+    background-color: #fff;
+}
+#adm-conteudo-sombra-off:hover,
+#adm-contato-sombra-off:hover,
+#adm-usuario-sombra-off:hover{
+    cursor: pointer;
+}
+
 label img{
     width: 50px;
     height: 50px;
@@ -651,4 +669,7 @@ label img{
 }
 .zebrado{
     background-color: rgb(225, 226, 255);
+}
+.sombra-off{
+    box-shadow: none;
 }

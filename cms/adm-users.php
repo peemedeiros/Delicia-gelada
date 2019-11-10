@@ -10,6 +10,23 @@
     $botao = (String)"CADASTRAR";
     $title = (String)"CADASTRAR NOVO USUARIO";
 
+    $nomeNivel = (String)"";
+    $idmenu = (int) 0;
+
+    $selectedAdmConteudo = "";
+    $selectedAdmContato = "";
+    $selectedAdmUsuarios = "";
+
+    $permissaoAdmConteudo = "";
+    $permissaoAdmContato = "";
+    $permissaoAdmUsuario = "";
+
+    $sombraOffAdmConteudo = "adm-conteudo";
+    $sombraOffAdmContato = "adm-contato";
+    $sombraOffAdmUsuario= "adm-user";
+
+    $permissoes = array ();
+
     if(isset($_GET['modo'])){
 
         if(($_GET['modo']) == "editar"){
@@ -43,6 +60,52 @@
                 $botao = "EDITAR";
                 $title = "EDITAR USUARIO";
 
+            }
+        }elseif(($_GET['modo']) == 'editarnivel'){
+
+            require_once('../bd/conexao.php');
+            $conexao = conexaoMysql();
+
+            $idnivel = $_GET['idnivel'];
+
+            $trazerInfoNivel = "select niveis.nome, niveis.id from niveis where niveis.id =".$idnivel;
+
+            $executar = mysqli_query($conexao, $trazerInfoNivel);
+
+            if($rsEditarNivel = mysqli_fetch_array($executar)){
+                $nomeNivel = $rsEditarNivel['nome'];
+                $idNivelConsulta = $rsEditarNivel['id'];
+
+                $sqlPermissoes = "select menus.id from menus inner join
+                nivel_menu on menus.id = nivel_menu.id_menu where nivel_menu.id_nivel =".$idNivelConsulta;
+
+                $executarPermissoes = mysqli_query($conexao, $sqlPermissoes);
+
+                while( $rsMenusId = mysqli_fetch_array($executarPermissoes)){
+
+                    array_push($permissoes, $rsMenusId['id']);
+                    
+                }
+               
+
+                for($i = 0; $i < sizeof($permissoes); $i++){
+                    if($permissoes[$i] == "1"){
+                        $permissaoAdmConteudo = "1";
+                        $selectedAdmConteudo = "checked";
+                        $sombraOffAdmConteudo = "adm-conteudo-sombra-off";
+                    }elseif($permissoes[$i] == "2"){
+                        $permissaoAdmContato == "2";
+                        $selectedAdmContato = "checked";
+                        $sombraOffAdmContato = "adm-contato-sombra-off";
+                    }elseif($permissoes[$i] == "3"){
+                        $permissaoAdmUsuario == "3";
+                        $selectedAdmUsuarios = "checked";
+                        $sombraOffAdmUsuario = "adm-usuario-sombra-off";
+                    }
+                }
+        
+            }else {
+                echo("erro ao executar scriptttt");
             }
         }
     }
@@ -289,7 +352,7 @@
                                             nome 
                                         </div>
                                         <div class="valorDoCampo">
-                                            <input type="text" name="nomeNivel" class="cadastroUsuarioInput">
+                                            <input type="text" name="nomeNivel" class="cadastroUsuarioInput" value="<?=$nomeNivel?>">
                                         </div>
                                     </div>
 
@@ -302,32 +365,58 @@
                                         require_once('../bd/conexao.php');
                                         $conexao = conexaoMysql();
                                         
-                                        
-
                                         $sql = "select menus.* from menus";
 
                                         $select = mysqli_query($conexao, $sql);
 
-                                        while($rsMenus = mysqli_fetch_array($select))
+                                        if(!isset($_GET['modo']))
                                         {
+                                            while($rsMenus = mysqli_fetch_array($select))
+                                            {
                                     ?>
                                     <div class="linhaFormularioCadastrocheck">
                                         <div class="nomeDoCampo center"> 
+                                            
                                             <?=$rsMenus['nome'];?> <input type="checkBox" name="<?=$rsMenus['nome'];?>" value="<?=$rsMenus['id']?>" id="icon<?=$rsMenus['id']?>">
+                                            
                                         </div>
                                     </div>
                                     <?php
+                                            }
                                         }
+                                        else if(isset($_GET['modo']))
+                                        {
+                                            if($_GET['modo'] == "editarnivel")
+                                            {
                                     ?>
-                                    <label id="adm-conteudo" for="icon1">
+                                    <div class="linhaFormularioCadastrocheck">
+                                        <div class="nomeDoCampo center"> 
+                                             <input type="checkBox" name="adm_conteudo" value="<?=$permissaoAdmConteudo?>" id="icon1"<?=$selectedAdmConteudo?>>
+                                        </div>
+                                    </div>
+                                    <div class="linhaFormularioCadastrocheck">
+                                        <div class="nomeDoCampo center">   
+                                             <input type="checkBox" name="adm_contato" value="<?=$permissaoAdmContato?>" id="icon2" <?=$selectedAdmContato?>>
+                                        </div>
+                                    </div>
+                                    <div class="linhaFormularioCadastrocheck">
+                                        <div class="nomeDoCampo center"> 
+                                             <input type="checkBox" name="adm_users" value="<?=$permissaoAdmUsuario?>" id="icon3" <?=$selectedAdmUsuarios?>>
+                                        </div>
+                                    </div>
+                                    <?php
+                                            }
+                                        }    
+                                    ?>
+                                    <label id="<?=$sombraOffAdmConteudo?>" for="icon1">
                                         ADMINISTRADOR DE CONTEUDO
                                         <img src="./icon/responsive.png" alt="adm">
                                     </label>
-                                    <label id="adm-contato" for="icon2">
+                                    <label id="<?=$sombraOffAdmContato?>"for="icon2">
                                         ADMINISTRADOR DE FALE CONOSCO
                                         <img src="./icon/customer-service.png" alt="adm-contato">
                                     </label>
-                                    <label id="adm-user" for="icon3">
+                                    <label id="<?=$sombraOffAdmUsuario?>" for="icon3">
                                         ADMINISTRADOR DE USUARIOS
                                         <img src="./icon/boss.png" alt="adm">
                                     </label>
@@ -406,8 +495,10 @@
                                     <a href="bd/delete-niveis.php?modo=excluir&id=<?=$rsNiveisCadastrados['id']?>" onclick="return confirm('ATENÇÃO excluir o nivel de um usuario ja cadastrado acarretará na exlcusão do mesmo, deseja prosseguir?')">
                                         <img src="icon/cancel.png" alt="icon_cancel">
                                     </a>
-                                        
+                                    <a href="adm-users.php?modo=editarnivel&idnivel=<?=$rsNiveisCadastrados['id']?>">
                                         <img src="icon/edit1.png" alt="icon_edit">
+                                    </a>    
+
                                         <img src="icon/switch_on.png" alt="icon_togle">
                                     </div>
                                 </div>
