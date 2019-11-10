@@ -389,7 +389,7 @@
 }
 .cadastrarUsuarios, .cadastrarUsuarios form{
     width:inherit;
-    height:1000px;
+    height:800px;
     background-color: #fff;
     box-sizing: border-box;
     padding-top: 20px;
@@ -468,13 +468,22 @@
     background-color: rgb(241, 239, 255);
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 20px;
+    align-items: center;
 }
-.linhaFormularioCadastro{
+.formularioCadastroNivel{
+    padding: 10px;
+    height: 550px;
+}
+.linhaFormularioCadastro,.linhaFormularioCadastrocheck{
     width: inherit;
     height: 75px;
     display:flex;
+}
+.linhaFormularioCadastrocheck{
+    opacity: 0 ;
+    visibility: hidden;
 }
 .nomeDoCampo{
     width: 150px;
@@ -559,6 +568,21 @@
     align-items: center;
     justify-content: center;
 }
+.coluna-tabela-niveis img{
+    width: 30px;
+    height: 30px;
+    margin-right:10px ;
+}
+.img-menus{
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+.img-menus img {
+    width: inherit;
+    height: inherit;
+}
+.coluna-tabela-usuarios a,
 .coluna-tabela-usuarios img{
     width: 32px;
     height: 32px;
@@ -566,19 +590,20 @@
 }
 .container_cadastro_nivel{
     width: 550px;
-    height: 650px;
+    height: 700px;
+    padding: 10px;
 }
 .cadastrarNivel{
     width: inherit;
-    height: 650px;
+    height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 .container_niveis_cadastrados{
     width: 900px;
-    height: 650px;
-    background-color: #ccc;
+    height: auto;
+    min-height: 500px;
     box-sizing: border-box;
     padding:10px;
 }
@@ -594,4 +619,36 @@
     background-color: #fff;
     padding: 10px;
     box-sizing: border-box;
+}
+#adm-conteudo,
+#adm-contato,
+#adm-user{
+    position: relative;
+    bottom:200px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px #666;
+    border:solid 1px #ccc;
+    transition: 200ms;
+}
+#adm-contato{
+    bottom:150px;
+}
+#adm-user{
+    bottom: 100px;
+}
+label img{
+    width: 50px;
+    height: 50px;
+}
+#adm-conteudo:hover,
+#adm-contato:hover,
+#adm-user:hover{
+    cursor: pointer;
+}
+.zebrado{
+    background-color: rgb(225, 226, 255);
 }

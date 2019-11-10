@@ -34,10 +34,8 @@ if(!isset($_SESSION)){
 
                     $niveisPermissoes[] = $rsPermissoes['link'];
 
-                    // var_dump($niveisPermissoes);
                 }
 
-                var_dump($_SESSION['menus']);
                 $_SESSION['menus'] = $niveisPermissoes;
                 
 

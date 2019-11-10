@@ -1,3 +1,52 @@
+<?php
+    //declaração de variaveis
+    
+    $nome = (String) "";
+    $email = (String) "";
+    $data_nasc = (String) "";
+    $senha = (String) "";
+    $setor = 0;
+    $nivel = 0;
+    $botao = (String)"CADASTRAR";
+    $title = (String)"CADASTRAR NOVO USUARIO";
+
+    if(isset($_GET['modo'])){
+
+        if(($_GET['modo']) == "editar"){
+
+            if (session_status() != PHP_SESSION_ACTIVE) {//Verificar se a sessão não já está aberta.
+                session_start();
+              }
+
+            require_once('../bd/conexao.php');
+            $conexao = conexaoMysql();
+
+            $id = $_GET['id'];
+
+            $_SESSION['id_registro'] = $_GET['id'];
+           
+            $trazerInfo = "select usuarios.*, setores.nome as setor, niveis.nome as nivel from usuarios inner join
+            setores on usuarios.idsetor = setores.id inner join niveis on usuarios.idnivel = niveis.id where usuarios.id = ".$id;
+
+            $select = mysqli_query($conexao, $trazerInfo);
+
+            if($rsEditar = mysqli_fetch_array($select)){
+
+                $nome = $rsEditar['nome'];
+                $email = $rsEditar['email'];
+                $senha = $rsEditar['senha'];
+                $data_nasc = $rsEditar['dt_nasc'];
+                $id_nivel = $rsEditar['idnivel'];
+                $id_setor = $rsEditar['idsetor'];
+                $setor = $rsEditar['setor'];
+                $nivel = $rsEditar['nivel'];
+                $botao = "EDITAR";
+                $title = "EDITAR USUARIO";
+
+            }
+        }
+    }
+?>
 
 <html>
     <head>
@@ -8,14 +57,7 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css">
         <link rel="stylesheet" href="./css/cms-styles.css">
         <script src="js/jquery.js"></script>
-        <script>
-             $(document).ready(function(){
-                 $('.nivelAdministrador').click(function(){
-                    $('.nivelAdministrador').css({border:'none'});
-                    $(this).css({border:'solid 5px #00ff00'});
-                 });
-             });
-        </script>
+        <script src="js/confirmacao.js"></script>
     </head>
     <body>
         <section id="cms">
@@ -25,16 +67,15 @@
                     ?>
                 <div class="adm-users-estrutura">
                     <div class="cadastrarUsuarios">
-                        <h1 class="titulo texto-center">Criar novo usuario</h1>
-                        <h1 class="sub-titulo texto-center">Nivel do usuario</h1>
-                        <form action="bd/inserir.php" method="post">
+                        <h1 class="titulo texto-center"><?=$title?></h1>
+                        <form action="bd/salvar.php" method="post">
                             <div class="formularioCadastroUsuario center">
                                 <div class="linhaFormularioCadastro">
                                     <div class="nomeDoCampo">
                                         nome
                                     </div>
                                     <div class="valorDoCampo">
-                                        <input type="text" name="nomeUsuario" class="cadastroUsuarioInput">
+                                        <input type="text" name="nomeUsuario" class="cadastroUsuarioInput" value="<?=$nome?>">
                                     </div>
                                 </div>
 
@@ -43,7 +84,7 @@
                                         e-mail
                                     </div>
                                     <div class="valorDoCampo">
-                                        <input type="email" name="emailUsuario" class="cadastroUsuarioInput">
+                                        <input type="email" name="emailUsuario" class="cadastroUsuarioInput" value="<?=$email?>">
                                     </div>
                                 </div>
 
@@ -52,7 +93,7 @@
                                         senha
                                     </div>
                                     <div class="valorDoCampo">
-                                        <input type="password" name="senhaUsuario" class="cadastroUsuarioInput">
+                                        <input type="password" name="senhaUsuario" class="cadastroUsuarioInput" value="<?=$senha?>">
                                     </div>
                                 </div>
 
@@ -61,7 +102,7 @@
                                         data de nascimento
                                     </div>
                                     <div class="valorDoCampo">
-                                        <input type="text" name="dtNascimentoUsuario" class="cadastroUsuarioInput">
+                                        <input type="text" name="dtNascimentoUsuario" class="cadastroUsuarioInput" value="<?=$data_nasc?>">
                                     </div>
                                 </div>
 
@@ -71,12 +112,28 @@
                                     </div>
                                     <div class="valorDoCampo">
                                         <select name="nivel" class="cadastroUsuarioInput">
-                                                <option value="">Selecione Nivel</option>
                                                 <?php
+
+                                                    if($_GET['modo'] == 'editar'){
+                                                        
+                                                ?>
+
+                                                <option value="<?=$id_nivel?>"><?=$nivel?></option>
+                                               
+                                                <?php
+                                                    }else{
+                                                ?>
+
+                                                <option value="">Selecione Nivel</option>
+                                               
+                                                <?php
+
+                                                    }
+                                         
                                                     require_once('../bd/conexao.php');
                                                     $conexao = conexaoMysql();
 
-                                                    $sql = "select * from niveis";
+                                                    $sql = "select * from niveis where ativado = 1";
 
                                                     $select = mysqli_query($conexao, $sql);
 
@@ -89,7 +146,7 @@
                                                 <?php
                                                     }
                                                 ?>
-                                            </select>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -99,8 +156,21 @@
                                     </div>
                                     <div class="valorDoCampo">
                                         <select name="setor" class="cadastroUsuarioInput">
-                                            <option value="">Selecione Setor</option>
                                             <?php
+                                                if($_GET['modo'] == 'editar'){
+                                            ?>
+
+                                            <option value="<?=$id_setor?>"> <?=$setor?> </option>
+                                            
+                                            <?php
+                                                }else{
+                                            ?>
+
+                                            <option value="">Selecione Setor</option>
+
+                                            <?php
+
+                                            }
                                                 require_once('../bd/conexao.php');
                                                 $conexao = conexaoMysql();
 
@@ -121,7 +191,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" value="Cadastrar" class="botao" name="btn-cadastrar">
+                            <input type="submit" value="<?=$botao?>" class="botao" name="btn-cadastrar">
                         </form>
                     </div>
                     <div class="decoracao">
@@ -144,7 +214,7 @@
                                     EMAIL
                                 </div>
                                 <div class="coluna-tabela-usuarios">
-                                    SETOR
+                                    NIVEL
                                 </div>
                                 <div class="coluna-tabela-usuarios">
                                     OPÇÕES
@@ -152,19 +222,29 @@
                             </div>
 
                             <?php
-
+                                
                                 require_once('../bd/conexao.php');
                                 $conexao = conexaoMysql();
+
+                                $cor = (string) "";
+                                $ativarZebrado = true;
                                 
-                                $sql = "select usuarios.*,setores.nome as nomesetor from usuarios inner join
-                                        setores on setores.id = usuarios.idsetor";
+                                $sql = "select usuarios.*,niveis.nome as nomesetor from usuarios inner join
+                                        niveis on niveis.id = usuarios.idnivel";
 
                                 $select = mysqli_query($conexao, $sql);
 
-                                while($rsConsulta = mysqli_fetch_array($select))
-                                {  
+                                while($rsConsulta = mysqli_fetch_array($select)){
+                                    
+                                    if($ativarZebrado == true){
+                                        $cor = 'zebrado';
+                                        $ativarZebrado = false;
+                                    }else if($ativarZebrado == false){
+                                        $cor = '';
+                                        $ativarZebrado = true;
+                                    }  
                             ?>
-                            <div class="linha-tabela-usuarios">
+                            <div class="linha-tabela-usuarios <?=$cor?>">
                                 <div class="coluna-tabela-usuarios">
                                     <?=$rsConsulta['nome']?>
                                 </div>
@@ -175,8 +255,12 @@
                                     <?=$rsConsulta['nomesetor']?>
                                 </div>
                                 <div class="coluna-tabela-usuarios">
-                                    <img src="icon/cancel.png" alt="icon_cancel">
-                                    <img src="icon/edit1.png" alt="icon_edit">
+                                    <a href="bd/delete-usuario.php?modo=excluir&id=<?=$rsConsulta['id']?>">
+                                        <img src="icon/cancel.png" alt="icon_cancel" onclick="return confirm('Deseja realmente excluir esse registro')">
+                                    </a>
+                                    <a href="adm-users.php?modo=editar&id=<?=$rsConsulta['id']?>">
+                                        <img src="icon/edit1.png" alt="icon_edit">
+                                    </a>    
                                     <img src="icon/switch_on.png" alt="icon_togle">
                                 </div>
                             </div>
@@ -217,6 +301,8 @@
                                     <?php
                                         require_once('../bd/conexao.php');
                                         $conexao = conexaoMysql();
+                                        
+                                        
 
                                         $sql = "select menus.* from menus";
 
@@ -225,16 +311,28 @@
                                         while($rsMenus = mysqli_fetch_array($select))
                                         {
                                     ?>
-                                    <div class="linhaFormularioCadastro">
+                                    <div class="linhaFormularioCadastrocheck">
                                         <div class="nomeDoCampo center"> 
-                                            <?=$rsMenus['nome'];?> <input type="checkBox" name="<?=$rsMenus['nome'];?>" value="<?=$rsMenus['id']?>" class="checkBox">
+                                            <?=$rsMenus['nome'];?> <input type="checkBox" name="<?=$rsMenus['nome'];?>" value="<?=$rsMenus['id']?>" id="icon<?=$rsMenus['id']?>">
                                         </div>
                                     </div>
                                     <?php
                                         }
                                     ?>
-
+                                    <label id="adm-conteudo" for="icon1">
+                                        ADMINISTRADOR DE CONTEUDO
+                                        <img src="./icon/responsive.png" alt="adm">
+                                    </label>
+                                    <label id="adm-contato" for="icon2">
+                                        ADMINISTRADOR DE FALE CONOSCO
+                                        <img src="./icon/customer-service.png" alt="adm-contato">
+                                    </label>
+                                    <label id="adm-user" for="icon3">
+                                        ADMINISTRADOR DE USUARIOS
+                                        <img src="./icon/boss.png" alt="adm">
+                                    </label>
                                 </div>
+                                
                                     
                                 <input type="submit" value="Cadastrar" class="botao center" name="btn-cadastrar-nivel">
 
@@ -251,23 +349,66 @@
                                     <div class="coluna-tabela-niveis">
                                         PERMISSÕES
                                     </div>
+
+                                    <div class="coluna-tabela-niveis">
+                                        OPÇÕES
+                                    </div>
                                 </div>
                                 <?php
+                                    $cor = (string) "";
+                                    $ativarZebrado = true;
                                    
-                                    $sql = "select niveis.nome from niveis";
+                                    $sql = "select niveis.nome,niveis.id from niveis";
 
                                     $select = mysqli_query($conexao, $sql);
 
                                     while($rsNiveisCadastrados = mysqli_fetch_array($select))
                                     {
+                                        if($ativarZebrado == true){
+                                            $cor = 'zebrado';
+                                            $ativarZebrado = false;
+                                        }else if($ativarZebrado == false){
+                                            $cor = '';
+                                            $ativarZebrado = true;
+                                        }
                                 ?>
-                                <div class="linha-tabela-niveis table-head texto-branco">
+                                <div class="linha-tabela-niveis <?=$cor?>">
                                     <div class="coluna-tabela-niveis">
                                         <?=$rsNiveisCadastrados['nome'];?>
                                     </div>
                                     
                                     <div class="coluna-tabela-niveis">
-                                        <!-- $rsNiveisCadastrados['menuNome']; -->
+                                        <?php
+                                        
+                                         $sqlMenus = "
+                                         select menus.icone,menus.nome, niveis.nome,niveis.id as idnivel from menus 
+                                         inner join nivel_menu on menus.id = nivel_menu.id_menu 
+                                         inner join niveis on nivel_menu.id_nivel = niveis.id where niveis.nome ='".$rsNiveisCadastrados['nome']."'
+                                         ";
+
+                                         $selectMenus = mysqli_query($conexao, $sqlMenus);
+
+                                         while($rsPermissoes = mysqli_fetch_array($selectMenus))
+                                         {
+                                        
+                                        ?>
+
+                                        <div class="img-menus">
+                                            <img src="./bd/arquivos/<?=$rsPermissoes['icone']?>" alt="permissoes">
+                                        </div>
+                                        <?php
+
+                                         }
+                                        ?>
+                                    </div>
+
+                                    <div class="coluna-tabela-niveis">
+                                    <a href="bd/delete-niveis.php?modo=excluir&id=<?=$rsNiveisCadastrados['id']?>" onclick="return confirm('ATENÇÃO excluir o nivel de um usuario ja cadastrado acarretará na exlcusão do mesmo, deseja prosseguir?')">
+                                        <img src="icon/cancel.png" alt="icon_cancel">
+                                    </a>
+                                        
+                                        <img src="icon/edit1.png" alt="icon_edit">
+                                        <img src="icon/switch_on.png" alt="icon_togle">
                                     </div>
                                 </div>
                                 <?php
