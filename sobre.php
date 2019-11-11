@@ -14,19 +14,32 @@
     	<?php
 			require_once('modulos/header.php');
 		?>
+
+		<?php
+		
+			require_once('cms/bd/conexao.php');
+			$conexao = conexaoMysql();
+
+			$sql = "select * from pagina_sobre";
+
+			$select = mysqli_query($conexao, $sql);
+
+			while($rsConsulta = mysqli_fetch_array($select)){
+		?>
+			
 		<section id="sobre">
 			<h2>Conteudo principal sobre a empresa</h2>
 			<div class="conteudo center">
-				<div class="img_principal_sobre">
+				<div class="img_principal_sobre" style="background-image:url('cms/bd/arquivos/<?=$rsConsulta['imagem']?>')">
 					<!--imagem posta como background-->
 				</div>
 				
 				<div class="titulo_sobre_caixa">
 					<h1 class="titulo">
-						DELÍCIA GELADA
+						<?=$rsConsulta['titulo']?>
 					</h1>
 					<p class="texto">
-						A missão da empresa Delicia Gelada é fornecer bebidas das melhores marcas do mundo inteiro seja para o cliente final quanto ao lojista que pensa em inovar nas suas vendas. Nossos principais clientes são Carrefour e Walmart. Fundada em 2019 pelos senhores Arthas Menethil e Anduin Vryn, na cidade Bofete - SP, atualmente contamos com mais de 100 colaboradores.
+						<?=$rsConsulta['texto']?>
 					</p>
 				</div>
 			</div>
@@ -38,6 +51,10 @@
 				</div>
 			</div>
 		</div>
+		<?php
+			}
+		?>
+		
 		<section id="sobre_origem">
 			<h2> Origem da Empresa </h2>
 			<div class="conteudo center">

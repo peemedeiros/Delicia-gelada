@@ -523,7 +523,7 @@ nav .menu_itens:hover > .menu-dropdown {
 	width: 765px;
 	height: 750px;
 	float: left;
-	background-image: url('../img/section_sobre.png');
+	
 	background-size: cover;
 }
 .img_principal_sobre img{

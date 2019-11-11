@@ -117,51 +117,52 @@
             }else {
                 echo("erro ao executar scriptttt");
             }
-        }elseif(($_GET['modo']) == 'desativar'){
+        }
+        // }elseif(($_GET['modo']) == 'desativar'){
 
-            if (session_status() != PHP_SESSION_ACTIVE){
-                session_start();
-            }
+        //     if (session_status() != PHP_SESSION_ACTIVE){
+        //         session_start();
+        //     }
 
-            require_once('../bd/conexao.php');
-            $conexao = conexaoMysql();
+        //     require_once('../bd/conexao.php');
+        //     $conexao = conexaoMysql();
 
-            $idativo = $_GET['idativo'];
+        //     $idativo = $_GET['idativo'];
 
-            $sqlDesativar = "select niveis.ativado from niveis where id = ".$idativo;
+        //     $sqlDesativar = "select niveis.ativado from niveis where id = ".$idativo;
 
-            $executarDesativacao = mysqli_query($conexao, $sqlDesativar);
+        //     $executarDesativacao = mysqli_query($conexao, $sqlDesativar);
 
-            if($rsDesativar = mysqli_fetch_array($executarDesativacao)){
+        //     if($rsDesativar = mysqli_fetch_array($executarDesativacao)){
 
-                if($rsDesativar['ativado'] == 0){
+        //         if($rsDesativar['ativado'] == 0){
 
-                    $sqlAcao = "update niveis set ativado = 1 where id = ".$idativo;
+        //             $sqlAcao = "update niveis set ativado = 1 where id = ".$idativo;
                     
-                    if(mysqli_query($conexao, $sqlAcao)){
-                        $imgAtivar = "switch_on.png";
-                    }else{
-                        echo("erro ao ativar");
-                    }
+        //             if(mysqli_query($conexao, $sqlAcao)){
+        //                 $imgAtivar = "switch_on.png";
+        //             }else{
+        //                 echo("erro ao ativar");
+        //             }
 
-                }else if($rsDesativar['ativado'] == 1){
+        //         }else if($rsDesativar['ativado'] == 1){
                     
-                    $sqlAcao = "update niveis set ativado = 0 where id = ".$idativo;
+        //             $sqlAcao = "update niveis set ativado = 0 where id = ".$idativo;
 
-                    if(mysqli_query($conexao, $sqlAcao)){
-                        $imgAtivar = "switch_off.png";
-                    }else{
-                        echo("erro ao Desativar");
-                    }
-                }
+        //             if(mysqli_query($conexao, $sqlAcao)){
+        //                 $imgAtivar = "switch_off.png";
+        //             }else{
+        //                 echo("erro ao Desativar");
+        //             }
+        //         }
 
-            }else{
-                echo ("fogo na babilonia");
-            }
+        //     }else{
+        //         echo ("fogo na babilonia");
+        //     }
 
             
 
-        }
+        // }
     }
 ?>
 

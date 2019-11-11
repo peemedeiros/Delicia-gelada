@@ -23,8 +23,10 @@
                 <div class="cms-estrutura">
                     <div class="cms-conteudo">
                         <div class="cms-conteudo-itens">
-                            <img src="../icon/home.png">
-                            <h4 class="titulo4 float-left">home</h4>
+                            <a href="adm-conteudo-sobre.php">
+                                <img src="./icon/info.png">
+                                <h4 class="titulo4 float-left">PAGINA SOBRE</h4>
+                            </a>
                         </div>
                         <div class="cms-conteudo-itens">
                             <img src="../icon/home.png">
