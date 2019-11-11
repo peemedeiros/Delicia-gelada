@@ -19,13 +19,11 @@
     $selectedAdmContato = "";
     $selectedAdmUsuarios = "";
 
-    // $permissaoAdmConteudo = 1 ;
-    // $permissaoAdmContato = 2;
-    // $permissaoAdmUsuario = 3;
-
     $sombraOffAdmConteudo = "adm-conteudo";
     $sombraOffAdmContato = "adm-contato";
     $sombraOffAdmUsuario= "adm-user";
+
+    $imgAtivar = "switch_on.png";
 
     $permissoes = array ();
 
@@ -119,6 +117,50 @@
             }else {
                 echo("erro ao executar scriptttt");
             }
+        }elseif(($_GET['modo']) == 'desativar'){
+
+            if (session_status() != PHP_SESSION_ACTIVE){
+                session_start();
+            }
+
+            require_once('../bd/conexao.php');
+            $conexao = conexaoMysql();
+
+            $idativo = $_GET['idativo'];
+
+            $sqlDesativar = "select niveis.ativado from niveis where id = ".$idativo;
+
+            $executarDesativacao = mysqli_query($conexao, $sqlDesativar);
+
+            if($rsDesativar = mysqli_fetch_array($executarDesativacao)){
+
+                if($rsDesativar['ativado'] == 0){
+
+                    $sqlAcao = "update niveis set ativado = 1 where id = ".$idativo;
+                    
+                    if(mysqli_query($conexao, $sqlAcao)){
+                        $imgAtivar = "switch_on.png";
+                    }else{
+                        echo("erro ao ativar");
+                    }
+
+                }else if($rsDesativar['ativado'] == 1){
+                    
+                    $sqlAcao = "update niveis set ativado = 0 where id = ".$idativo;
+
+                    if(mysqli_query($conexao, $sqlAcao)){
+                        $imgAtivar = "switch_off.png";
+                    }else{
+                        echo("erro ao Desativar");
+                    }
+                }
+
+            }else{
+                echo ("fogo na babilonia");
+            }
+
+            
+
         }
     }
 ?>
@@ -398,7 +440,7 @@
                                         }
                                         else if(isset($_GET['modo']))
                                         {
-                                            if($_GET['modo'] == "editarnivel")
+                                            if($_GET['modo'] == "editarnivel" || $_GET['modo'] == "desativar")
                                             {
                                     ?>
                                     <div class="linhaFormularioCadastrocheck">
@@ -413,7 +455,7 @@
                                     </div>
                                     <div class="linhaFormularioCadastrocheck">
                                         <div class="nomeDoCampo center"> 
-                                             <input type="checkBox" name="adm_users" value="3" id="icon3" <?=$selectedAdmUsuarios?>>
+                                             <input type="checkBox" name="adm_user" value="3" id="icon3" <?=$selectedAdmUsuarios?>>
                                         </div>
                                     </div>
                                     <?php
@@ -510,8 +552,9 @@
                                     <a href="adm-users.php?modo=editarnivel&idnivel=<?=$rsNiveisCadastrados['id']?>">
                                         <img src="icon/edit1.png" alt="icon_edit">
                                     </a>    
-
-                                        <img src="icon/switch_on.png" alt="icon_togle">
+                                    <a href="adm-users.php?modo=desativar$idativo=<?=$rsNiveisCadastrados['id']?>">
+                                        <img src="icon/<?=$imgAtivar?>" alt="icon_togle">
+                                    </a>
                                     </div>
                                 </div>
                                 <?php
