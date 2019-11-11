@@ -1,13 +1,5 @@
 <?php
 
-// $nome = (String) "";
-// $email = (String) "";
-// $data_nasc = (String) "";
-// $senha = (String) "";
-// $setor = 0;
-// $nivel = 0;
-// $botao = (String)"INSERIR";
-
 if (session_status() != PHP_SESSION_ACTIVE) {//Verificar se a sessão não já está aberta.
     session_start();
   }

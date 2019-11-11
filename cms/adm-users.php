@@ -8,7 +8,9 @@
     $setor = 0;
     $nivel = 0;
     $botao = (String)"CADASTRAR";
+    $botaoNivel = (String)"CADASTRAR";
     $title = (String)"CADASTRAR NOVO USUARIO";
+    $titleNivel = (String) "CRIAR NOVO NIVEL";
 
     $nomeNivel = (String)"";
     $idmenu = (int) 0;
@@ -17,9 +19,9 @@
     $selectedAdmContato = "";
     $selectedAdmUsuarios = "";
 
-    $permissaoAdmConteudo = "";
-    $permissaoAdmContato = "";
-    $permissaoAdmUsuario = "";
+    // $permissaoAdmConteudo = 1 ;
+    // $permissaoAdmContato = 2;
+    // $permissaoAdmUsuario = 3;
 
     $sombraOffAdmConteudo = "adm-conteudo";
     $sombraOffAdmContato = "adm-contato";
@@ -68,13 +70,23 @@
 
             $idnivel = $_GET['idnivel'];
 
+
             $trazerInfoNivel = "select niveis.nome, niveis.id from niveis where niveis.id =".$idnivel;
 
             $executar = mysqli_query($conexao, $trazerInfoNivel);
 
             if($rsEditarNivel = mysqli_fetch_array($executar)){
+
+                if (session_status() != PHP_SESSION_ACTIVE) {//Verificar se a sessão não já está aberta.
+                    session_start();
+                  }
+
                 $nomeNivel = $rsEditarNivel['nome'];
                 $idNivelConsulta = $rsEditarNivel['id'];
+
+                $_SESSION['idnivel'] = $idNivelConsulta;
+                $botaoNivel = "EDITAR";
+                $titleNivel = "EDITAR NIVEL";
 
                 $sqlPermissoes = "select menus.id from menus inner join
                 nivel_menu on menus.id = nivel_menu.id_menu where nivel_menu.id_nivel =".$idNivelConsulta;
@@ -90,15 +102,15 @@
 
                 for($i = 0; $i < sizeof($permissoes); $i++){
                     if($permissoes[$i] == "1"){
-                        $permissaoAdmConteudo = "1";
+                        $permissaoAdmConteudo = 1;
                         $selectedAdmConteudo = "checked";
                         $sombraOffAdmConteudo = "adm-conteudo-sombra-off";
                     }elseif($permissoes[$i] == "2"){
-                        $permissaoAdmContato == "2";
+                        $permissaoAdmContato = 2;
                         $selectedAdmContato = "checked";
                         $sombraOffAdmContato = "adm-contato-sombra-off";
                     }elseif($permissoes[$i] == "3"){
-                        $permissaoAdmUsuario == "3";
+                        $permissaoAdmUsuario = 3;
                         $selectedAdmUsuarios = "checked";
                         $sombraOffAdmUsuario = "adm-usuario-sombra-off";
                     }
@@ -340,11 +352,11 @@
                             </div>
                         </div>
                     </div>
-                    <form action="bd/inserirNivel.php" method="POST" class="formulario_nivel">
+                    <form action="bd/salvarNivel.php" method="POST" class="formulario_nivel">
                         <div class="container_cadastro_nivel">
                             <div class="cadastrarNivel">
 
-                                <h1 class="titulo texto-center">Criar novo nível</h1>
+                                <h1 class="titulo texto-center"><?=$titleNivel?></h1>
 
                                 <div class="formularioCadastroNivel center">
                                     <div class="linhaFormularioCadastro">
@@ -391,17 +403,17 @@
                                     ?>
                                     <div class="linhaFormularioCadastrocheck">
                                         <div class="nomeDoCampo center"> 
-                                             <input type="checkBox" name="adm_conteudo" value="<?=$permissaoAdmConteudo?>" id="icon1"<?=$selectedAdmConteudo?>>
+                                             <input type="checkBox" name="adm_conteudo" value="1" id="icon1"<?=$selectedAdmConteudo?>>
                                         </div>
                                     </div>
                                     <div class="linhaFormularioCadastrocheck">
                                         <div class="nomeDoCampo center">   
-                                             <input type="checkBox" name="adm_contato" value="<?=$permissaoAdmContato?>" id="icon2" <?=$selectedAdmContato?>>
+                                             <input type="checkBox" name="adm_contato" value="2" id="icon2" <?=$selectedAdmContato?>>
                                         </div>
                                     </div>
                                     <div class="linhaFormularioCadastrocheck">
                                         <div class="nomeDoCampo center"> 
-                                             <input type="checkBox" name="adm_users" value="<?=$permissaoAdmUsuario?>" id="icon3" <?=$selectedAdmUsuarios?>>
+                                             <input type="checkBox" name="adm_users" value="3" id="icon3" <?=$selectedAdmUsuarios?>>
                                         </div>
                                     </div>
                                     <?php
@@ -423,7 +435,7 @@
                                 </div>
                                 
                                     
-                                <input type="submit" value="Cadastrar" class="botao center" name="btn-cadastrar-nivel">
+                                <input type="submit" value="<?=$botaoNivel?>" class="botao center" name="btn-cadastrar-nivel">
 
                             </div>
                         </div>
