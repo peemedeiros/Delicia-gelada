@@ -8,7 +8,22 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/cms-styles.css">
     <title>Delicia Gelada - CMS</title>
-
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#upload-img').change(function(){
+                const file =$(this)[0].files[0];
+                const fileReader = new FileReader();
+                fileReader.onloadend = function(){
+                    $('#preview-img').attr('src',fileReader.result);
+                }
+                fileReader.readAsDataURL(file);
+            });
+        });
+    
+    
+    
+    </script>
 </head>
     <body>
         <section id="cms">
@@ -42,14 +57,15 @@
                                         <textarea name="txt-conteudo-sobre" id="txt-conteudo-sobre"></textarea>
                                     </div>
                                 </div>
-                                <div class="linha-formulario-sobre">
+                                <div class="linha-formulario-sobre-img">
                                     <div class="coluna-formulario-sobre-nome-campo">
                                         IMAGEM
                                     </div>
                                     <div class="coluna-formulario-sobre">
                                         <label id="thumbnail" class="thumbnail">
-                                                <input type="file" name="flefoto">
-                                        </label>
+                                                <input type="file" name="flefoto" id="upload-img">
+                                                <img id="preview-img">
+                                        </label>    
                                     </div>
                                 </div>
                                 <div class="linha-formulario-sobre-button">

@@ -193,7 +193,7 @@
 }
 .crud-editar-sobre{
     width: 900px;
-    height: 600px;
+    height: 700px;
     border-radius: 10px;
     border:solid 1px #ccc;
     box-sizing: 1;
@@ -211,13 +211,15 @@
     border: solid 1px #ccc;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     box-sizing: border-box;
     padding: 10px;
     background: rgb(255, 220, 220);
 }
 .linha-formulario-sobre,
 .linha-formulario-sobre-texto,
-.linha-formulario-sobre-button{
+.linha-formulario-sobre-button,
+.linha-formulario-sobre-img{
     width: 100%;
     height: 100px;
     margin-bottom: 10px;
@@ -228,6 +230,9 @@
 .linha-formulario-sobre-button{
     display:flex;
     justify-content: center;
+}
+.linha-formulario-sobre-img{
+    height: 200px;
 }
 .btn-editar-conteudo{
     width: 200px;
@@ -270,9 +275,9 @@ label#thumbnail{
     background-repeat: no-repeat;
     background-position: center;
     cursor:pointer;
-    height: 100px;
+    height: 175px;
     display:flex;
-    width: 350px;
+    width: 175px;
     justify-content: center;
     align-items: center;
     background-color: rgb(221, 221, 221);
@@ -281,7 +286,15 @@ label#thumbnail{
 label#thumbnail input{
     display: none;
 }
-.coluna-formulario-sobre{
+
+#thumbnail img{
+    width: 95%;
+    height: 95%;
+    border-radius: inherit;
+    z-index: 999;
+}
+.coluna-formulario-sobre,
+.coluna-formulario-sobre-img{
     width: 65%;
     height: 100%;
     float: right;
