@@ -14,6 +14,7 @@
 
     $nomeNivel = (String)"";
     $idmenu = (int) 0;
+    $disabled = (String)"";
 
     $selectedAdmConteudo = "";
     $selectedAdmContato = "";
@@ -24,6 +25,9 @@
     $sombraOffAdmUsuario= "adm-user";
 
     $imgAtivar = "switch_on.png";
+    $imgDesativar = "switch_off.png";
+
+    $status = (String) "";
 
     $permissoes = array ();
 
@@ -39,6 +43,7 @@
             $conexao = conexaoMysql();
 
             $id = $_GET['id'];
+            $disabled = "disabled";
 
             $_SESSION['id_registro'] = $_GET['id'];
            
@@ -117,52 +122,24 @@
             }else {
                 echo("erro ao executar scriptttt");
             }
+        }elseif(($_GET['modo']) == 'status'){
+
+            require_once('../bd/conexao.php');
+            $conexao = conexaoMysql();
+            $idDesativar = $_GET['idativo'];
+            $estado = $_GET['estado'];
+            $tabela = $_GET['tabela'];
+
+            if($estado == 0)
+                $estado = 1;
+            elseif($estado == 1)
+                $estado = 0;
+
+            $sql = "update ".$tabela." set ativado =".$estado." where id =".$idDesativar;
+
+            mysqli_query($conexao, $sql);
+                
         }
-        // }elseif(($_GET['modo']) == 'desativar'){
-
-        //     if (session_status() != PHP_SESSION_ACTIVE){
-        //         session_start();
-        //     }
-
-        //     require_once('../bd/conexao.php');
-        //     $conexao = conexaoMysql();
-
-        //     $idativo = $_GET['idativo'];
-
-        //     $sqlDesativar = "select niveis.ativado from niveis where id = ".$idativo;
-
-        //     $executarDesativacao = mysqli_query($conexao, $sqlDesativar);
-
-        //     if($rsDesativar = mysqli_fetch_array($executarDesativacao)){
-
-        //         if($rsDesativar['ativado'] == 0){
-
-        //             $sqlAcao = "update niveis set ativado = 1 where id = ".$idativo;
-                    
-        //             if(mysqli_query($conexao, $sqlAcao)){
-        //                 $imgAtivar = "switch_on.png";
-        //             }else{
-        //                 echo("erro ao ativar");
-        //             }
-
-        //         }else if($rsDesativar['ativado'] == 1){
-                    
-        //             $sqlAcao = "update niveis set ativado = 0 where id = ".$idativo;
-
-        //             if(mysqli_query($conexao, $sqlAcao)){
-        //                 $imgAtivar = "switch_off.png";
-        //             }else{
-        //                 echo("erro ao Desativar");
-        //             }
-        //         }
-
-        //     }else{
-        //         echo ("fogo na babilonia");
-        //     }
-
-            
-
-        // }
     }
 ?>
 
@@ -176,6 +153,22 @@
         <link rel="stylesheet" href="./css/cms-styles.css">
         <script src="js/jquery.js"></script>
         <script src="js/confirmacao.js"></script>
+        <script>
+            $(document).ready(function(){
+                let estado = true;
+                
+                $('#editar-senha').click(function(){
+
+                    if( estado == true ){
+                        $('.cadastroUsuarioInput-senha').removeAttr("disabled");
+                        estado = false;
+                    }else{
+                        $('.cadastroUsuarioInput-senha').prop("disabled",'true');
+                        estado = true;
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
         <section id="cms">
@@ -210,9 +203,34 @@
                                     <div class="nomeDoCampo">
                                         senha
                                     </div>
+                    
+                                    <?php
+                                    if(isset($_GET['modo'])){
+                                        if($_GET['modo'] == 'editar'){
+     
+                                    ?>
                                     <div class="valorDoCampo">
-                                        <input type="password" name="senhaUsuario" class="cadastroUsuarioInput" value="<?=$senha?>">
+                                        <input type="password" name="senhaUsuario" class="cadastroUsuarioInput-senha" <?=$disabled?> value="<?=$senha?>">
+                                        Nova senha <input type="checkbox" name="ativar" id="editar-senha" value='ativo'>
                                     </div>
+                                    <?php
+
+                                        }else if($_GET['modo'] == 'status' || $_GET['modo'] == 'editarnivel'){
+                                    ?>
+                                    <div class="valorDoCampo">
+                                        <input type="password" name="senhaUsuario" class="cadastroUsuarioInput-senha" <?=$disabled?> value="">
+                                    </div>
+                                    <?php
+                                        }
+                                    }else if (!isset($_GET['modo'])){
+                                    ?>
+                                    <div class="valorDoCampo">
+                                        <input type="password" name="senhaUsuario" class="cadastroUsuarioInput-senha" <?=$disabled?> value="">
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+                                    
                                 </div>
 
                                 <div class="linhaFormularioCadastro">
@@ -361,6 +379,12 @@
                                         $cor = '';
                                         $ativarZebrado = true;
                                     }  
+
+                                    if($rsConsulta['ativado'] == 1){
+                                        $status = $imgAtivar;
+                                    }elseif($rsConsulta['ativado'] == 0){
+                                        $status = $imgDesativar;
+                                    }
                             ?>
                             <div class="linha-tabela-usuarios <?=$cor?>">
                                 <div class="coluna-tabela-usuarios">
@@ -378,8 +402,10 @@
                                     </a>
                                     <a href="adm-users.php?modo=editar&id=<?=$rsConsulta['id']?>">
                                         <img src="icon/edit1.png" alt="icon_edit">
-                                    </a>    
-                                    <img src="icon/switch_on.png" alt="icon_togle">
+                                    </a>
+                                    <a href="adm-users.php?modo=status&idativo=<?=$rsConsulta['id']?>&estado=<?=$rsConsulta['ativado']?>&tabela=usuarios">    
+                                        <img src="icon/<?=$status?>" alt="icon_togle">
+                                    </a>   
                                 </div>
                             </div>
                             <?php
@@ -441,7 +467,7 @@
                                         }
                                         else if(isset($_GET['modo']))
                                         {
-                                            if($_GET['modo'] == "editarnivel" || $_GET['modo'] == "desativar")
+                                            if($_GET['modo'] == "editarnivel" || $_GET['modo'] == "editar" || $_GET['modo'] == "status")
                                             {
                                     ?>
                                     <div class="linhaFormularioCadastrocheck">
@@ -502,7 +528,7 @@
                                     $cor = (string) "";
                                     $ativarZebrado = true;
                                    
-                                    $sql = "select niveis.nome,niveis.id from niveis";
+                                    $sql = "select niveis.nome,niveis.id,niveis.ativado from niveis";
 
                                     $select = mysqli_query($conexao, $sql);
 
@@ -514,6 +540,12 @@
                                         }else if($ativarZebrado == false){
                                             $cor = '';
                                             $ativarZebrado = true;
+                                        }
+
+                                        if($rsNiveisCadastrados['ativado'] == 1){
+                                            $status = $imgAtivar;
+                                        }elseif($rsNiveisCadastrados['ativado'] == 0){
+                                            $status = $imgDesativar;
                                         }
                                 ?>
                                 <div class="linha-tabela-niveis <?=$cor?>">
@@ -552,9 +584,10 @@
                                     </a>
                                     <a href="adm-users.php?modo=editarnivel&idnivel=<?=$rsNiveisCadastrados['id']?>">
                                         <img src="icon/edit1.png" alt="icon_edit">
-                                    </a>    
-                                    <a href="adm-users.php?modo=desativar$idativo=<?=$rsNiveisCadastrados['id']?>">
-                                        <img src="icon/<?=$imgAtivar?>" alt="icon_togle">
+                                    </a>
+
+                                    <a href="adm-users.php?modo=status&idativo=<?=$rsNiveisCadastrados['id']?>&estado=<?=$rsNiveisCadastrados['ativado']?>&tabela=niveis">
+                                        <img src="icon/<?=$status?>" alt="icon_togle">
                                     </a>
                                     </div>
                                 </div>

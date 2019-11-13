@@ -23,7 +23,7 @@ if(!isset($_SESSION)){
 
             $_SESSION['nome'] = $rsUsuario['nome'];
     
-            if($rsUsuario['email'] == $usuario && $rsUsuario['senha'] == $senha){
+            if($rsUsuario['email'] == $usuario && $rsUsuario['senha'] == $senha && $rsUsuario['ativado'] == 1){
     
                 $sqlNivel ="select menus.* from nivel_menu 
                 inner join menus on nivel_menu.id_menu = menus.id where nivel_menu.id_nivel =".$rsUsuario['idnivel']."";
@@ -41,7 +41,7 @@ if(!isset($_SESSION)){
 
                 header('location: ../cms/'.$niveisPermissoes[0]);
             }else{
-                echo("usuario ou senha incorretos");
+                echo("usuario ou senha incorretos ou o usuarios esta desativado");
             }
         }else{
             echo("Os campos de usuario e senha devem ser preenchidos");

@@ -620,12 +620,17 @@ label#thumbnail input{
     width: 350px;
     height: inherit;
     display: flex;
-    justify-content: center;
+    
     align-items: center;
 }
-.cadastroUsuarioInput{
+.cadastroUsuarioInput,
+.cadastroUsuarioInput-senha{
     width:310px;
     height:25px;
+}
+.cadastroUsuarioInput-senha{
+    width: 200px;
+    margin-right: 10px;
 }
 #nivelAdm label, #nivelContato label, #NivelConteudo label{
     display: flex;
@@ -785,7 +790,7 @@ label img{
     cursor: pointer;
 }
 .zebrado{
-    background-color: rgb(225, 226, 255);
+    background-color: rgb(236, 237, 247);
 }
 .sombra-off{
     box-shadow: none;

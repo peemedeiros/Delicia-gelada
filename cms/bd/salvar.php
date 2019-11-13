@@ -22,12 +22,22 @@ if(isset($_POST['btn-cadastrar'])){
         values('".$nome."','".$email."','".$senha."','".$dt_nasc."',".$idsetor.",".$idnivel.")";
 
     }elseif(strtoupper($_POST['btn-cadastrar']) == "EDITAR"){
-        $sql = "update usuarios set nome='".$nome."',
-        email='".$email."',senha='".$senha."',
-        dt_nasc='".$dt_nasc."',idsetor=".$idsetor.",
-        idnivel=".$idnivel." where id = ".$_SESSION['id_registro']."
-        ";
+        
+        if(isset($_POST['ativar'])){
+            $sql = "update usuarios set nome='".$nome."',
+            email='".$email."',senha='".$senha."',
+            dt_nasc='".$dt_nasc."',idsetor=".$idsetor.",
+            idnivel=".$idnivel." where id = ".$_SESSION['id_registro']."
+            ";
+        }else{
+            $sql = "update usuarios set nome='".$nome."',
+            email='".$email."',
+            dt_nasc='".$dt_nasc."',idsetor=".$idsetor.",
+            idnivel=".$idnivel." where id = ".$_SESSION['id_registro']."
+            ";
+        }
     }
+    
     
     if(mysqli_query($conexao, $sql))
         header('location:../adm-users.php');

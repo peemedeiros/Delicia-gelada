@@ -195,7 +195,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {//Verificar se a sessão não já e
             
                     }
                 }
-            }else if($_POST['adm_user'] == 3){
+            }else if($_POST['adm_user'] == 0){
 
                 $sqlEditarNivelAdmUser = "select niveis.id from niveis where nome ='".$nomeNivel."'";
 
