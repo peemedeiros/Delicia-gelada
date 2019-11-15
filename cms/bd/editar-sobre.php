@@ -27,7 +27,7 @@
                 $ext_arquivo = $_FILES['flefoto']['type'];
                 if(in_array($ext_arquivo, $arquivos_permitidos)){
 
-                    if($tamanho_arquivo <2048){
+                    if($tamanho_arquivo < 2048){
 
                         $nome_arquivo = pathinfo($_FILES['flefoto']['name'], PATHINFO_FILENAME);
 

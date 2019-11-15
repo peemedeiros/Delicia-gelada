@@ -64,3 +64,6 @@
 		</form>
 	</div>
 </header>
+<div class="estrutura-auxiliar">
+
+</div>
