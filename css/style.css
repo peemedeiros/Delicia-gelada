@@ -510,21 +510,29 @@ nav .menu_itens:hover > .menu-dropdown {
 
 /*	Conteudo (pagina SOBRE)	*/
 
-#sobre{
+.sobre,
+.sobre2{
 	width: 100%;
 	height: 750px;
 	background-image: linear-gradient(to bottom,#b9e6a0,#E2F8AF);
 	padding-top: 100px;
 }
-#sobre h2{
+.sobre2{
+	background-image: unset;
+}
+.sobre h2,
+.sobre2 h2{
 	display: none;
 }
-.img_principal_sobre{
+.img_principal_sobre,
+.img_principal_sobre_right{
 	width: 765px;
 	height: 750px;
 	float: left;
-	
 	background-size: cover;
+}
+.img_principal_sobre_right{
+	float: right;
 }
 .img_principal_sobre img{
 	width: inherit;

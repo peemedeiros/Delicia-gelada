@@ -11,7 +11,7 @@ if(isset($_POST['btn-cadastrar'])){
 
     $nome = $_POST['nomeUsuario'];
     $email = $_POST['emailUsuario'];
-    $senha = $_POST['senhaUsuario'];
+    $senha = md5($_POST['senhaUsuario']);
     $dt_nasc = $_POST['dtNascimentoUsuario'];
     $idsetor = $_POST['setor'];
     $idnivel = $_POST['nivel'];

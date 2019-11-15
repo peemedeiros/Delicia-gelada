@@ -1,6 +1,6 @@
 <?php
     if(isset($_POST['btn-editar-conteudo'])){
-
+        session_start();
         require_once('conexao.php');
         $conexao = conexaoMysql();
 
@@ -42,7 +42,7 @@
                         $diretorio = "arquivos/";
 
                         if(move_uploaded_file($arquivo_temp, $diretorio.$foto)){
-                            if(strtoupper($_POST['btn-editar-conteudo']) == "EDITAR"){
+                            if(strtoupper($_POST['btn-editar-conteudo']) == "INSERIR"){
                                 $sql="insert into pagina_sobre (titulo, texto, imagem) values ('".$titulo."','".$texto."','".$foto."')";
 
                                 if(mysqli_query($conexao, $sql)){
@@ -50,7 +50,17 @@
                                 }else{
                                     echo ("erro ao executar o script");
                                 }
-                            } // aqui vira o ekse if para a futura edição
+                            }elseif(strtoupper($_POST['btn-editar-conteudo']) == "EDITAR"){
+                                
+                                // aqui vira o else if para a futura edição
+                                $sql="update pagina_sobre set titulo='".$titulo."', texto='".$texto."' , imagem='".$foto."' where id=".$_SESSION['id'];
+
+                                if(mysqli_query($conexao, $sql)){
+                                    header('location:../adm-conteudo-sobre.php');
+                                }else{
+                                    echo ("erro ao executar o script2");
+                                }
+                            }
                         }else{
                             echo("<script> nao foi possivel enviar o arquivo para o servidor </script>");
                         }
