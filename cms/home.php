@@ -29,12 +29,16 @@
                             </a>
                         </div>
                         <div class="cms-conteudo-itens">
-                            <img src="../icon/home.png">
-                            <h4 class="titulo4 float-left">home</h4>
+                            <a href="adm-conteudo-lojas.php">
+                                <img src="../icon/icon-local2.png">
+                                <h4 class="titulo4 float-left">PAGINA LOJAS</h4>
+                            </a> 
                         </div>
-                        <div class="cms-conteudo-itens">
-                            <img src="../icon/home.png">
-                            <h4 class="titulo4 float-left">home</h4>
+                        <div class="cms-conteudo-itens"> 
+                            <a href="adm-conteudo-curiosidades.php">
+                                <img src="icon/online-question.png">
+                                <h4 class="titulo4 float-left">PAGINA CURIOSIDADES</h4>
+                            </a>
                         </div>
                          <div class="cms-conteudo-itens">
                             <img src="../icon/home.png">

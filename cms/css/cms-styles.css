@@ -453,7 +453,139 @@ label#thumbnail input{
 .txt2{
     width: 50px;
 }
+/* ****************************************************ADM CONTEUDO LOJAS */
+.lojas{
+    width: 100%;
+    height: 600px;
+    border-left: solid 2px #000;
+    border-right: solid 2px #000;
+    border-top: solid 2px #000;
+    clear: both;
+    display: flex;
+    align-items: center;
+}
+.formulario-cadastro-lojas{
+    width: 450px;
+    height: 500px;
+    border: solid 1px #ccc;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.418);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.formulario-cadastro-lojas h5{
+    width: 350px;
+    
+    padding: 0;
+    color: #000;
+    text-align: left;
+}
+#txtLoja{
+    width: 445px;
+    height: 50px;
+    font-size: 35px;
+    font-weight: bold;
+    color:#a51e36;
+    
+    margin-bottom: 20px;
+}
+#txtCep{
+    width: 195px;
+    height: 25px;
+    font-size: 22px;
+    
+}
+#txtLogradouro{
+    width: 235px;
+    height: 25px;
+    font-size: 22px;
+}
+#txtEstado,
+#txtNumero{
+    width: 100px;
+    height: 25px;
+    font-size: 22px;
+}
+#txtBairro,
+#txtCidade,
+#txtMaps{
+    width: 315px;
+    height: 25px;
+    font-size: 22px;
+}
+#txtMaps{
+    width: 99%;
+}
+.campo-endereco-form,.campo-endereco-form-rua,
+.campo-endereco-form-bairro,
+.campo-endereco-form-estado,
+.campo-endereco-form-url{
+    width: 200px;
+    height: auto;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.campo-endereco-form-rua{
+    width: 240px;
+    margin: 0;
+}
+.campo-endereco-form-bairro{
+    width: 320px;
+}
+.campo-endereco-form-estado{
+    width: 100px;
+}
+.campo-endereco-form-url{
+    width: 100%;
+}
+.campo-endereco-form h5,
+.campo-endereco-form-rua h5,
+.campo-endereco-form-bairro h5
+,.campo-endereco-form-estado h5,
+.campo-endereco-form-url h5{
+    margin: 0;
+}
+.endereco-form{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.btn-lojas{
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.lojas-layout{
+    width: 100%;
+    height: 600px;
 
+    box-sizing: border-box;
+    padding: 10px;
+}
+.lojas-cards-layout{
+    width: 280px;
+    height: 260px;
+    float: left;
+    border-radius: 10px;
+    border:solid 1px #ccc;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.418);
+
+}
+.lojas-cards-layout h5{
+    text-align: left;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+}
 /* ADM CONTATO */
 .estrutura-adm-conteudo{
     min-height: 700px;

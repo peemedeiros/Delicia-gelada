@@ -67,6 +67,7 @@ $desativo = (String) "switch_off.png";
         $(document).ready(function(){
             $('#upload-img').change(function(){
                 const file =$(this)[0].files[0];
+                console.log(file);
                 const fileReader = new FileReader();
                 fileReader.onloadend = function(){
                     $('#preview-img').attr('src',fileReader.result);
