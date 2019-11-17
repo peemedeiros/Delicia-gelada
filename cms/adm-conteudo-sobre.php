@@ -161,7 +161,7 @@ $desativo = (String) "switch_off.png";
                                     </a>
                                 </div>
                                 <div class="opcoes-item">
-                                    <a onclick="return confirm('deseja realmente excluir esse conteudo?');" href="bd/delete-pagina-sobre.php?modo=deletar&id=<?=$rsConsulta['id']?>">
+                                    <a onclick="return confirm('deseja realmente excluir esse conteudo?');" href="bd/delete-pagina-sobre.php?modo=deletar&id=<?=$rsConsulta['id']?>&nomefoto=<?=$rsConsulta['imagem']?>">
                                         <img src="icon/cancel.png" alt="deletar">
                                     </a>
                                 </div>

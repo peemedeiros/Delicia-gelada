@@ -1,3 +1,65 @@
+<?php
+
+$nome = (String) "";
+$cep = (String) "";
+$logradouro = (String) "";
+$bairro = (String) "";
+$numero = (String) "";
+$cidade = (String) "";
+$estado = (String) "";
+$link = (String) "";
+$ativado = (int) 1;
+$imgAtivar = "switch_on.png";
+$imgDesativar = "switch_off.png";
+
+
+$botao = (String) "CADASTRAR";
+
+require_once('bd/conexao.php');
+$conexao = conexaoMysql();
+
+if(isset($_GET['modo'])){
+    if($_GET['modo'] == "editar"){
+        session_start();
+
+        $id = $_GET['id'];
+        $_SESSION['id'] = $id;
+
+        $sql = "select pagina_lojas.* from pagina_lojas where id = ".$id;
+
+        $select = mysqli_query($conexao, $sql);
+
+        if($rsEditar = mysqli_fetch_array($select)){
+            $nome = $rsEditar['nome'];
+            $cep = $rsEditar['cep'];
+            $logradouro = $rsEditar['logradouro'];
+            $bairro = $rsEditar['bairro'];
+            $numero = $rsEditar['numero'];
+            $cidade = $rsEditar['cidade'];
+            $estado = $rsEditar['estado'];
+            $link = $rsEditar['link'];
+
+            $botao = "EDITAR";
+        }
+    }elseif($_GET['modo'] == "status"){
+
+        $id = $_GET['id'];
+        $ativado = $_GET['ativado'];
+
+        if($ativado == 0)
+            $ativado = 1;
+        elseif($ativado == 1)
+            $ativado = 0;
+
+        $sql = "update pagina_lojas set ativado =".$ativado." where id =".$id;
+
+        mysqli_query($conexao, $sql);
+
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,53 +78,106 @@
                     require_once('./modulos/cms-header.php');
                 ?>
                 <div class="lojas">
-                    <form action="" name="frm-lojas" method="POST">    
+                    <form action="bd/salvar-lojas.php" name="frm-lojas" method="POST">    
                         <div class="formulario-cadastro-lojas">
                             <h5>NOME DA LOJA</h5>
-                            <input type="text" name="txt-loja" id="txtLoja">
+                            <input value="<?=$nome?>" type="text" name="txt-loja" id="txtLoja">
 
                             <div class="endereco-form">
                                 <div class="campo-endereco-form">
                                     <h5>CEP</h5>
-                                    <input type="text" name="txt-cep" id="txtCep">
+                                    <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank">
+                                        <img src="icon/brazil-correios.svg" alt="Correios">
+                                        <div class="legenda-correios">
+                                            <h6>BUSQUE O CEP</h6>
+                                        </div>
+                                    </a>
+                                    <input value="<?=$cep?>" type="text" name="txt-cep" id="txtCep">
                                 </div>
 
                                 <div class="campo-endereco-form-rua">
                                     <h5>Logradouro</h5>
-                                    <input type="text" name="txt-logradouro" id="txtLogradouro">
+                                    <input value="<?=$logradouro?>" type="text" name="txt-logradouro" id="txtLogradouro">
                                 </div>
                                 <div class="campo-endereco-form-bairro">
                                     <h5>Bairro</h5>
-                                    <input type="text" name="txt-bairro" id="txtBairro">
+                                    <input value="<?=$bairro?>" type="text" name="txt-bairro" id="txtBairro">
                                 </div>
                                 <div class="campo-endereco-form-estado">
                                     <h5>Numero</h5>
-                                    <input type="text" name="txt-numero" id="txtNumero">
+                                    <input value="<?=$numero?>" type="text" name="txt-numero" id="txtNumero">
                                 </div>
                                 <div class="campo-endereco-form-bairro">
                                     <h5>Cidade</h5>
-                                    <input type="text" name="txt-cidade" id="txtCidade">
+                                    <input value="<?=$cidade?>" type="text" name="txt-cidade" id="txtCidade">
                                 </div>
                                 <div class="campo-endereco-form-estado">
                                     <h5>UF</h5>
-                                    <input type="text" name="txt-estado" id="txtEstado">
+                                    <input value="<?=$estado?>" type="text" name="txt-estado" id="txtEstado">
                                 </div>
                                 <div class="campo-endereco-form-url">
                                     <h5>Google Maps URL</h5>
-                                    <input type="url" name="url-maps" id="txtMaps">
+                                    <a href="https://www.google.com.br/maps" target="_blank">
+                                        <img src="icon/google-maps.png" alt="googleMaps" >
+                                        <div class="legenda-maps">
+                                            <h6>ACESSE O MAPS</h6>
+                                        </div>
+                                    </a>
+                                        <input value="<?=$link?>" type="url" name="url-maps" id="txtMaps">
                                 </div>
                                 <div class="btn-lojas">
-                                    <input type="submit" value="CADASTRAR" class="botao">
+                                    <input type="submit" value="<?=$botao?>" class="botao" name="btn-lojas">
                                 </div>
                             </div>
                         </form>
                         </div>
                     <div class="lojas-layout">
-                        <div class="header-layout"> NAV BAR</div>
-                        <div class="lojas-cards-layout">
-                            <h5>LOJA</h5>
-                        </div>
+                        <div class="header-layout texto-branco"> NAV BAR</div>
+
+                        <?php
+
+                        require_once('bd/conexao.php');
+                        $conexao = conexaoMysql();
                         
+                        $sql = "select pagina_lojas.* from pagina_lojas";
+
+                        $select = mysqli_query($conexao, $sql);
+
+                        while($rsConsulta = mysqli_fetch_array($select)){
+                            if($rsConsulta['ativado'] == 1)
+                                $ativado = $imgAtivar;
+                            elseif($rsConsulta['ativado'] == 0)
+                                $ativado = $imgDesativar;
+                        ?>
+                        <div class="lojas-cards-layout">
+                            <h5><?=$rsConsulta['nome']?></h5>
+                            <div class="lojas-content-layout">
+                                <div class="layout-endereco"></div>
+                                <div class="layout-endereco2"></div>
+                                <div class="layout-endereco"></div>
+                                <div class="layout-endereco3"></div>
+                                <div class="layout-endereco"></div>
+                            </div>
+                            <div class="opcoes-lojas">
+                                <a href="adm-conteudo-lojas.php?modo=status&id=<?=$rsConsulta['id']?>&ativado=<?=$rsConsulta['ativado']?>">
+                                    <img src="icon/<?=$ativado?>" alt="ativar">
+                                </a>
+                                <a href="bd/deletar-lojas.php?modo=deletar&id=<?=$rsConsulta['id']?>">
+                                    <img src="icon/cancel.png" alt="delete">
+                                </a>
+                            </div>
+                            <div class="editar-lojas-layout">
+                                <a href="adm-conteudo-lojas.php?modo=editar&id=<?=$rsConsulta['id']?>">
+                                    <h3>EDITAR</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <?php
+                        
+                        }
+                        
+                        ?>
+
                     </div>
                 </div>
 
@@ -71,5 +186,6 @@
                 ?>
             </div>
         </section>
+        <script src="js/viacep.js"></script>
     </body>
 </html>

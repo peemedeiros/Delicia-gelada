@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    session_destroy();
+    unset( $_SESSION );
+?>
 <!DOCTYPE html>
 <html lang="pt">
     <head>

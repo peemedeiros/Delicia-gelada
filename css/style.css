@@ -707,6 +707,19 @@ nav .menu_itens:hover > .menu-dropdown {
 	font-weight: bold;
     
 }
+.caixa_seletor_localizacao .img{
+	width: 40px;
+    height: 40px;
+	padding: 5px;
+	background-color: #ccc;
+    box-sizing: border-box;
+    background: url('../cms/icon/filter.png');
+    background-size: cover;
+    padding: 12px;
+}
+.caixa_seletor_localizacao .img:hover{
+	cursor: pointer;
+}
 .titulo2{
     font-size: 22px;
     margin-bottom: 20px;
