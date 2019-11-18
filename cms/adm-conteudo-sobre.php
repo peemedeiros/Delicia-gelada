@@ -1,5 +1,5 @@
 <?php
-
+//declaração de variaveis
 $texto = (String) "";
 $titulo = (String) "";
 $imagem = (String) "";
@@ -7,18 +7,25 @@ $botao = (String) "INSERIR";
 $ativo = (String) "switch_on.png";
 $desativo = (String) "switch_off.png";
 
+//verifica se há a variavel modo na url
     if(isset($_GET['modo'])){
         if($_GET['modo'] == 'editar'){
+
+            // starta a sessão
             session_start();
+
+            //conexao com o banco
             require_once('bd/conexao.php');
             $conexao = conexaoMysql();
 
             $id= $_GET['id'];
-
+            //variavel de sessão que será utilizada no update do arquivo editar-sobre.php
             $_SESSION['id'] = $id;
 
+            //estado do botao sendo mudado para acessar a query de update
             $botao = "EDITAR";
 
+            //query para trazer os dados do registro que fora selecionado para editar
             $sql = "select pagina_sobre.* from pagina_sobre where id=".$id;
 
             $select = mysqli_query($conexao, $sql);
@@ -31,6 +38,7 @@ $desativo = (String) "switch_off.png";
                 $imagem = $rsEditar['imagem'];
             
             }
+            //entra no modo de ativar e desativar
         }elseif($_GET['modo']=='status'){
             require_once('bd/conexao.php');
             $conexao = conexaoMysql();
@@ -43,10 +51,13 @@ $desativo = (String) "switch_off.png";
             }elseif($status == 0){
                 $status = 1;
             }
-
+            
+            //query para mudar o estado do registro
             $sql = "update pagina_sobre set ativado = ".$status." where id =".$id;
 
-            mysqli_query($conexao, $sql);
+            if(mysqli_query($conexao, $sql)){
+                header('location: adm-conteudo-sobre.php');
+            }
 
         }
     }
@@ -64,14 +75,21 @@ $desativo = (String) "switch_off.png";
     <title>Delicia Gelada - CMS</title>
     <script src="./js/jquery.js"></script>
     <script>
+        //Jquery para enxergar um PREVIEW da imagem selecionada para ser "uploadada".
         $(document).ready(function(){
+            //aplica um evento de mudança quando a imagem é selecionada.
             $('#upload-img').change(function(){
+                //retornando um objeto com varios atributos, o 'files' é o atributo em que se encontra o arquivo selecionado
                 const file =$(this)[0].files[0];
+                //ira executar a leitura do arquivo selecionado
                 console.log(file);
+                
                 const fileReader = new FileReader();
+                //aplicará a function de adicionar um atributo SRC na tag IMG com o retorno da função readAsDataURL()
                 fileReader.onloadend = function(){
                     $('#preview-img').attr('src',fileReader.result);
                 }
+                //lê o arquivo do tipo FILE e converte para uma URL
                 fileReader.readAsDataURL(file);
             });
         });
@@ -92,9 +110,9 @@ $desativo = (String) "switch_off.png";
                             <div class="formulario-sobre">
                                 <div class="linha-formulario-sobre">
                                     TITULO
-                                    <input type="text" name="txt-titulo" id="txt-titulo-sobre" value="<?=$titulo?>">
+                                    <input type="text" name="txt-titulo" id="txt-titulo-sobre" value="<?=$titulo?>" required>
                                     TEXTO
-                                    <textarea name="txt-conteudo-sobre" id="txt-conteudo-sobre"><?=$texto?></textarea>
+                                    <textarea name="txt-conteudo-sobre" id="txt-conteudo-sobre" required><?=$texto?></textarea>
                                     
                                 </div>
             
@@ -105,6 +123,10 @@ $desativo = (String) "switch_off.png";
                                                 <input type="file" name="flefoto" id="upload-img">
                                                 
                                                 <?php
+                                                //Uma verificação para adicionar a TAG IMG de acordo com o modo da pagina
+                                                //verifica e coloca a imagem cadastrada no banco no modo editar
+                                                //adiciona uma imagem padrão por fins de validação no W3C quando não há imagem no registo, 
+                                                //essa imagem padrao não é cadastrada se uma imagem não for selecionada
                                                 if(isset($_GET['modo'])){
                                                     if($_GET['modo'] == 'editar'){
                                                 ?>        
@@ -113,7 +135,7 @@ $desativo = (String) "switch_off.png";
                                                     }
                                                 }else{
                                                 ?>
-                                                 <img id="preview-img">
+                                                 <img id="preview-img" src="icon/photo.png" alt="preveiw">
                                                 <?php
                                                 }
                                                 ?>
@@ -143,7 +165,8 @@ $desativo = (String) "switch_off.png";
                                 $sql = "select pagina_sobre.* from pagina_sobre";
 
                                 $select = mysqli_query($conexao, $sql);
-
+                                
+                                //mostra uma pre visualização do conteudo cadastrado
                                 while($rsConsulta = mysqli_fetch_array($select))
                                 {
                                     $contadora +=1;
@@ -202,17 +225,6 @@ $desativo = (String) "switch_off.png";
                             ?>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-                    
                 </div>
 
                 <?php

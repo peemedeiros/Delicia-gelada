@@ -1,7 +1,12 @@
 <?php
-    session_start();
-    session_destroy();
-    unset( $_SESSION );
+//matando as sessoes ao deslogar
+if(isset($_GET['modo'])){
+    if($_GET['modo'] == "logout"){
+        session_start();
+        session_destroy();
+        unset( $_SESSION );
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt">

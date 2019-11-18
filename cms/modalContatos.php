@@ -1,6 +1,7 @@
 <?php
+//verifica se exite a variavel modo
     if(isset($_POST['modo'])){
-
+        //verifica se o modo é o de visualização 
         if(strtoupper($_POST['modo']) == 'VISUALIZAR'){
 
             require_once('../bd/conexao.php');
@@ -9,11 +10,13 @@
 
             $codigo = $_POST['id'];
 
+            //traz o registro selecionado pelo ID dele no banco
             $sql = "select * from contatos where id =".$codigo;
 
             $select = mysqli_query($conexao, $sql);
 
             if($rsVisualizar = mysqli_fetch_array($select)){
+                //São carregadas as informações que retornam do registro selecionado
                 $nome = strtoupper($rsVisualizar['nome']);
                 $telefone = $rsVisualizar['telefone'];
                 $celular = $rsVisualizar['celular'];
@@ -21,6 +24,7 @@
                 $homepage = $rsVisualizar['homepage'];
                 $facebook = $rsVisualizar['facebook'];
                 $tipo = $rsVisualizar['tipo'];
+                //tratamento de visualização, pois o retorno do valor nessa coluna é apenas a inicial
                     if( $tipo == "C")
                         $tipo = "CRÍTICA";
                     elseif( $tipo == "S")
@@ -29,6 +33,7 @@
                         $tipo = "NÃO ESPECÍFICADO";
                 $mensagem = $rsVisualizar['mensagem'];
                 $sexo = $rsVisualizar['sexo'];
+                //tratamento de visualização, pois o retorno do valor nessa coluna é apenas a inicial
                     if( $sexo == "M")
                         $sexo = "MASCULINO";
                     elseif( $sexo == "F" )

@@ -24,36 +24,36 @@
                     <div class="cms-conteudo">
                         <div class="cms-conteudo-itens">
                             <a href="adm-conteudo-sobre.php">
-                                <img src="./icon/info.png">
+                                <img src="./icon/info.png" alt="info">
                                 <h4 class="titulo4 float-left">PAGINA SOBRE</h4>
                             </a>
                         </div>
                         <div class="cms-conteudo-itens">
                             <a href="adm-conteudo-lojas.php">
-                                <img src="../icon/icon-local2.png">
+                                <img src="../icon/icon-local2.png" alt="local">
                                 <h4 class="titulo4 float-left">PAGINA LOJAS</h4>
                             </a> 
                         </div>
                         <div class="cms-conteudo-itens"> 
                             <a href="adm-conteudo-curiosidades.php">
-                                <img src="icon/online-question.png">
+                                <img src="icon/online-question.png" alt="question">
                                 <h4 class="titulo4 float-left">PAGINA CURIOSIDADES</h4>
                             </a>
                         </div>
                          <div class="cms-conteudo-itens">
-                            <img src="../icon/home.png">
+                            <img src="../icon/home.png" alt="home">
                             <h4 class="titulo4 float-left">home</h4>
                         </div>
                         <div class="cms-conteudo-itens">
-                            <img src="../icon/home.png">
+                            <img src="../icon/home.png" alt="home">
                             <h4 class="titulo4 float-left">home</h4>
                         </div>
                         <div class="cms-conteudo-itens">
-                            <img src="../icon/home.png">
+                            <img src="../icon/home.png" alt="home">
                             <h4 class="titulo4 float-left">home</h4>
                         </div>
                         <div class="cms-conteudo-itens">
-                            <img src="../icon/home.png">
+                            <img src="../icon/home.png" alt="home">
                             <h4 class="titulo4 float-left">home</h4>
                         </div>
                     </div>

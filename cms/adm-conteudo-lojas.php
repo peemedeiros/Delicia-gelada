@@ -1,5 +1,6 @@
 <?php
 
+//declaração de variaveis
 $nome = (String) "";
 $cep = (String) "";
 $logradouro = (String) "";
@@ -15,20 +16,27 @@ $imgDesativar = "switch_off.png";
 
 $botao = (String) "CADASTRAR";
 
+//conexao com o banco
 require_once('bd/conexao.php');
 $conexao = conexaoMysql();
 
+//verifica se há a variavel modo na url
 if(isset($_GET['modo'])){
     if($_GET['modo'] == "editar"){
+        // starta a sessão
         session_start();
 
         $id = $_GET['id'];
+
+        //variavel de sessão que será utilizada no update do arquivo salvar-lojas.php
         $_SESSION['id'] = $id;
 
+        //consulta no banco para trazer lojas cadastradas
         $sql = "select pagina_lojas.* from pagina_lojas where id = ".$id;
 
         $select = mysqli_query($conexao, $sql);
 
+        //trazer o registro em formato ARRAY e carregar nas variaveis os valores de acordo com as colunas da tabela no banco de dados
         if($rsEditar = mysqli_fetch_array($select)){
             $nome = $rsEditar['nome'];
             $cep = $rsEditar['cep'];
@@ -38,9 +46,11 @@ if(isset($_GET['modo'])){
             $cidade = $rsEditar['cidade'];
             $estado = $rsEditar['estado'];
             $link = $rsEditar['link'];
-
+        
+        //troca o estado do botão para acessao o modo de update
             $botao = "EDITAR";
         }
+        //entra no modo de ativar e desativar
     }elseif($_GET['modo'] == "status"){
 
         $id = $_GET['id'];
@@ -51,9 +61,12 @@ if(isset($_GET['modo'])){
         elseif($ativado == 1)
             $ativado = 0;
 
+        //query para mudar o estado do registro
         $sql = "update pagina_lojas set ativado =".$ativado." where id =".$id;
 
-        mysqli_query($conexao, $sql);
+        if(mysqli_query($conexao, $sql)){
+            header('location: adm-conteudo-lojas.php');
+        }
 
     }
 }
@@ -70,6 +83,7 @@ if(isset($_GET['modo'])){
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="css/cms-styles.css">
         <title>Delicia Gelada - CMS</title>
+        <script src="../js/modulo.js"></script>
     </head>
     <body>
         <section id="cms">
@@ -81,7 +95,7 @@ if(isset($_GET['modo'])){
                     <form action="bd/salvar-lojas.php" name="frm-lojas" method="POST">    
                         <div class="formulario-cadastro-lojas">
                             <h5>NOME DA LOJA</h5>
-                            <input value="<?=$nome?>" type="text" name="txt-loja" id="txtLoja">
+                            <input value="<?=$nome?>" type="text" name="txt-loja" id="txtLoja" required >
 
                             <div class="endereco-form">
                                 <div class="campo-endereco-form">
@@ -92,28 +106,28 @@ if(isset($_GET['modo'])){
                                             <h6>BUSQUE O CEP</h6>
                                         </div>
                                     </a>
-                                    <input value="<?=$cep?>" type="text" name="txt-cep" id="txtCep">
+                                    <input value="<?=$cep?>" type="text" name="txt-cep" id="txtCep" onkeypress="return mascaraCep(this,event);" required>
                                 </div>
 
                                 <div class="campo-endereco-form-rua">
                                     <h5>Logradouro</h5>
-                                    <input value="<?=$logradouro?>" type="text" name="txt-logradouro" id="txtLogradouro">
+                                    <input value="<?=$logradouro?>" type="text" name="txt-logradouro" id="txtLogradouro" required >
                                 </div>
                                 <div class="campo-endereco-form-bairro">
                                     <h5>Bairro</h5>
-                                    <input value="<?=$bairro?>" type="text" name="txt-bairro" id="txtBairro">
+                                    <input value="<?=$bairro?>" type="text" name="txt-bairro" id="txtBairro" required >
                                 </div>
                                 <div class="campo-endereco-form-estado">
                                     <h5>Numero</h5>
-                                    <input value="<?=$numero?>" type="text" name="txt-numero" id="txtNumero">
+                                    <input value="<?=$numero?>" type="text" name="txt-numero" id="txtNumero" onkeypress="return validarEntrada(event,'string');" required >
                                 </div>
                                 <div class="campo-endereco-form-bairro">
                                     <h5>Cidade</h5>
-                                    <input value="<?=$cidade?>" type="text" name="txt-cidade" id="txtCidade">
+                                    <input value="<?=$cidade?>" type="text" name="txt-cidade" id="txtCidade" required >
                                 </div>
                                 <div class="campo-endereco-form-estado">
                                     <h5>UF</h5>
-                                    <input value="<?=$estado?>" type="text" name="txt-estado" id="txtEstado">
+                                    <input value="<?=$estado?>" type="text" name="txt-estado" id="txtEstado" onkeypress="return mascaraUf(this,event);" required >
                                 </div>
                                 <div class="campo-endereco-form-url">
                                     <h5>Google Maps URL</h5>
@@ -123,14 +137,14 @@ if(isset($_GET['modo'])){
                                             <h6>ACESSE O MAPS</h6>
                                         </div>
                                     </a>
-                                        <input value="<?=$link?>" type="url" name="url-maps" id="txtMaps">
+                                        <input value="<?=$link?>" type="url" name="url-maps" id="txtMaps" required>
                                 </div>
                                 <div class="btn-lojas">
                                     <input type="submit" value="<?=$botao?>" class="botao" name="btn-lojas">
                                 </div>
                             </div>
-                        </form>
                         </div>
+                    </form>
                     <div class="lojas-layout">
                         <div class="header-layout texto-branco"> NAV BAR</div>
 
@@ -143,6 +157,7 @@ if(isset($_GET['modo'])){
 
                         $select = mysqli_query($conexao, $sql);
 
+                        //mostra uma pre visualização das lojas cadastradas
                         while($rsConsulta = mysqli_fetch_array($select)){
                             if($rsConsulta['ativado'] == 1)
                                 $ativado = $imgAtivar;

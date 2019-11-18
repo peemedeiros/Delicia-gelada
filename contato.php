@@ -35,7 +35,7 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-nome" class="label" onkeypress="return validarEntrada(event,'numeric');" maxlength="100" required>
+									<input type="text" value="" name="txt-nome" class="label" onkeypress="return mascaraUf(this,event);" maxlength="2" required>
 								</div>
 							</div>
 							<div class="itens-formulario">

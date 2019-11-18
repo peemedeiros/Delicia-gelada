@@ -1,5 +1,5 @@
 <?php
-    //declaração de variaveis
+    //declaração de variaveis e array
     
     $nome = (String) "";
     $email = (String) "";
@@ -12,6 +12,7 @@
     $title = (String)"CADASTRAR NOVO USUARIO";
     $titleNivel = (String) "CRIAR NOVO NIVEL";
 
+    $modo = (String)"";
     $nomeNivel = (String)"";
     $idmenu = (int) 0;
     $disabled = (String)"";
@@ -31,29 +32,37 @@
 
     $permissoes = array ();
 
+
+//verificação para entrar no modo de edição de usuarios
     if(isset($_GET['modo'])){
 
         if(($_GET['modo']) == "editar"){
 
+            //startando sessão
             if (session_status() != PHP_SESSION_ACTIVE) {//Verificar se a sessão não já está aberta.
                 session_start();
               }
-
+              //conexao com o banco
             require_once('../bd/conexao.php');
             $conexao = conexaoMysql();
 
             $id = $_GET['id'];
-            $disabled = "disabled";
 
+            //mudando o valor da variavel para adicionado um disabled no menu em que o usuario nao tem permissão
+            $disabled = "disabled";
+            
+            //criando variavel de sessao para o update
             $_SESSION['id_registro'] = $_GET['id'];
            
+            //query para trazer informaçoes sobre o usuario, o setor em que foi cadastrado e o nivel de permissao do mesmo
+            //estao sendo relacionadas 3 tabelas (usuarios, setor, niveis)
             $trazerInfo = "select usuarios.*, setores.nome as setor, niveis.nome as nivel from usuarios inner join
             setores on usuarios.idsetor = setores.id inner join niveis on usuarios.idnivel = niveis.id where usuarios.id = ".$id;
 
             $select = mysqli_query($conexao, $trazerInfo);
 
             if($rsEditar = mysqli_fetch_array($select)){
-
+            //carregando as informações retornadas do array em variaveis
                 $nome = $rsEditar['nome'];
                 $email = $rsEditar['email'];
                 $senha = $rsEditar['senha'];
@@ -62,22 +71,27 @@
                 $id_setor = $rsEditar['idsetor'];
                 $setor = $rsEditar['setor'];
                 $nivel = $rsEditar['nivel'];
+
+                //mudando o estado do botao e do titulo do formulario
                 $botao = "EDITAR";
                 $title = "EDITAR USUARIO";
 
             }
+            //verificação para entrar no modo de edição de nivel
         }elseif(($_GET['modo']) == 'editarnivel'){
 
             require_once('../bd/conexao.php');
             $conexao = conexaoMysql();
 
+
             $idnivel = $_GET['idnivel'];
 
-
+            //selecionando registro selecionado para editar
             $trazerInfoNivel = "select niveis.nome, niveis.id from niveis where niveis.id =".$idnivel;
 
             $executar = mysqli_query($conexao, $trazerInfoNivel);
 
+            //trazendo informações em array para realizar a consulta dos menus em que o nivel selecionado tem.
             if($rsEditarNivel = mysqli_fetch_array($executar)){
 
                 if (session_status() != PHP_SESSION_ACTIVE) {//Verificar se a sessão não já está aberta.
@@ -90,19 +104,20 @@
                 $_SESSION['idnivel'] = $idNivelConsulta;
                 $botaoNivel = "EDITAR";
                 $titleNivel = "EDITAR NIVEL";
-
+                
+                //selecionando os menus que o nivel selecionado para edição possui
                 $sqlPermissoes = "select menus.id from menus inner join
                 nivel_menu on menus.id = nivel_menu.id_menu where nivel_menu.id_nivel =".$idNivelConsulta;
 
                 $executarPermissoes = mysqli_query($conexao, $sqlPermissoes);
 
                 while( $rsMenusId = mysqli_fetch_array($executarPermissoes)){
-
+                //coloca todos os menus do nivel selecionado no array $permissoes
                     array_push($permissoes, $rsMenusId['id']);
                     
                 }
                
-
+                //mostrar quais permissoes aquele nivel possui, aplicando o efeito de selecionado naquele que o nivel possuir
                 for($i = 0; $i < sizeof($permissoes); $i++){
                     if($permissoes[$i] == "1"){
                         $permissaoAdmConteudo = 1;
@@ -122,6 +137,7 @@
             }else {
                 echo("erro ao executar scriptttt");
             }
+            //modo ativar e desativar
         }elseif(($_GET['modo']) == 'status'){
 
             require_once('../bd/conexao.php');
@@ -142,8 +158,8 @@
         }
     }
 ?>
-
-<html>
+<!DOCTYPE html>
+<html lang="pt">
     <head>
         <title>
             Delicia Gelada - CMS
@@ -154,6 +170,8 @@
         <script src="js/jquery.js"></script>
         <script src="js/confirmacao.js"></script>
         <script>
+
+            //Jquery para aplicar o efeito do menu bloqueado de acordo com o nivel de permissao do usuario
             $(document).ready(function(){
                 let estado = true;
                 
@@ -205,6 +223,7 @@
                                     </div>
                     
                                     <?php
+                                    //traz a senha criptografada e dá ao usuario a opção de ativar o checkbox e alterar a senha antiga
                                     if(isset($_GET['modo'])){
                                         if($_GET['modo'] == 'editar'){
      
@@ -249,7 +268,8 @@
                                     <div class="valorDoCampo">
                                         <select name="nivel" class="cadastroUsuarioInput">
                                                 <?php
-
+                                                //preenche o select do nivel quando o modo de edição for selecionado, trazendo o nivel que o usuario possui
+                                                if(isset($_GET['modo'])){    
                                                     if($_GET['modo'] == 'editar'){
                                                         
                                                 ?>
@@ -257,22 +277,22 @@
                                                 <option value="<?=$id_nivel?>"><?=$nivel?></option>
                                                
                                                 <?php
-                                                    }else{
+                                                    }
+                                                }else{
                                                 ?>
 
                                                 <option value="">Selecione Nivel</option>
                                                
                                                 <?php
-
-                                                    }
-                                         
+                                                
+                                                }
                                                     require_once('../bd/conexao.php');
                                                     $conexao = conexaoMysql();
 
                                                     $sql = "select * from niveis where ativado = 1";
 
                                                     $select = mysqli_query($conexao, $sql);
-
+                                                //mostra todos os niveis cadastrados para serem escolhido no cadastro de usuario
                                                     while($rsNiveis = mysqli_fetch_array($select)){
                                                     
                                                     ?>
@@ -293,13 +313,16 @@
                                     <div class="valorDoCampo">
                                         <select name="setor" class="cadastroUsuarioInput">
                                             <?php
+                                            //preenche o select do setor quando o modo de edição for selecionado, trazendo o setor que o usuario possui
+                                            if(isset($_GET['modo'])){
                                                 if($_GET['modo'] == 'editar'){
                                             ?>
 
                                             <option value="<?=$id_setor?>"> <?=$setor?> </option>
                                             
                                             <?php
-                                                }else{
+                                                }
+                                            }else{
                                             ?>
 
                                             <option value="">Selecione Setor</option>
@@ -313,7 +336,7 @@
                                                 $sql = "select * from setores";
 
                                                 $select = mysqli_query($conexao, $sql);
-
+                                             //mostra todos os setores cadastrados para serem escolhido no cadastro de usuario
                                                 while($rsSetores = mysqli_fetch_array($select)){
                                                    
                                                 ?>
@@ -364,12 +387,12 @@
 
                                 $cor = (string) "";
                                 $ativarZebrado = true;
-                                
+                                //query para selecionar os usuarios cadastrados
                                 $sql = "select usuarios.*,niveis.nome as nomesetor from usuarios inner join
                                         niveis on niveis.id = usuarios.idnivel";
 
                                 $select = mysqli_query($conexao, $sql);
-
+                                //traz em uma lista zebrada informações basicas sobre os usuarios cadastrados
                                 while($rsConsulta = mysqli_fetch_array($select)){
                                     
                                     if($ativarZebrado == true){
@@ -452,6 +475,7 @@
 
                                         if(!isset($_GET['modo']))
                                         {
+                                            //mostra os menus pre-cadastrados no banco para serem atribuidos aos niveis
                                             while($rsMenus = mysqli_fetch_array($select))
                                             {
                                     ?>
@@ -467,6 +491,7 @@
                                         }
                                         else if(isset($_GET['modo']))
                                         {
+                                            //ajutando o layout de acordo com o MODO 
                                             if($_GET['modo'] == "editarnivel" || $_GET['modo'] == "editar" || $_GET['modo'] == "status")
                                             {
                                     ?>
@@ -493,7 +518,7 @@
                                         ADMINISTRADOR DE CONTEUDO
                                         <img src="./icon/responsive.png" alt="adm">
                                     </label>
-                                    <label id="<?=$sombraOffAdmContato?>"for="icon2">
+                                    <label id="<?=$sombraOffAdmContato?>" for="icon2">
                                         ADMINISTRADOR DE FALE CONOSCO
                                         <img src="./icon/customer-service.png" alt="adm-contato">
                                     </label>
@@ -532,6 +557,7 @@
 
                                     $select = mysqli_query($conexao, $sql);
 
+                                    //traz em uma lista zebrada todos os niveis cadastrados, mostrando tambem o icone das permissões
                                     while($rsNiveisCadastrados = mysqli_fetch_array($select))
                                     {
                                         if($ativarZebrado == true){
@@ -541,7 +567,7 @@
                                             $cor = '';
                                             $ativarZebrado = true;
                                         }
-
+                                    //mostra os niveis que estao ativados e desativados
                                         if($rsNiveisCadastrados['ativado'] == 1){
                                             $status = $imgAtivar;
                                         }elseif($rsNiveisCadastrados['ativado'] == 0){
@@ -555,7 +581,7 @@
                                     
                                     <div class="coluna-tabela-niveis">
                                         <?php
-                                        
+                                        //query para selecionar o icone dos menus que o nivel possui
                                          $sqlMenus = "
                                          select menus.icone,menus.nome, niveis.nome,niveis.id as idnivel from menus 
                                          inner join nivel_menu on menus.id = nivel_menu.id_menu 

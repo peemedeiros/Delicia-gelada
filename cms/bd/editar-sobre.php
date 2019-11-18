@@ -37,25 +37,12 @@
 
                         if(strtoupper($_POST['btn-editar-conteudo']) == "INSERIR"){
 
-                            if($_FILES['flefoto']['name'] == ''){
+                            $sql="insert into pagina_sobre (titulo, texto, imagem) values ('".$titulo."','".$texto."','".$foto."')";
 
-                                $sql = "insert into pagina_sobre (titulo, texto) values ('".$titulo."','".$texto."')";   
-
-                                if(mysqli_query($conexao, $sql)){
-                                    header('location ../adm-conteudo-sobre.php');
-                                }else{
-                                    echo("erro ao executar o script");
-                                }
-
+                            if(mysqli_query($conexao, $sql)){
+                                header('location:../adm-conteudo-sobre.php');
                             }else{
-
-                                $sql="insert into pagina_sobre (titulo, texto, imagem) values ('".$titulo."','".$texto."','".$foto."')";
-
-                                if(mysqli_query($conexao, $sql)){
-                                    header('location:../adm-conteudo-sobre.php');
-                                }else{
-                                    echo ("erro ao executar o script");
-                                }
+                                echo ("erro ao executar o script");
                             }
 
                         }elseif(strtoupper($_POST['btn-editar-conteudo']) == "EDITAR"){
@@ -80,7 +67,7 @@
             }else{
                 echo("Tipo nao permitido");
             }
-        }else{
+        }elseif($_FILES['flefoto']['size'] == 0 && $_FILES['flefoto']['type'] == ""){
             if(strtoupper($_POST['btn-editar-conteudo']) == "EDITAR"){
 
                 $sql="update pagina_sobre set titulo='".$titulo."', texto='".$texto."' where id=".$_SESSION['id'];
@@ -89,6 +76,15 @@
                     header('location:../adm-conteudo-sobre.php');
                 }else{
                     echo ("erro ao executar o script2");
+                }
+            }elseif(strtoupper($_POST['btn-editar-conteudo']) == "INSERIR"){
+
+                $sql = "insert into pagina_sobre (titulo, texto) values ('".$titulo."','".$texto."')";   
+
+                if(mysqli_query($conexao, $sql)){
+                    header('location: ../adm-conteudo-sobre.php');
+                }else{
+                    echo("erro ao executar o script");
                 }
             }
         }

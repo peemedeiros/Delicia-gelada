@@ -1,21 +1,24 @@
 <?php
-
+//declarando variaveis
 $home = (String) "";
 $admUser = (String) "";
 $admContato = (String) "";
 
 if(!isset($_SESSION)){
-
+    //startando sessao
     session_start();
 
+    //variaveis de sessao sendo criadas para preencher o link dos botoes de menus de acordo com o nivel de permissao do usuario logado
     $_SESSION['home'] = "";
     $_SESSION['adm-users'] = "";
     $_SESSION['adm-contato'] = "";
 
+    //variaveis com as classes que aplicam o efeito de menu desativado 
     $_SESSION['adm-disable'] = "disable-adm-conteudo";
     $_SESSION['adm-user-disable'] = "disable-adm-users";
     $_SESSION['adm-contato-disable'] = "disable-adm-contato";
 
+    //verifica cada elemento do array menus para atribuir um link em uma varivel
     for($i = 0; $i < sizeof($_SESSION['menus']); $i++){
         
         // var_dump($_SESSION['menus'][$i]);
@@ -81,7 +84,7 @@ if(!isset($_SESSION)){
     <div class="cms-itens_login float-right">
         <div class="texto">Bem vindo, <?=$_SESSION['nome']?></div>
         <div class="bnt-log-out">
-            <a href="../index.php">
+            <a href="../index.php?modo=logout">
                 log out
             </a>
         </div>
