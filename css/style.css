@@ -39,7 +39,8 @@ h1, h2, h3,h4, p, ul, li, body,a{
 	line-height: 1.5;
 }
 .conteudo{
-    width: 1500px;
+	width: 100%;
+	max-width: 1500px;
     height: inherit;
 }
 .center{
@@ -120,8 +121,8 @@ h1, h2, h3,h4, p, ul, li, body,a{
 }
 
 .logo{
-    width: 170px;
-    height: 170px;
+	width: 170px;
+	height: 170px;
 	position: absolute;
     float:left;
     margin-right: 30px;
@@ -133,8 +134,9 @@ img{
     height: inherit;
 }
 nav{
-    width: auto;
-    min-width: 100px;
+    width: 100%;
+	min-width: 100px;
+	max-width: 800px;
     height: inherit;
     float:left; 
 }
@@ -206,12 +208,14 @@ nav .menu_itens:hover > .menu-dropdown {
 	opacity: 1;
 }
 .login{
-    width: 500px;
+	width: 100%;
+	max-width: 500px;
     height: inherit;
     float: right;
 }
 .usuario,.senha{
-    width: 220px;
+	width: 100%;
+	max-width: 220px;
     height: inherit;
     float: left;
     box-sizing: border-box;
@@ -220,7 +224,8 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 
 #caixaUsuario,#caixaSenha{
-    width: 200px;
+	max-width: 200px;
+	width: 100%;
     height: 30px;
     border-radius: 10px;
 }
@@ -359,7 +364,8 @@ nav .menu_itens:hover > .menu-dropdown {
 	height: inherit;
 }
 .menu_vertical{
-    width: 250px;
+	width: 100%;
+	max-width: 250px;
     height: inherit;
     background-color:#ffffff;
     float: left;
@@ -423,7 +429,8 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 
 .produtos,.produtos-com-desconto{
-    width: 1000px;
+	width: 100%;
+	max-width: 1000px;
     height: inherit;
     float: left; 
     box-sizing: border-box;
@@ -431,7 +438,8 @@ nav .menu_itens:hover > .menu-dropdown {
     padding-left:10px;
 }
 .caixa_produto{
-    width: 310px;
+	width: 100%;
+	max-width: 310px;
 	height: auto;
     min-height: 400px;
     margin-left: 20px;
@@ -1143,7 +1151,8 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 
 .endereco{
-    width: 850px;
+	width: 100%;
+	max-width: 850px;
     height: inherit;
     float: left;
     box-sizing: border-box;
@@ -1190,4 +1199,58 @@ nav .menu_itens:hover > .menu-dropdown {
 }
 #btn_app:hover{
 	background-color: #d9d9d9;
+}
+/* RESPONSIVO */
+/* HOME */
+
+@media only screen and (min-width:1000px) and (max-width:1500px){
+
+	.conteudo {
+		max-width:1100px;
+	}
+	nav{
+		max-width: 650px;
+	}
+	.usuario,.senha{
+		max-width: 160px;
+	}
+	#caixaUsuario,#caixaSenha{
+		max-width: 130px;
+	}
+	.login{
+		max-width: 380px;
+	}
+	.logo{
+		width: 110px;
+		height: 110px;
+		margin-right:0px;
+	}
+	nav .menu{
+		padding-left: 110px;
+	}
+	.menu_vertical{
+		max-width: 200px;
+	}
+	.caixa_produto{
+		max-width: 275px;
+		min-height: 350px;
+	}
+	.img_produto{
+		width: 200px;
+		height: 200px;
+	}
+	.produtos{
+		max-width: 900px;
+	}
+	.endereco{
+		max-width: 450px;
+	}
+	#seta{
+		right: 5px;
+		top:260px
+	}
+	.sub_menu{
+		left:200px ;
+	}
+
 }
