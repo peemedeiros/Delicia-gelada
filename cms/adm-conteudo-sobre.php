@@ -79,15 +79,7 @@ $desativo = (String) "switch_off.png";
         $(document).ready(function(){
             //aplica um evento de mudança quando a imagem é selecionada.
             $('#upload-img').change(function(){
-<<<<<<< HEAD
                 const file = $(this)[0].files[0];
-=======
-                //retornando um objeto com varios atributos, o 'files' é o atributo em que se encontra o arquivo selecionado
-                const file =$(this)[0].files[0];
-                //ira executar a leitura do arquivo selecionado
-                console.log(file);
-                
->>>>>>> 24cff8ef1d180aa66b70318b44c7c927ab15f3f4
                 const fileReader = new FileReader();
                 //aplicará a function de adicionar um atributo SRC na tag IMG com o retorno da função readAsDataURL()
                 fileReader.onloadend = function(){

@@ -290,7 +290,7 @@ img{
     padding: 5px;
     font-size: 18px;
 }
-label#thumbnail, label#thumbnail-curiosidades{
+label#thumbnail, label#thumbnail-curiosidades,label#thumbnail-produto{
     border: 1px dashed #777;
     background-image: url('../icon/camera.png');
     background-size: 50px;
@@ -313,6 +313,16 @@ label#thumbnail-curiosidades{
     /* background-color: #b9e6a0; */
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.418);
 }
+label#thumbnail-produto{
+    width: 80%;
+    height: 50%;
+    background-color: rgba(204, 204, 204, 0.438);
+    margin:auto;
+}
+label#thumbnail-produto img{
+    width: 100%;
+    height: 100%;
+}
 label#thumbnail input,
 label#thumbnail-curiosidades input{
     display: none;
@@ -332,6 +342,9 @@ label#thumbnail-curiosidades{
     width: 950px;
     height: 400px;
     position: absolute;
+}
+#img-upload-produtos{
+    display: none;
 }
 .coluna-formulario-sobre,
 .coluna-formulario-sobre-img{
@@ -483,7 +496,8 @@ label#thumbnail-curiosidades{
     display: flex;
     align-items: center;
 }
-.formulario-cadastro-lojas{
+.formulario-cadastro-lojas,
+.formulario-cadastro-produtos{
     width: 450px;
     height: 500px;
     border: solid 1px #ccc;
@@ -494,32 +508,42 @@ label#thumbnail-curiosidades{
     display: flex;
     flex-direction: column;
 }
-.formulario-cadastro-lojas h5{
+.formulario-cadastro-lojas h5,
+.formulario-cadastro-produtos h5{
     width: 350px;
-    
     padding: 0;
     color: #000;
     text-align: left;
 }
-#txtLoja{
+#txtLoja,
+#txtproduto{
     width: 445px;
     height: 50px;
     font-size: 35px;
     font-weight: bold;
     color:#a51e36;
-    
     margin-bottom: 20px;
 }
-#txtCep{
+#txtproduto{
+    font-size:22px;
+}
+#txtCep,
+#preco{
     width: 195px;
     height: 25px;
     font-size: 22px;
-    
 }
-#txtLogradouro{
+#preco{
+    width: 100px;
+}
+#txtLogradouro,
+#sltcategoria{
     width: 235px;
     height: 25px;
     font-size: 22px;
+}
+#sltcategoria{
+    height: 30px;
 }
 #txtEstado,
 #txtNumero{
@@ -537,10 +561,14 @@ label#thumbnail-curiosidades{
 #txtMaps{
     width: 99%;
 }
-.campo-endereco-form,.campo-endereco-form-rua,
+.campo-endereco-form,
+.campo-endereco-form-rua,
 .campo-endereco-form-bairro,
 .campo-endereco-form-estado,
-.campo-endereco-form-url{
+.campo-endereco-form-url,
+.produtos-form,
+.campo-produtos-form,
+.campo-produtos-form{
     width: 200px;
     height: auto;
     float: left;
@@ -710,11 +738,19 @@ label#thumbnail-curiosidades{
     color:#fff;
     background-color: #8a1d1d;
 }
-.lojas-content-layout{
+.lojas-content-layout,
+.produtos-content-layout{
     width: 100%;
     height: 150px;
     box-sizing: border-box;
     padding: 15px;
+}
+.produtos-content-layout{
+    height: 190px;
+    padding: 0;
+}
+.lojas-content-layout img{
+    width: 100%;
 }
 .layout-endereco,
 .layout-endereco2,
@@ -748,7 +784,8 @@ label#thumbnail-curiosidades{
     width: 40px;
     height: 40px;
 } 
-.editar-lojas-layout{
+.editar-lojas-layout,
+.editar-produto-layout{
     width: 280px ;
     height: 210px;
     border-radius: 10px 10px 0 0;
@@ -756,8 +793,6 @@ label#thumbnail-curiosidades{
     visibility: visible;
     opacity: 0;
     position: absolute;
-    
-    
 }
 .editar-lojas-layout h3{
     font-size: 25px;
@@ -1471,5 +1506,32 @@ label img{
 }
 .sombra-off{
     box-shadow: none;
+}
+/* PRODUTOS */
+.formulario-cadastro-produtos{
+    height: 800px;
+}
+.produtos-form{
+    width: 100%;
+}
+#txtdetalhes{
+    resize: none;
+    width: 100%;
+    height: 100px;
+    margin-bottom: 25px;
+}
+.campo-produtos-form-categorias{
+    width: 100%;
+    height: 180px;
+    clear: both;
+}
+.campo-produtos-form-categorias h5{
+    width: 100%;
+    height: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#preview-produtos{
+    visibility: hidden;
 }
 
