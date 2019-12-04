@@ -190,7 +190,7 @@
     </head>
     <body>
         <section id="cms">
-            <div class="conteudo center">
+            <div class="conteudo-cms center">
                 <?php
                     require_once('./modulos/cms-header.php');
                     ?>

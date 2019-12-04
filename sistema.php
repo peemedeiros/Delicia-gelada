@@ -6,6 +6,7 @@
         </title>
 		<meta charset="utf-8">
 		<link type="text/css" rel="stylesheet" href="css/style.css">
+		<meta id="viewport" name="viewport" content="width=device-width, user-scalable=no">
 		<?php
 			require_once('modulos/icon.php');
 		?>
@@ -28,6 +29,7 @@
 		</section>
 		<?php
 			require_once('modulos/footer.php');
+			require_once('modulos/scripts.php');
 		?>
     </body>
 </html>

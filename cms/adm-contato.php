@@ -99,7 +99,7 @@ if (isset($_GET['modo'])){
         </div>
     </div>
         <section id="cms">
-            <div class="conteudo center">
+            <div class="conteudo-cms center">
                 <?php
                     require_once('./modulos/cms-header.php');
                 ?>

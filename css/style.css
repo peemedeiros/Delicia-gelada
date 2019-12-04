@@ -38,11 +38,14 @@ h1, h2, h3,h4, p, ul, li, body,a{
 	font-size: 22px;
 	line-height: 1.5;
 }
-.conteudo{
+.conteudo,
+.conteudo-cms,
+.conteudo-header{
 	width: 100%;
 	max-width: 1500px;
     height: inherit;
 }
+
 .center{
     margin-left: auto;
     margin-right: auto;
@@ -133,12 +136,23 @@ img{
     width: inherit;
     height: inherit;
 }
-nav{
+#navigation{
     width: 100%;
 	min-width: 100px;
 	max-width: 800px;
     height: inherit;
     float:left; 
+}
+#menu-mobile{
+	display: none;
+	box-sizing: border-box;
+	width: 60px;
+	height: 60px;
+	padding: 13px;
+}
+#menu-mobile img{
+	width: 35px;
+	height: 35px;
 }
 nav .menu{
     width: inherit;
@@ -161,7 +175,7 @@ nav .menu a{
 nav .menu_itens{
     font-size: 14px;
     width: 130px;
-    height: inherit;
+    height: 60;
     text-align: center;
     box-sizing: border-box;
     float: left;
@@ -211,8 +225,26 @@ nav .menu_itens:hover > .menu-dropdown {
 	width: 100%;
 	max-width: 500px;
     height: inherit;
-    float: right;
+	float: right;
+	
 }
+.login-tablet{
+	width: 60px;
+	height: 60px;
+	float: right;
+	display: none;
+}
+.login-tablet img{
+	width: 45px;
+	height: 45px;
+}
+.login-tablet:hover{
+	background-color: rgba(255, 255, 255, 0.329);
+}
+.login-tablet:hover > .login{
+	display:block;
+}
+
 .usuario,.senha{
 	width: 100%;
 	max-width: 220px;
@@ -369,7 +401,8 @@ nav .menu_itens:hover > .menu-dropdown {
     height: inherit;
     background-color:#ffffff;
     float: left;
-    background-color: #252525;
+	background-color: #252525;
+	
 }
 .menu_vertical_caixa{
     width: 240;
@@ -405,6 +438,46 @@ nav .menu_itens:hover > .menu-dropdown {
     height: 10px;
     margin-left:10px;
 }
+#menu-para-celular{
+	width: 250px;
+	height: 100vh;
+	background-color: #ccc;
+	visibility: hidden;
+	border-right:solid 2px #000;
+	position: absolute;
+	top: 60px;
+	left: -250px;
+	transition: 300ms;
+}
+
+.caixa-menu-celular{
+	width: 100%;
+	height: 100%;
+	background-color: #a51e36;
+	list-style: none;
+	border-top: solid 0.5px #802435;
+}
+.item-menu-celular{
+	width: 100%;
+	height: 60px;
+	background-color: #a51e36;
+	display: flex;
+	border-bottom: solid 0.5px #802435;
+	
+	
+}
+.item-menu-celular a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 16px;
+	color:#fff;
+	text-decoration: none;
+}
+
 .sub_menu{
     width: 200px;
     min-height: 50px;
@@ -1132,8 +1205,10 @@ nav .menu_itens:hover > .menu-dropdown {
     height: inherit;
     float:left;
     box-sizing: border-box;
-    padding-left: 40px;
-    padding-top: 40px;
+	
+	display:flex;
+	align-items: center;
+	justify-content: center;
 }
 #btn_sistema_interno{
     width: 240px;
@@ -1145,7 +1220,9 @@ nav .menu_itens:hover > .menu-dropdown {
 	font-size: 18px;
 	font-weight: bold;
 	color: #a51e36;
+	
 }
+
 #btn_sistema_interno:hover{
 	background-color: #d9d9d9;
 }
@@ -1203,13 +1280,16 @@ nav .menu_itens:hover > .menu-dropdown {
 /* RESPONSIVO */
 /* HOME */
 
-@media only screen and (min-width:1000px) and (max-width:1500px){
+@media only screen and (min-width:1117px) and (max-width:1500px){
 
-	.conteudo {
+	.conteudo,
+	.conteudo-header {
 		max-width:1100px;
 	}
-	nav{
+	nav .menu{
 		max-width: 650px;
+		
+		
 	}
 	.usuario,.senha{
 		max-width: 160px;
@@ -1230,10 +1310,14 @@ nav .menu_itens:hover > .menu-dropdown {
 	}
 	.menu_vertical{
 		max-width: 200px;
+	
 	}
 	.caixa_produto{
 		max-width: 275px;
 		min-height: 350px;
+	}
+	.login .caixaBotao{
+		padding-left: 0px;
 	}
 	.img_produto{
 		width: 200px;
@@ -1247,10 +1331,250 @@ nav .menu_itens:hover > .menu-dropdown {
 	}
 	#seta{
 		right: 5px;
-		top:260px
+		top:260px;
+		z-index:9999999999;
 	}
 	.sub_menu{
 		left:200px ;
 	}
+}
+@media only screen and (min-width:786px) and ( max-width:1117px){
+	.conteudo,
+	.conteudo-header {
+		max-width:768px;
+	}
+	.conteudo-header{
+		max-width: 100%;
+	}
+	.logo{
+		display: none;
+	}
+	nav .menu{
+		padding-left: 0px;
+		display: none;
 
+	}
+	#menu-mobile{
+		display: block;
+		float: left;
+		
+	}
+	#caixaUsuario,#caixaSenha{
+		max-width: 130px;
+	}
+	.login{
+		max-width: 170px;
+		height: 150px;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		background-color: #a51e36;
+		padding-left: 5px;
+		box-sizing: border-box;
+		visibility: hidden;
+		border-bottom-left-radius: 10px;
+		position: absolute;
+		top:60px;
+		right: 100px;
+	}
+	.usuario,.senha{
+		height: 60px;
+	}
+	.logo{
+		width: 110px;
+		height: 110px;
+		margin-right:0px;
+	}
+	.login .caixaBotao{
+		padding-left: 0px;
+		background-color: #a51e36;
+		border-bottom-right-radius: 10px;
+	}
+	.login-tablet{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		display: block;
+	}
+	.menu_vertical{
+		max-width:inherit ;
+		margin-top: 50px;
+		background-color: unset;
+		
+		border-bottom: solid 2px #999999;
+		
+	}
+	.menu_vertical_caixa{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-right: unset;
+	}
+	.menu_vertical_itens{
+		width: 200px;
+	}
+	.sub_menu{
+		left: 0px;
+		top: 15px;
+	}
+	.sistema_interno{
+		width: 200px;
+	}
+	.aplicativo{
+		width: 150px;
+	}
+	.app_botao{
+		width: inherit;
+	}
+	.app_img{
+		display: none;
+	}
+	#btn_sistema_interno{
+		width: 180px;
+		font-size: 15px;
+		
+	}
+	#btn_app{
+		width: 130px;
+	}
+	.endereco{
+		max-width: 418px;
+	}
+}
+@media only screen and (max-width:785px){
+	.conteudo,
+	.conteudo-header {
+		max-width:320px;
+	}
+	.conteudo-header{
+		max-width: 100%;
+	}
+	.logo{
+		display: none;
+	}
+	nav .menu{
+		width: 150px;
+		height: 400px;
+		padding: 0;
+		display: none;
+		float: left;
+		background-color: #a51e36;
+		position: relative;
+		top:60px;
+		left: -60px;
+	}
+	nav .menu_itens{
+		width: inherit;
+		height: 60px;
+		min-height: unset;
+	}
+	.menu-dropdown{
+		width: 150px;
+		height: auto;
+		min-height: 60px;
+		background-color: rgb(201, 170, 170);
+		list-style: none;
+		
+		position: relative;
+		top:-60;
+	}
+	.menu-dropdown-itens{
+		width: 150px;
+		height: 50px;
+		padding: 0;
+		position: relative;
+	}
+	
+	#menu-mobile{
+		display: block;
+		float: left;
+		
+	}
+	.menu_vertical{
+		max-width:inherit ;
+		margin-top: 50px;
+		background-color: unset;
+		border-bottom: solid 2px #999999;
+	}
+	.menu_vertical_caixa{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-right: unset;
+	}
+	.sub_menu{
+		left: 0px;
+		top: 15px;
+	}
+	.endereco{
+		display: none;
+	}
+	.sistema_interno{
+		width: 130px;
+		float: left;
+	}
+	#btn_sistema_interno{
+		width: 130px;
+		font-size: 15px;
+		
+	}
+	.app_botao{
+		width: 150px;
+	}
+	.aplicativo{
+		float: right;
+		width: 150px;	
+	}
+	#btn_app{
+		width: inherit;
+	}
+	.app_botao a{
+		width: inherit;
+	}
+	.menu_vertical_itens{
+		width: 130px;
+	}
+	.sub_menu_itens{
+		width: 130px;
+	}
+	.login{
+		max-width: 170px;
+		height: 150px;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		background-color: #a51e36;
+		position: relative;
+		right: 60px;
+		top: -7px;
+		box-sizing: border-box;
+		visibility: hidden;
+		border-bottom-left-radius: 10px;
+		
+	}
+	.app_img{
+		display: none;
+	}
+	.caixa_produto{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.produtos{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+	}
+	.sistema_interno{
+		display: none;
+	}
+	#rodape .conteudo{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.aplicativo{
+		float: none;
+	}
 }
