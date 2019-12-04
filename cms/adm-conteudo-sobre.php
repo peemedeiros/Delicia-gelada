@@ -12,7 +12,7 @@
     <script>
         $(document).ready(function(){
             $('#upload-img').change(function(){
-                const file =$(this)[0].files[0];
+                const file = $(this)[0].files[0];
                 const fileReader = new FileReader();
                 fileReader.onloadend = function(){
                     $('#preview-img').attr('src',fileReader.result);
@@ -20,9 +20,6 @@
                 fileReader.readAsDataURL(file);
             });
         });
-    
-    
-    
     </script>
 </head>
     <body>
