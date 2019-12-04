@@ -1,3 +1,17 @@
+<?php
+	require_once('bd/conexao.php');
+	$conexao = conexaoMysql();
+
+	if(isset($_POST['btnFiltro'])){
+
+		$uf = $_POST['opEstado'];
+
+		$selectNormal = "select * from pagina_lojas where estado = '".$uf."'";
+		
+		mysqli_query($conexao, $selectNormal);
+
+	}
+?>
 <!DOCTYPE html>
 <html lang="pt">
     <head>
@@ -6,6 +20,7 @@
         </title>
 		<meta charset="utf-8">
 		<link type="text/css" rel="stylesheet" href="css/style.css">
+		<meta id="viewport" name="viewport" content="width=device-width, user-scalable=no">
         <?php
 			require_once('modulos/icon.php');
 		?>
@@ -26,15 +41,26 @@
                     </p>
                 </div>
                 <div class="caixa_seletor_localizacao">
-                    
-                    <select id="seletor_estado">
-                        <option>ESTADO</option>
+                <form action="lojas.php" method="POST">    
+                    <select name="opEstado" id="seletor_estado">
+						<option value ="">Todos</option>
+						<?php
+							
+							$sql = "select * from estados";
+							$select = mysqli_query($conexao, $sql);
+
+							while($rsEstados = mysqli_fetch_array($select)){							
+						?>
+						<option value ="<?=$rsEstados['uf']?>" ><?=$rsEstados['nome']?></option>
+						<?php
+							}
+						?>
                     </select>
                     
-                     <select id="seletor_cidade">
-                        <option>CIDADE</option>
-                    </select>
-                    
+                    <button type="submit" class="img" name="btnFiltro" value="botao">
+
+					</button>
+				</form>    
                 </div>
             </div>
 		</section>
@@ -49,82 +75,55 @@
 			<h2> Lojas </h2>
             <div class="conteudo center">
 				<!--caixa de lojas-->
+				<?php
+				require_once('bd/conexao.php');
+				$conexao = conexaoMysql();
+
+				if(isset($_POST['btnFiltro'])){
+
+					$uf = $_POST['opEstado'];
+
+					if($uf != "")
+						$sql = "select * from pagina_lojas where estado = '".$uf."' and ativado = 1";
+					else
+						$sql = "select * from pagina_lojas where ativado = 1";
+				}else{
+
+					$sql = "select * from pagina_lojas where ativado = 1";
+
+				}
+				$select = mysqli_query($conexao, $sql);
+
+				while($rsConsulta = mysqli_fetch_array($select))
+				{
+				?>
                 <div class="caixa_lojas">
 					<div class="icone-localizar"></div>
 					<div class="linha-vertical"></div>
 					<div class="titulo-loja">
-						Shopping Iguatemi Alpaville
+						<?=$rsConsulta['nome']?>
 					</div>
 					<div class="endereco-lojas">
-						<div>Alameda Rio Negro, 111</div>
-						<div>SP</div>
-						<div>Alphaville Industrial,	Barueri</div>
-						<div>CEP: 06454-000</div>
+						<div><?=$rsConsulta['logradouro']?>, <?=$rsConsulta['numero']?></div>
+						<div><?=$rsConsulta['estado']?></div>
+						<div><?=$rsConsulta['bairro']?>,	<?=$rsConsulta['cidade']?></div>
+						<div>CEP: <?=$rsConsulta['cep']?></div>
 					</div>
 					<div class="botao texto-center">
-						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622" target="_blank">
+						<a class="texto-branco" href="<?=$rsConsulta['link']?>" target="_blank">
 						VER NO MAPA
 						</a>	
 					</div>
 				</div>
-				<div class="caixa_lojas">
-					<div class="icone-localizar"></div>
-					<div class="linha-vertical"></div>
-					<div class="titulo-loja">
-						Shopping Iguatemi Alpaville
-					</div>
-					<div class="endereco-lojas">
-						<div>Alameda Rio Negro, 111</div>
-						<div>SP</div>
-						<div>Alphaville Industrial,	Barueri</div>
-						<div>CEP: 06454-000</div>
-					</div>
-					<div class="botao texto-center">
-						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622" target="_blank">
-						VER NO MAPA
-						</a>	
-					</div>
-				</div>
-				<div class="caixa_lojas">
-					<div class="icone-localizar"></div>
-					<div class="linha-vertical"></div>
-					<div class="titulo-loja">
-						Shopping Iguatemi Alpaville
-					</div>
-					<div class="endereco-lojas">
-						<div>Alameda Rio Negro, 111</div>
-						<div>SP</div>
-						<div>Alphaville Industrial,	Barueri</div>
-						<div>CEP: 06454-000</div>
-					</div>
-					<div class="botao texto-center">
-						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622" target="_blank">
-						VER NO MAPA
-						</a>	
-					</div>
-				</div>
-				<div class="caixa_lojas">
-					<div class="icone-localizar"></div>
-					<div class="linha-vertical"></div>
-					<div class="titulo-loja">
-						Shopping Iguatemi Alpaville
-					</div>
-					<div class="endereco-lojas">
-						<div>Alameda Rio Negro, 111</div>
-						<div>SP</div>
-						<div>Alphaville Industrial,	Barueri</div>
-						<div>CEP: 06454-000</div>
-					</div>
-					<div class="botao texto-center">
-						<a class="texto-branco" href="https://www.google.com/maps/place/Shopping+Iguatemi+Alphaville/@-23.5045588,-46.8505509,17z/data=!3m1!4b1!4m5!3m4!1s0x94cf0220fcf1dc29:0x3b84ef70a4e234e9!8m2!3d-23.5045637!4d-46.8483622" target="_blank">
-						VER NO MAPA
-						</a>	
-					</div>
-				</div>
+
+				<?php
+				}
+				?>
             </div>
         </section>
 		<?php
 			require_once('modulos/footer.php');
+			require_once('modulos/scripts.php');
 		?>
     </body>
 </html>

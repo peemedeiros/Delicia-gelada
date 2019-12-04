@@ -59,16 +59,17 @@ if (isset($_GET['modo'])){
         <script src="./js/confirmacao.js"></script>
 
         <script>
+            //mostra a modal
             $(document).ready(function(){
                 $('.visualizar').click(function(){
                     $('#container-modal').fadeIn(500);
                 });
-
+            //fechar a modal
                 $('#fechar').click(function(){
                     $('#container-modal').fadeOut(500);
                 });
             });
-
+            // verifica e adiciona, se a verificação for verdadeira, dados via POST nos campos da Modal
             function visualizarDados(idItem){
                 $.ajax({
                     type:"POST",
@@ -98,7 +99,7 @@ if (isset($_GET['modo'])){
         </div>
     </div>
         <section id="cms">
-            <div class="conteudo center">
+            <div class="conteudo-cms center">
                 <?php
                     require_once('./modulos/cms-header.php');
                 ?>
@@ -107,9 +108,9 @@ if (isset($_GET['modo'])){
                         <h3>filtrar mensagens</h3>
                         <form action="adm-contato.php" method="POST">
                             <select id="caixaFiltro" name="opCritica">
-                                <option name="C"value="C"<?=$selectedCriticas?>>Críticas</option>
-                                <option name="S"value="S"<?=$selectedSugestoes?>>Sugestões</option>
-                                <option name="" value="" <?=$selectedTodos?>>Todos</option>
+                                <option value="C" <?=$selectedCriticas?>>Críticas</option>
+                                <option value="S" <?=$selectedSugestoes?>>Sugestões</option>
+                                <option value=""  <?=$selectedTodos?>>Todos</option>
                             </select>
                             <button type="submit" class="img" name="btnFiltro" value="botao">
 
@@ -125,12 +126,14 @@ if (isset($_GET['modo'])){
                             <div class="thead-itens"> OPçÃO </div>
                         </div>
                         <?php
-                        //Zebrar a exibição da tabela de registros
+                        
                         $cor = (string) "";
                         $ativarZebrado = true;
 
                         //Exibe os registros de mensagens no banco de dados
                         while($rsConsulta = mysqli_fetch_array($select)){
+
+                            //Zebrar a exibição da tabela de registros
                             if($ativarZebrado == true){
                                 $cor = 'zebrado';
                                 $ativarZebrado = false;

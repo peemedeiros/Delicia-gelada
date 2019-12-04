@@ -1,3 +1,13 @@
+<?php
+//matando as sessoes ao deslogar
+if(isset($_GET['modo'])){
+    if($_GET['modo'] == "logout"){
+        session_start();
+        session_destroy();
+        unset( $_SESSION );
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt">
     <head>
@@ -6,6 +16,7 @@
         </title>
         <meta charset="utf-8">
         <link type="text/css" rel="stylesheet" href="css/style.css">
+        <meta id="viewport" name="viewport" content="width=device-width, user-scalable=no">
 		<?php
 			require_once('modulos/icon.php');
 		?>
@@ -254,12 +265,9 @@
             </div>
         </section>
         <?php
-			require_once('modulos/footer.php');
+            require_once('modulos/footer.php');
+            require_once('modulos/scripts.php');
 		?>
-		<script src="js/jquery.js"></script>
-		<script src="js/scroll.js"></script>
-        <script src="js/slider.js"></script>
-        <script src="js/menu.js"></script>
     </body>
 </html>
 

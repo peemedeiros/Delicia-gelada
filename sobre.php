@@ -6,6 +6,7 @@
         </title>
 		<meta charset="utf-8">
 		<link type="text/css" rel="stylesheet" href="css/style.css">
+		<meta id="viewport" name="viewport" content="width=device-width, user-scalable=no">
 		<?php
 			require_once('modulos/icon.php');
 		?>
@@ -20,16 +21,23 @@
 			require_once('cms/bd/conexao.php');
 			$conexao = conexaoMysql();
 
-			$sql = "select * from pagina_sobre";
+			$contadora = 1;
+
+			$sql = "select * from pagina_sobre where ativado = 1";
 
 			$select = mysqli_query($conexao, $sql);
 
 			while($rsConsulta = mysqli_fetch_array($select)){
+				$contadora += 1;
+
+				if($contadora % 2 == 0){
+
 		?>
 			
-		<section id="sobre">
+		<section class="sobre">
 			<h2>Conteudo principal sobre a empresa</h2>
 			<div class="conteudo center">
+
 				<div class="img_principal_sobre" style="background-image:url('cms/bd/arquivos/<?=$rsConsulta['imagem']?>')">
 					<!--imagem posta como background-->
 				</div>
@@ -52,6 +60,39 @@
 			</div>
 		</div>
 		<?php
+				}else{
+				//esle
+		?>
+		<section class="sobre2">
+			<h2>Conteudo principal sobre a empresa</h2>
+			<div class="conteudo center">
+
+				<div class="img_principal_sobre_right" style="background-image:url('cms/bd/arquivos/<?=$rsConsulta['imagem']?>')">
+					<!--imagem posta como background-->
+				</div>
+				
+				<div class="titulo_sobre_caixa">
+					<h1 class="titulo">
+						<?=$rsConsulta['titulo']?>
+					</h1>
+					<p class="texto">
+						<?=$rsConsulta['texto']?>
+					</p>
+				</div>
+			</div>
+		</section>
+		<div class="decoracao">
+			<div class="borda-dashed">
+				<div class="separador center">
+					<img src="icon/separador.png" alt="separador">
+				</div>
+			</div>
+		</div>
+
+
+
+		<?php
+				}
 			}
 		?>
 		
@@ -78,6 +119,8 @@
         </section>
 		<?php
 			require_once('modulos/footer.php');
+			require_once('modulos/scripts.php');
 		?>
+		
     </body>
 </html>

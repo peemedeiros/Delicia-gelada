@@ -1,3 +1,7 @@
+img{
+    width: inherit;
+    height: inherit;
+}
 /**************************CMS*************************/
 #cms{
     width: 100%;
@@ -39,7 +43,7 @@
     padding-top: 70px;
 }
 .cms-nav{
-    width: inherit;
+    width: 1500px;
     height: 150px;
     border-left: solid 2px #000;
     border-right: solid 2px #000;
@@ -177,31 +181,34 @@
 
 .editar-sobre{
     width: inherit;
-    height:800px;
+    height: auto;
+    min-height:800px;
     border-left:solid 2px #000;
     border-right:solid 2px #000;
     border-top:solid 2px #000;
     clear: both;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 20px;
+    
 }
 .editar-sobre .sub-titulo{
     margin-bottom: 20px;
 }
 .crud-editar-sobre{
     width: 900px;
-    height: 700px;
+    height: 500px;
     border-radius: 10px;
     border:solid 1px #ccc;
-    box-sizing: 1;
+    box-sizing: border-box;
     box-shadow: 3px 3px 3px #ccc;
+    margin-right: 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+    float: left;
+
 }
 .crud-editar-sobre form {
     width: 100%;
     height: 100%;
+    
     border-radius: inherit;
 }
 .formulario-sobre{
@@ -209,30 +216,42 @@
     height: 100%;
     border-radius: inherit;
     border: solid 1px #ccc;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     box-sizing: border-box;
     padding: 10px;
-    background: rgb(255, 220, 220);
+    background-color: rgb(255, 238, 238);
+    
 }
 .linha-formulario-sobre,
 .linha-formulario-sobre-texto,
 .linha-formulario-sobre-button,
 .linha-formulario-sobre-img{
     width: 100%;
-    height: 100px;
+    height: 400px;
     margin-bottom: 10px;
+    
+}
+.linha-formulario-sobre{
+    width:430px;
+    height: 350px;
+    padding: 10px;
+    float: right;
+    font-weight: bold;
+    
 }
 .linha-formulario-sobre-texto{
     height: 200px;
+    
 }
 .linha-formulario-sobre-button{
+    width: 100%;
+    height: 150px;
     display:flex;
     justify-content: center;
 }
 .linha-formulario-sobre-img{
-    height: 200px;
+    width: 400px;
+    height: 360px;
+    padding: 5px;
 }
 .btn-editar-conteudo{
     width: 200px;
@@ -250,58 +269,703 @@
     font-weight: bold;
 }
 #txt-titulo-sobre{
-    width: 80%;
+    width: 95%;
     height: 22px;
     font-size: 20px;
     border:solid 1px #ccc;
     border-radius: 2px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.418);
     outline: 0;
+    margin-bottom: 10px;
+
 }
 #txt-conteudo-sobre{
-    width: 80%;
-    height: 150px;
+    width: 95%;
+    height: 260px;
     resize: none;
     border:solid 1px #ccc;
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.418);
     outline: 0;
     padding: 5px;
+    font-size: 18px;
 }
-label#thumbnail{
+label#thumbnail, label#thumbnail-curiosidades{
     border: 1px dashed #777;
     background-image: url('../icon/camera.png');
     background-size: 50px;
     background-repeat: no-repeat;
     background-position: center;
     cursor:pointer;
-    height: 175px;
+    height: 100%;
     display:flex;
-    width: 175px;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgb(221, 221, 221);
+    /* background-color: rgb(221, 221, 221); */
     border-radius: 10px;
 }
-label#thumbnail input{
+label#thumbnail-curiosidades{
+    background-image: url('../icon/photo.png');
+    background-size: 100px;
+    background-repeat: no-repeat;
+    background-position: 140px;
+    /* background-color: #b9e6a0; */
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.418);
+}
+label#thumbnail input,
+label#thumbnail-curiosidades input{
     display: none;
 }
 
-#thumbnail img{
+#thumbnail img,
+#thumbnail-curiosidades img{
     width: 95%;
     height: 95%;
     border-radius: inherit;
     z-index: 999;
 }
+#thumbnail-curiosidades img{
+    border:solid 1px #000;
+}
+label#thumbnail-curiosidades{
+    width: 950px;
+    height: 400px;
+    position: absolute;
+}
 .coluna-formulario-sobre,
 .coluna-formulario-sobre-img{
-    width: 65%;
+    width: 100%;
     height: 100%;
     float: right;
     display:flex;
     align-items: center;
     justify-content: center;
 }
+.pagina{
+    width: 500px;
+    height:auto;
+    min-height: 500px;
+    float: right;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 8px;
+    margin-right: 10px;
+    border: solid 1px #ccc;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.418);
+}
+.layout-opcoes{
+    width: 70px;
+    height: 100%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.opcoes-item{
+    width: 50px;
+    height: 50px;
+}
+.opcoes-item a {
+    width: inherit;
+    height: inherit;
+}
+.container-layout{
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.header-layout{
+    width: 100%;
+    height: 45px;
+    background-color: #a51e36;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 13px;
+}
+.section-layout{
+    width: 100%;
+    height: 200px;
+    border:dashed 1px #ccc;
+    margin-bottom: 5px;
+    align-items: center;
+    float: left;
+}
+.selected-layout{
+    width: 428px;
+    height: 200px;
+    position: absolute;
+    background-color: rgba(158, 158, 158, 0.329);
+    
+    font-weight: bold;
+    font-size: 25px;
+    visibility: hidden;
+    opacity: 0;
+}
+.section-layout a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color:#000;
+}
+.section-layout:hover > .selected-layout{
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
+    transition: 200ms;
+}
+.decoration{
+    width: 100%;
+    height: 35px;
+    background-color: #a51e36;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 6px;
+    float: left;
+}
+.img-layout,
+.img-layout2{
+    width: 150px;
+    height: 180px;
+    border:dashed 1px #ccc;
+    margin: 6px;
+    background-color: rgb(236, 236, 236);
+    float: left;
+}
+.img-layout2{
+    float: right;
+}
+.txt-layout{
+    width: 265px;
+    height: 180px;
+    border:dashed 1px #ccc;
+    box-sizing: border-box;
+    padding: 5px;
+    float: left;
+    
+}
+.titulo-layout{
+    width: 100%;
+    height: 25px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    background-color: rgb(201, 201, 201);
+}
+.txt, .txt1, .txt2{
+    width: 100%;
+    height: 10px;
+    background-color: rgb(201, 201, 201);
+    margin-bottom: 4px;
+}
+.txt1{
+    width: 80%;
+}
+.txt2{
+    width: 50px;
+}
+/* ****************************************************ADM CONTEUDO LOJAS */
+.lojas{
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    border-left: solid 2px #000;
+    border-right: solid 2px #000;
+    border-top: solid 2px #000;
+    clear: both;
+    display: flex;
+    align-items: center;
+}
+.formulario-cadastro-lojas{
+    width: 450px;
+    height: 500px;
+    border: solid 1px #ccc;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.418);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.formulario-cadastro-lojas h5{
+    width: 350px;
+    
+    padding: 0;
+    color: #000;
+    text-align: left;
+}
+#txtLoja{
+    width: 445px;
+    height: 50px;
+    font-size: 35px;
+    font-weight: bold;
+    color:#a51e36;
+    
+    margin-bottom: 20px;
+}
+#txtCep{
+    width: 195px;
+    height: 25px;
+    font-size: 22px;
+    
+}
+#txtLogradouro{
+    width: 235px;
+    height: 25px;
+    font-size: 22px;
+}
+#txtEstado,
+#txtNumero{
+    width: 100px;
+    height: 25px;
+    font-size: 22px;
+}
+#txtBairro,
+#txtCidade,
+#txtMaps{
+    width: 315px;
+    height: 25px;
+    font-size: 22px;
+}
+#txtMaps{
+    width: 99%;
+}
+.campo-endereco-form,.campo-endereco-form-rua,
+.campo-endereco-form-bairro,
+.campo-endereco-form-estado,
+.campo-endereco-form-url{
+    width: 200px;
+    height: auto;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.campo-endereco-form-url a,
+.campo-endereco-form a{
+    width: 30px;
+    height: 30px;
+    float: right;
+    border-radius: 15px;
+    transition: 200ms;
+    position: relative;
+    bottom: 0px;
+    z-index: 5;
+}
+.campo-endereco-form a{
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    z-index: 10;
+}
+.campo-endereco-form-url a:hover,
+.campo-endereco-form a:hover{
+    transition: 200ms;
+    bottom:5px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.418);
+    
+}
+
+.campo-endereco-form h5 {
+    width: 150px;
+    height: 30px;
+    box-sizing: border-box;
+    padding-top: 8px;
+    float: left;
+}
+
+.campo-endereco-form-url h5{
+    box-sizing: border-box;
+    height: 30px;
+    float: left;
+    padding-top: 8px;
+}
+.legenda-maps,.legenda-correios{
+    width: 100px;
+    height: 25px;
+    background-color:#a51e36;
+    position: absolute;
+    left: 20px;
+    z-index: -1;
+    bottom:1px;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+.legenda-correios{
+    height: 25px;
+    background-color: rgb(126, 173, 226);
+    right: 10px;
+    position: absolute;
+    color:#fff;
+    z-index: -2;
+}
+.legenda-maps h6{
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    color: #fff;
+}
+.campo-endereco-form a:hover > .legenda-correios{
+    visibility: visible;
+    opacity: 1;
+    width: 150px;
+    transition: 300ms;
+}
+.campo-endereco-form-url a:hover > .legenda-maps{
+    width: 150px;
+    visibility: visible;
+    opacity: 1;
+    transition: 300ms;
+}
+.campo-endereco-form-url a:hover > .legenda-maps > h6{
+    transition: 1s;
+    visibility: visible;
+}
+.campo-endereco-form-rua{
+    width: 240px;
+    padding-top: 19px;
+    box-sizing: border-box;
+    margin: 0;
+}
+.campo-endereco-form-bairro{
+    width: 320px;
+}
+.campo-endereco-form-estado{
+    width: 100px;
+}
+.campo-endereco-form-url{
+    width: 100%;
+}
+.campo-endereco-form h5,
+.campo-endereco-form-rua h5,
+.campo-endereco-form-bairro h5
+,.campo-endereco-form-estado h5,
+.campo-endereco-form-url h5{
+    margin: 0;
+}
+.endereco-form{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.btn-lojas{
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.lojas-layout{
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    border-left:solid 1px #ccc;
+}
+.lojas-cards-layout{
+    width: 280px;
+    height: 260px;
+    float: left;
+    border-radius: 10px;
+    border:solid 1px #ccc;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.418);
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 25px ;
+    margin-bottom: 10px;
+}
+.lojas-cards-layout:hover > .editar-lojas-layout{
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
+    transition: 200ms;
+}
+.lojas-cards-layout h5{
+    height: auto;
+    min-height: 30px;
+    max-height: 60px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 3px;
+    border-radius: 10px 10px 0 0;
+    color:#fff;
+    background-color: #8a1d1d;
+}
+.lojas-content-layout{
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+.layout-endereco,
+.layout-endereco2,
+.layout-endereco3{
+    width: 100px;
+    height: 20px;
+    margin-bottom: 5px  ;
+    background-color: #ccc;
+}
+.layout-endereco2{
+    width: 130px;
+}
+.layout-endereco3{
+    width: 80px;
+}
+.opcoes-lojas{
+    width: 100%;
+    height: 50px;
+    border-top: solid 1px #ccc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgb(172, 119, 119);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.opcoes-lojas a{
+    width: 40px;
+    height: 40px;
+} 
+.editar-lojas-layout{
+    width: 280px ;
+    height: 210px;
+    border-radius: 10px 10px 0 0;
+    background-color: rgba(2, 2, 2, 0.212);
+    visibility: visible;
+    opacity: 0;
+    position: absolute;
+    
+    
+}
+.editar-lojas-layout h3{
+    font-size: 25px;
+}
+.editar-lojas-layout a {
+    width: 100%;
+    height: 100%;
+    color:#000;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ************************************************* ADM CONTEUDO CURIOSIDADES */
+.curiosidades{
+    width: 100%;
+    height:auto;
+    min-height: 700px;
+    clear: both;
+    border-left: solid 2px #000 ;
+    border-right: solid 2px #000;
+    border-top: solid 2px #000;
+    background-image: linear-gradient(to bottom,#b9e6a0,#E2F8AF);
+    
+}
+.adm-pagina-curiosidades{
+    width: 100%;
+    height: auto;
+    min-height: inherit;
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+.adm-pagina-curiosidades .botao {
+    margin-bottom: 20px;
+    float: unset;
+}
+.adm-pagina-curiosidades form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formulario-curiosidades label:hover{
+    cursor: pointer;
+}
+.formulario-curiosidades{
+    width: 1000px;
+    height: 500px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.formulario-curiosidades h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+#txtCuriosidades {
+    width: 300px;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 4px;
+    float: left;
+
+}
+#txt-conteudo-curiosidades{
+    width: inherit;
+    height: 200px;
+    resize: none;
+    border-radius: 4px;
+    font-size: 16px;
+    float: left;
+}
+#fleCuriosidade{
+    display: none;
+}
+.linha-curiosidades,.linha-curiosidades-texto{
+    width: 450px;
+    height: 100px;
+    float: right;
+    position: relative;
+    z-index: 99999;
+    top:30px;
+    right: 100px;
+}
+.linha-curiosidades h3,
+.linha-curiosidades-texto h3{
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.562);
+}
+
+.linha-curiosidades-texto{
+    height: 250px;
+    clear: both;
+}
+.preview-img-curiosidades{
+    border:unset;
+}
+.curiosidades-cadastradas{
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagina-curiosidades{
+    width: 80%;
+    height: auto;
+    min-height: 450px;
+    background-color: rgb(185, 185, 185);
+
+}
+.conteudo-curiosidades{
+    width: 95%;
+    height: 250px;
+    background-color: rgb(236, 236, 236);
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding:15px;
+
+    margin-bottom: 10px;
+}
+.conteudo-curiosidades:hover > .editar-curiosidades {
+    visibility: visible;
+    opacity: 1;
+    transition: 200ms;
+    cursor: pointer;
+}
+.editar-curiosidades{
+    width: 1100px;
+    height: 230px;
+    position: absolute;
+    background-color: #acacac75;
+    border:dashed 1px #000;
+    visibility: hidden;
+    opacity: 0;
+    transition: 200ms;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: bold;
+    
+}
+.editar-curiosidades a {
+    width: 100%;
+    height: 100%;
+    color:#000;
+    text-decoration:none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.opcoes-curiosidades{
+    width: 5%;
+    height: 250px;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.opcoes-curiosidades a {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+.titulo-curiosidades{
+    width: 350px;
+    height: 50px;
+    background-color: rgb(141, 141, 141);
+    margin-bottom: 10px;    
+}
+.texto-curiosidades,
+.texto-curiosidades-2{
+    width: 750px;
+    height: 20px;
+    background-color: rgb(156, 156, 156);
+    margin-bottom: 8px;
+}
+.texto-curiosidades-2{
+    width: auto;
+}
+.container-curiosidades,
+.container-curiosidades-2{
+    width: 550px;
+    height: auto;
+    align-self: flex-end;
+}
+.container-curiosidades-2{
+    align-self: flex-start;
+}
+
+
+
+
+
+
 
 /* ADM CONTATO */
 .estrutura-adm-conteudo{
@@ -808,3 +1472,4 @@ label img{
 .sombra-off{
     box-shadow: none;
 }
+

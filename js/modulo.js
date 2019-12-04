@@ -28,6 +28,7 @@ function validarEntrada(caracter,typeBlock){
     }
 }
 
+
 function mascaraFone(obj,caracter){
    
 	var input = obj.value;
@@ -65,4 +66,43 @@ function mascaraFone(obj,caracter){
 
         document.getElementById(id).value = resultado;
         }
+}
+
+function mascaraCep(obj,caracter){
+   
+	var input = obj.value;
+	var id = obj.id;
+	var cep = obj.name;
+	var resultado = input;
+	
+    if(validarEntrada(caracter, "string") == false){
+        return false;
+    }else if(cep == "txt-cep"){
+		
+		if(input.length == 5){
+            resultado += "-";
+        }else if(input.length == 9){
+            return false;
+        }
+
+        document.getElementById(id).value = resultado;
+	}
+}
+function mascaraUf(obj,caracter){
+   
+	var input = obj.value;
+	var id = obj.id;
+	var uf = obj.name;
+	var resultado = input;
+	
+    if(validarEntrada(caracter, "numeric") == false){
+        return false;
+    }else if(uf == "txt-estado"){
+		
+		if(input.length == 2){
+            return false;
+        }
+
+        document.getElementById(id).value = resultado;
+	}
 }

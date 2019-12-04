@@ -9,6 +9,7 @@
         </title>
 		<meta charset="utf-8">
 		<link type="text/css" rel="stylesheet" href="css/style.css">
+		<meta id="viewport" name="viewport" content="width=device-width, user-scalable=no">
 		<?php
 			require_once('modulos/icon.php');
 		?>
@@ -35,7 +36,7 @@
 									</h4>
 								</div>
 								<div class="campo">
-									<input type="text" value="" name="txt-nome" class="label" onkeypress="return validarEntrada(event,'numeric');" maxlength="100" required>
+									<input type="text" value="" name="txt-nome" class="label" onkeypress="return mascaraUf(this,event);" maxlength="2" required>
 								</div>
 							</div>
 							<div class="itens-formulario">
@@ -147,6 +148,7 @@
 		</section>
 		<?php
 			require_once('modulos/footer.php');
+			require_once('modulos/scripts.php');
 		?>
 		<script src="js/modulo.js"></script>
     </body>

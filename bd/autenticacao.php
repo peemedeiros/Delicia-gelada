@@ -9,7 +9,7 @@ if(!isset($_SESSION)){
         $conexao = conexaoMysql();
     
         $usuario = $_POST['txtUsuario'];
-        $senha = $_POST['txtSenha'];
+        $senha =md5($_POST['txtSenha']);
         
         if($usuario != "" && $senha != ""){
     
