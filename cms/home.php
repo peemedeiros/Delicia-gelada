@@ -42,8 +42,10 @@
                             </a>
                         </div>
                          <div class="cms-conteudo-itens">
-                            <img src="../icon/home.png" alt="home">
-                            <h4 class="titulo4 float-left">home</h4>
+                         <a href="adm-produtos.php">
+                                <img src="icon/box.png" alt="question">
+                                <h4 class="titulo4 float-left">PAGINA DE PRODUTOS</h4>
+                            </a>
                         </div>
                         <div class="cms-conteudo-itens">
                             <img src="../icon/home.png" alt="home">
