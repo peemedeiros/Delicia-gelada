@@ -120,15 +120,18 @@ if(isset($_GET['modo'])){
                                 
                             
                         ?>
-                        <a href="index.php?idcat=<?=$rsConsulta['id']?>">
+                        
                             <li class="menu_vertical_itens"> 
+                            <a href="index.php?idcat=<?=$rsConsulta['id']?>">
                                 <?=$rsConsulta['nome']?>
-                                    <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita">
+                                <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita">
+                            </a>
+                                    
                                     <ul class="sub_menu">
                                     
                                     <?php
                                         
-                                        $sqlSabor = "select categoria_sabor.id_sabor, sabores.*
+                                        $sqlSabor = "select categoria_sabor.*, sabores.*
                                         from categoria_sabor inner join 
                                         sabores on categoria_sabor.id_sabor = sabores.id 
                                         where categoria_sabor.id_categoria = ".$rsConsulta['id'];
@@ -139,7 +142,7 @@ if(isset($_GET['modo'])){
 
                                     ?> 
                                         <li class="sub_menu_itens">
-                                            <?=$rsConsultaSabor['nome']?>
+                                            <a href="index.php?idsab=<?=$rsConsultaSabor['id']?>&idcate=<?=$rsConsultaSabor['id_categoria']?>"><?=$rsConsultaSabor['nome']?></a>
                                         </li>
 
                                     <?php
@@ -148,7 +151,7 @@ if(isset($_GET['modo'])){
                                     </ul>
                                 
                             </li>
-                        </a>
+                        
 
                         <?php
                         
@@ -177,10 +180,17 @@ if(isset($_GET['modo'])){
 
                         $id_cat = $_GET['idcat'];
 
-                        $sqlProduto = "select * from produtos where id_categoria = ".$id_cat;
+                        $sqlProduto = "select * from produtos where id_categoria = ".$id_cat." order by preco asc ";
 
+                    }elseif(isset($_GET['idsab']) && isset($_GET['idcate'])){
+                        
+                        $id_sab = $_GET['idsab'];
+                        $id_cate = $_GET['idcate'];
+
+                        $sqlProduto = "select * from produtos where id_categoria =".$id_cate." and id_sabor =".$id_sab." order by rand()";
                     }else{
-                        $sqlProduto = "select * from produtos";
+
+                        $sqlProduto = "select * from produtos order by rand()";
                     }
                     
                     

@@ -1662,7 +1662,7 @@ label img{
 }
 .linha-cadastro-produto-sabor{
     float: right;
-    padding-left: 10px;
+    padding: 10px;
     box-sizing: border-box;
 }
 .linha-cadastro-produto-categoria h5,
@@ -1691,7 +1691,8 @@ label img{
     font-size:20px;
     border-radius: 4px;
 }
-.categoria-produto{
+.categoria-produto,
+.sabor-produto-lab{
     width: 50px;
     height: 50px;
     background-color: #fff;
@@ -1701,19 +1702,29 @@ label img{
     margin-bottom: 5px;
     
 }
-.categoria-produto:hover{
+#slt-categoria,
+#slt-sabor{
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+}
+
+.categoria-produto:hover,
+.sabor-produto-lab:hover{
     cursor: pointer;
 }
-.categoria-produto:hover > .legenda-cat{
+.categoria-produto:hover > .legenda-cat,
+.sabor-produto-lab:hover > .legenda-cat{
     visibility: visible;
     opacity: 1;
     left: 50px;
 }
-.categoria-produto img{
+.categoria-produto img,
+.sabor-produto-lab img{
     width: 100%;
     height: 100%;
 }
-#tipo-produto,
+.sabor-categoria,
 .sabor-produto{
     position: relative;
     top: -50px;

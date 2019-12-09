@@ -39,7 +39,15 @@
                     $(this).css({
                         border:'solid 1px #000',
                     });
-                })
+                });
+                $('.sabor-produto-lab').click(function(){
+                    $('.sabor-produto-lab').css({
+                        border:'0',
+                    });
+                    $(this).css({
+                        border:'solid 1px #000',
+                    });
+                });
             });
         </script>
         
@@ -71,23 +79,22 @@
 
                         <div class="linha-cadastro-produto-categoria">
                             <h5>CATEGORIA</h5>
+                            <select name="slt-categoria" id="slt-categoria">
+                                <option value="">selecione</option>
 
-                            <?php
-                            $sql = "select * from categorias";
+                                <?php
+                                $sql = "select * from categorias";
 
-                            $select = mysqli_query($conexao, $sql);
+                                $select = mysqli_query($conexao, $sql);
 
-                            while($rsConsulta = mysqli_fetch_array($select)){
-                            
-                            ?>
-                            <label for="categoria<?=$rsConsulta['id']?>" class="categoria-produto">
-                                <img src="bd/arquivos/<?=$rsConsulta['icone']?>" alt="suco">
-                                <div class="legenda-cat"><?=$rsConsulta['nome']?></div>
-                                <input class="sabor-produto" type="radio" name="rdTipo" id="categoria<?=$rsConsulta['id']?>" value="<?=$rsConsulta['id']?>">
-                            </label>
-                            <?php
-                            }
-                            ?>
+                                while($rsConsulta = mysqli_fetch_array($select)){
+                                
+                                ?>
+                                <option value="<?=$rsConsulta['id']?>"> <?=$rsConsulta['nome']?> </option>
+                                <?php
+                                }
+                                ?>
+                            </select>
 
 
                         </div>
@@ -96,22 +103,10 @@
                        
                         <div class="linha-cadastro-produto-sabor">
                             <h5>SABOR</h5>
-                             <?php
-                            $sqlSabores = "select * from sabores";
+                            <select name="slt-sabor" id="slt-sabor">
 
-                            $selectSabores = mysqli_query($conexao, $sqlSabores);
-
-                            while($rsConsultaSabor = mysqli_fetch_array($selectSabores)){
-                            
-                            ?>
-                            <label for="sabor<?=$rsConsultaSabor['id']?>" class="categoria-produto">
-                                <img src="bd/arquivos/<?=$rsConsultaSabor['icone']?>" alt="suco">
-                                <div class="legenda-cat"><?=$rsConsultaSabor['nome']?></div>
-                                <input class="sabor-produto" type="radio" name="rdSabor" id="sabor<?=$rsConsultaSabor['id']?>" value="<?=$rsConsultaSabor['id']?>">
-                            </label>
-                            <?php
-                            }
-                            ?>
+        
+                            </select>
                         </div>
                         
 
@@ -138,7 +133,29 @@
             </div>
             
         </section>
-        <script src="js/viacep.js"></script>
+        <script>
+            $('#slt-categoria').on("change", function(){
+                var idCategoria = $('#slt-categoria').val();
+
+                $.ajax({
+                    url:'bd/selecionar-sabor.php',
+                    type:'POST',
+                    data:{id:idCategoria},
+                    beforeSend: function(){
+                        $('#slt-sabor').css({display:'block'});
+                        $('#slt-sabor').html("Carregando...");
+                    },
+                    success: function(data){
+                        $('#slt-sabor').css({display:'block'});
+                        $('#slt-sabor').html(data);
+                    },
+                    error: function(data){
+                        $('#slt-sabor').css({display:'block'});
+                        $('#slt-sabor').html("Houve um erro ao carregar");
+                    }
+                });
+            });
+        </script>
         
     </body>
 </html>

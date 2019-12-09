@@ -6,8 +6,8 @@ $conexao = conexaoMysql();
 $nome = $_POST['txt-produto'];
 $preco = $_POST['txt-preco'];
 $descricao = $_POST['txt-desc-produto'];
-$categoria = $_POST['rdTipo'];
-$sabor = $_POST['rdSabor'];
+$categoria = $_POST['slt-categoria'];
+$sabor = $_POST['slt-sabor'];
 
 if(isset($_POST['btn-cadastro-produto'])){
 
