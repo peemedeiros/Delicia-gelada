@@ -314,10 +314,10 @@ label#thumbnail-curiosidades{
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.418);
 }
 label#thumbnail-produto{
-    width: 80%;
-    height: 50%;
+    width: 300px;
+    height: 300px;
     background-color: rgba(204, 204, 204, 0.438);
-    margin:auto;
+    float: right;
 }
 label#thumbnail-produto img{
     width: 100%;
@@ -1508,8 +1508,43 @@ label img{
     box-shadow: none;
 }
 /* PRODUTOS */
+.cadastro-produtos,
+.cadastro-produtos-cadastrar,
+.cadastro-categoria{
+    width: 1504px;
+    height: auto;
+    min-height: 600px;
+    clear: both;
+    padding-top: 50px;
+    box-sizing: border-box;
+    border-top:solid 2px #000;
+    border-left: solid 2px #000;
+    border-right: solid 2px #000;
+}
+.cadastro-categoria{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.cadastro-produtos-cadastrar{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: space-between;
+    background-image: linear-gradient(to bottom,#b9e6a0,#E2F8AF);
+
+}
+
 .formulario-cadastro-produtos{
-    height: 800px;
+    width: 100%;
+    height: 500px;
+    padding: 0;
+    box-shadow: unset;
+    margin: 0;
+    display: unset;
 }
 .produtos-form{
     width: 100%;
@@ -1534,4 +1569,256 @@ label img{
 #preview-produtos{
     visibility: hidden;
 }
+.opcoes-produtos{
+    width: 100%;
+    height: 300px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.opcoes-produtos-item{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.opcoes-produtos-item a {
+    width: inherit;
+    height: inherit;
+    text-decoration: none;
+}
+.opcoes-produtos-item:hover{
+    cursor: pointer;
+}
+.opcoes-produtos-item a:hover > .legenda-produtos{
+    visibility: visible;
+    opacity: 1;
+    top:0;
+    transition: 200ms;
+}
+.legenda-produtos{
+    width: 250px;
+    height: 50px;
+    background-color: #8a1d1d;
+    position: relative;
+    left:-25px;
+    top:-50px;
+    opacity: 0;
+    visibility: hidden;
+    font-weight: bold;
+    color:#fff;
+    font-size: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:4px;
+
+}
+.informacoes-produtos{
+    width: 800px;
+    height: 800px;
+}
+.upload-imagem-produtos{
+    width: 350px;
+    height: 400px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.upload-imagem-produtos h5{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.linha-cadastro-produto,
+.linha-cadastro-produto-desc,
+.linha-cadastro-produto-categoria,
+.linha-cadastro-botao{
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    
+}
+.linha-cadastro-produto-desc{
+    height: 150px;
+    padding: 5px;
+    padding-left: 10px;
+}
+.linha-cadastro-produto-categoria,
+.linha-cadastro-produto-sabor{
+    width: 49.5%;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction:column;
+    overflow: auto;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.123);
+    
+}
+.linha-cadastro-produto-sabor{
+    float: right;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.linha-cadastro-produto-categoria h5,
+.linha-cadastro-produto-sabor h5{
+    font-size: 18px;
+}
+.linha-cadastro-botao{
+    clear: both;
+    display: flex;
+    justify-content: center;
+}
+#nome-produto,
+#preco-produto{
+    width:500px;
+    height: 30px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+#preco-produto{
+    width: 150px;
+}
+#txt-descricao-produto{
+    width: 500px;
+    height: 120px;
+    resize: none;
+    font-size:20px;
+    border-radius: 4px;
+}
+.categoria-produto{
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    margin-bottom: 5px;
+    
+}
+.categoria-produto:hover{
+    cursor: pointer;
+}
+.categoria-produto:hover > .legenda-cat{
+    visibility: visible;
+    opacity: 1;
+    left: 50px;
+}
+.categoria-produto img{
+    width: 100%;
+    height: 100%;
+}
+#tipo-produto,
+.sabor-produto{
+    position: relative;
+    top: -50px;
+    left:200px;
+    width: 25px;
+    height: 25px;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+.legenda-cat{
+    width: auto;
+    min-width: 150px;
+    height: 20px;
+    background-color:#8a1d1d;
+    position: relative;
+    top:-34px;
+    left: 25px;
+    font-weight: bold;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 200ms;
+}
+.cadastrar-categoria{
+    width: 500px;
+    height: 500px;
+    background-color:#a51e36;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 8px;
+}
+.cadastrar-categoria h5{
+    color:#fff;
+}
+#txt-categoria,
+#fle-categoria,
+#txt-sabor{
+    width: 60%;
+    height: 30px;
+    font-size: 20px;
+    margin-right: 20px;
+}
+#fle-categoria{
+    width: 100%;
+    color:#fff;
+}
+.linha-cadastro-categoria,
+.linha-cadastro-categoria-h{
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+}
+.linha-cadastro-categoria-sabores{
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    float: left;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow-y:visible;
+}
+.linha-cadastro-categoria-h{
+    background-color: rgb(114, 114, 126);
+    color:#fff;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+}
+.linha-cadastro-categoria h3{
+    color:#fff;
+}
+.linha-cadastro-categoria h5{
+    margin-right: 10px;
+    color:#fff;
+}
+.linha-cadastro-categoria-sabores h5{
+    margin-bottom: 10px;
+}
+.linha-cadastro-categoria button{
+    width: 110px;
+    height: 30px;
+}
+.linha-sabores{
+    width: auto;
+    height: 40px;
+    background-color: rgb(210, 218, 241);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 2px;
+    float: left;
+
+}
+.linha-sabores img {
+    width: 40px;
+    height: 40px;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+
 

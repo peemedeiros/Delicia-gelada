@@ -13,6 +13,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {//Verificar se a sessão não já e
         
         //cadastra o nível
         $nomeNivel = $_POST['nomeNivel'];
+        
         $adm_conteudo = $_POST['adm_conteudo'];
         $adm_contatos = $_POST['adm_contato'];
         $adm_usuarios = $_POST['adm_user'];

@@ -1,4 +1,4 @@
-h1, h2, h3,h4, p, ul, li, body,a{
+h1, h2, h3,h4,h5,h6, p, ul, li, body,a{
     margin:0px;
     padding:0px;
     font-family: verdana;
@@ -57,7 +57,7 @@ h1, h2, h3,h4, p, ul, li, body,a{
 	text-align:right;
 }
 .preco{
-	color:#fff;
+	color:#000;
 	font: 20px;
 	font-weight: bold;
 }
@@ -401,7 +401,6 @@ nav .menu_itens:hover > .menu-dropdown {
     height: inherit;
     background-color:#ffffff;
     float: left;
-	background-color: #252525;
 	
 }
 .menu_vertical_caixa{
@@ -410,7 +409,6 @@ nav .menu_itens:hover > .menu-dropdown {
     min-height: 80px;
     list-style: none;
     box-sizing: border-box;
-	border-right: solid 2px #999;
 }
 .menu_vertical_itens{
     width: inherit;
@@ -425,10 +423,18 @@ nav .menu_itens:hover > .menu-dropdown {
     background-color: #e8e8e8;
     color:#000000;
 }
-.menu_vertical_itens:hover >.sub_menu{
+.menu_vertical_itens:hover > .sub_menu{
+	display: block;
+}
+.menu_vertical_itens a{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.menu_vertical_itens a:hover >.sub_menu{
     display: block;
 }
-.menu_vertical_itens:hover > .seta_direita{
+.menu_vertical_itens a:hover > .seta_direita{
     transform-origin: center;
     transition: 0.5s;
     transform: rotate(90deg);

@@ -1,4 +1,7 @@
 <?php
+
+require_once('bd/conexao.php');
+$conexao = conexaoMysql();
 //matando as sessoes ao deslogar
 if(isset($_GET['modo'])){
     if($_GET['modo'] == "logout"){
@@ -101,34 +104,107 @@ if(isset($_GET['modo'])){
             <div class="conteudo center">
                 <div class="menu_vertical">
                     <ul class="menu_vertical_caixa">
-                        <li class="menu_vertical_itens"> ITEM 1
+
+
+                        <?php
+
+                            // $sql = "select categoria_sabor.*, categorias.nome as categoria, sabores.nome as sabor from categoria_sabor
+                            // inner join categorias on categoria_sabor.id_categoria = categorias.id inner join
+                            // sabores on categoria_sabor.id_sabor = sabores.id";
+
+                            $sql = "select * from categorias";
+
+                            $select = mysqli_query($conexao, $sql);
+
+                            while($rsConsulta = mysqli_fetch_array($select)){
+                                
+                            
+                        ?>
+                        <a href="index.php?idcat=<?=$rsConsulta['id']?>">
+                            <li class="menu_vertical_itens"> 
+                                <?=$rsConsulta['nome']?>
+                                    <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita">
+                                    <ul class="sub_menu">
+                                    
+                                    <?php
+                                        
+                                        $sqlSabor = "select categoria_sabor.id_sabor, sabores.*
+                                        from categoria_sabor inner join 
+                                        sabores on categoria_sabor.id_sabor = sabores.id 
+                                        where categoria_sabor.id_categoria = ".$rsConsulta['id'];
+
+                                        $selectSabor = mysqli_query($conexao, $sqlSabor);
+
+                                        while($rsConsultaSabor = mysqli_fetch_array($selectSabor)){
+
+                                    ?> 
+                                        <li class="sub_menu_itens">
+                                            <?=$rsConsultaSabor['nome']?>
+                                        </li>
+
+                                    <?php
+                                        }
+                                    ?>
+                                    </ul>
+                                
+                            </li>
+                        </a>
+
+                        <?php
+                        
+                            }
+                        ?>
+
+
+
+
+                        <!-- <li class="menu_vertical_itens"> ITEM 2
                             <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita">
                             <ul class="sub_menu">
                                 <li class="sub_menu_itens">sub item</li>
-                            </ul>
-                        </li>
-                        <li class="menu_vertical_itens"> ITEM 2
-                            <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita">
-                            <ul class="sub_menu">
-                                <li class="sub_menu_itens">sub item</li>
                                 <li class="sub_menu_itens">sub item</li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <div class="produtos">
+
+                    <?php
+
+                    
+
+                    if(isset($_GET['idcat'])){
+
+                        $id_cat = $_GET['idcat'];
+
+                        $sqlProduto = "select * from produtos where id_categoria = ".$id_cat;
+
+                    }else{
+                        $sqlProduto = "select * from produtos";
+                    }
+                    
+                    
+
+                    $select = mysqli_query($conexao, $sqlProduto);
+
+                    while($rsConsultaProduto = mysqli_fetch_array($select)){
+
+                    
+                            
+                    ?>
+
                     <div class="caixa_produto">
                         <div class="img_produto center">
-                            <img src="img/suco_laranja.jpg" alt="produto">
+                            <img src="cms/bd/arquivos/<?=$rsConsultaProduto['imagem']?>" alt="produto">
                         </div>
                         <div class="desc_produto">
                             <ul>
-                                <li>Nome:Produto</li>
-                                <li>Descrição: Descrição deste produto</li>
+                                <li>Nome:<?=$rsConsultaProduto['nome']?></li>
+                                <li>Descrição: <?=$rsConsultaProduto['descricao']?></li>
                                 <li>
 									Preço:
 									<span class="preco">
-									R$6,50 
+									   R$<?=$rsConsultaProduto['preco']?>
 									</span> 
 									<span class="preco-antigo">
 										
@@ -141,7 +217,14 @@ if(isset($_GET['modo'])){
                             </ul>
                         </div>
                     </div>
-                    <div class="caixa_produto">
+                    <?php
+                    }
+                    ?>
+
+
+
+
+                    <!-- <div class="caixa_produto">
                         <div class="img_produto center">
                             <img src="img/suco_uva.jpg" alt="produto">
                         </div>
@@ -260,7 +343,7 @@ if(isset($_GET['modo'])){
                                 <li class="detalhes">Detalhes</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
