@@ -158,16 +158,6 @@ if(isset($_GET['modo'])){
                             }
                         ?>
 
-
-
-
-                        <!-- <li class="menu_vertical_itens"> ITEM 2
-                            <img class="seta_direita" src="icon/arrow-right.png" alt="seta_direita">
-                            <ul class="sub_menu">
-                                <li class="sub_menu_itens">sub item</li>
-                                <li class="sub_menu_itens">sub item</li>
-                            </ul>
-                        </li> -->
                     </ul>
                 </div>
                 <div class="produtos">
@@ -205,7 +195,9 @@ if(isset($_GET['modo'])){
 
                     <div class="caixa_produto">
                         <div class="img_produto center">
-                            <img src="cms/bd/arquivos/<?=$rsConsultaProduto['imagem']?>" alt="produto">
+                            <a href="produto.php?id=<?=$rsConsultaProduto['id']?>">
+                                <img src="cms/bd/arquivos/<?=$rsConsultaProduto['imagem']?>" alt="produto">
+                            </a>
                         </div>
                         <div class="desc_produto">
                             <ul>
@@ -223,137 +215,17 @@ if(isset($_GET['modo'])){
 										
 									</span>
 								</li>
-                                <li class="detalhes">Detalhes</li>
+                                <li class="detalhes">
+                                    <a href="produto.php?id=<?=$rsConsultaProduto['id']?>">
+                                        Detalhes
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <?php
                     }
                     ?>
-
-
-
-
-                    <!-- <div class="caixa_produto">
-                        <div class="img_produto center">
-                            <img src="img/suco_uva.jpg" alt="produto">
-                        </div>
-                        <div class="desc_produto">
-                            <ul>
-                                <li>Nome:Produto</li>
-                                <li>Descrição: </li>
-                                <li>
-									Preço:
-									<span class="preco">
-									R$6,50 
-									</span> 
-									<span class="preco-antigo">
-										
-									</span>
-									<span class="preco-novo">
-										
-									</span>
-								</li>
-                                <li class="detalhes">Detalhes</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="caixa_produto">
-                        <div class="img_produto center">
-                            <img src="img/fanta_guarana.jpg" alt="produto">
-                        </div>
-                        <div class="desc_produto">
-                            <ul>
-                                <li>Nome:Produto</li>
-                                <li>Descrição: Descrição deste produto</li>
-                                <li>
-									Preço:
-									<span class="preco">
-									 
-									</span> 
-									<span class="preco-antigo">
-										R$6,50
-									</span>
-									<span class="preco-novo">
-										R$4,99
-									</span>
-								</li>
-                                <li class="detalhes">Detalhes</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="caixa_produto">
-                        <div class="img_produto center">
-                            <img src="img/energetico.jpg" alt="produto">
-                        </div>
-                        <div class="desc_produto">
-                            <ul>
-                                <li>Nome:Produto</li>
-                                <li>Descrição: Descrição deste produto</li>
-                                <li>
-									Preço:
-									<span class="preco">
-									R$6,50 
-									</span> 
-									<span class="preco-antigo">
-										
-									</span>
-									<span class="preco-novo">
-										
-									</span>
-								</li>
-                                <li class="detalhes">Detalhes</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="caixa_produto">
-                        <div class="img_produto center">
-                            <img src="img/sprite.jpg" alt="produto">
-                        </div>
-                        <div class="desc_produto">
-                            <ul>
-                                <li>Nome:Produto</li>
-                                <li>Descrição: Descrição deste produto</li>
-                                <li>
-									Preço:
-									<span class="preco">
-									R$6,50 
-									</span> 
-									<span class="preco-antigo">
-										
-									</span>
-									<span class="preco-novo">
-										
-									</span>
-								</li>
-                                <li class="detalhes">Detalhes</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="caixa_produto">
-                        <div class="img_produto center">
-                            <img src="img/suco_goiaba.jpg" alt="produto">
-                        </div>
-                        <div class="desc_produto">
-                            <ul>
-                                <li>Nome:Produto</li>
-                                <li>Descrição: Descrição deste produto</li>
-                                <li>
-									Preço:
-									<span class="preco">
-									R$6,50 
-									</span> 
-									<span class="preco-antigo">
-										
-									</span>
-									<span class="preco-novo">
-										
-									</span>
-								</li>
-                                <li class="detalhes">Detalhes</li>
-                            </ul>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </section>

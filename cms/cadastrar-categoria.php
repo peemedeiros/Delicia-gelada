@@ -104,9 +104,105 @@
                             
                             <input type="file" name="fleicone-sabor" id="fle-categoria" required>
                         </div>
+
+                        <h5>SABORES CADASTRADOS</h5>
+                        <div class="linha-cadastro-categoria-sabores-lista texto-center">
+                            
+                            
+                            <?php
+
+                                $sql = "select * from sabores";
+                                $select = mysqli_query($conexao,$sql);
+
+                                while($rsConsulta = mysqli_fetch_array($select)){
+
+                                
+
+                            ?>
+                            <div class="linha-sabores">
+                                <img src="bd/arquivos/<?=$rsConsulta['icone']?>" alt="Sabor">
+                                <h5><?=$rsConsulta['nome']?></h5>
+                                <a href="#">
+                                    <img src="icon/cancel.png" alt="excluir">
+                                </a>
+                            </div>
+                            <?php
+                                }
+                            
+                            ?>
+                            
+                        </div>
                     </form>
 
 
+                </div>
+                <div class="visualizacao-categorias">
+                    <h1>Categorias cadastradas</h1>
+
+                    <div class="tabela-categoria">
+                        <div class="tabela-categoria-head">
+                            <div class="coluna-categoria-head">CATEGORIAS</div>
+                            <div class="coluna-categoria-head">SABORES</div>
+                            <div class="coluna-categoria-head">OPÇÕES</div>
+                        </div>
+
+                        <?php
+
+                            $count = 0;
+                            $cor = (String)"";
+                        
+                            $sqlCategoria = "select * from categorias";
+
+                            $selectCategoria = mysqli_query($conexao, $sqlCategoria);
+
+                            while($rsCategoria = mysqli_fetch_array($selectCategoria)){
+                                $count +=1;
+
+                                if($count % 2 == 0)
+                                    $cor = "zebrado";
+                                else
+                                    $cor = "";
+                        ?>
+                        <div class="tabela-categoria-linha <?=$cor?>">
+                            <div class="coluna-categoria"><?=$rsCategoria['nome']?></div>
+                            <div class="coluna-categoria">
+                                <?php
+
+                                    $sqlSabores = "select categoria_sabor.*, sabores.* 
+                                    from categoria_sabor inner join sabores on 
+                                    categoria_sabor.id_sabor = sabores.id where categoria_sabor.id_categoria = ".$rsCategoria['id'];
+                                    
+                                    $selectSabor = mysqli_query($conexao, $sqlSabores);
+
+                                    while($rsSabor = mysqli_fetch_array($selectSabor)){
+                                ?>    
+                                    <img src="bd/arquivos/<?=$rsSabor['icone']?>" alt="Icone">
+                                <?php
+
+                                    }
+
+                                ?>
+
+
+                            </div>
+                            <div class="coluna-categoria">
+                                <a href="">
+                                    <img src="icon/cancel.png" alt="excluir">
+                                </a>
+
+                                <a href="">
+                                    <img src="icon/edit1.png" alt="visualizar">
+                                </a>
+                            </div>
+                        </div>
+                        <?php
+                        
+                            }
+                        
+                        ?>
+
+
+                    </div>
                 </div>
                 
                 <?php

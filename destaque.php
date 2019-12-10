@@ -21,14 +21,7 @@
 				<h1 class="titulo">
 					O Guaramês chegou!
 				</h1>
-				<!--<div class="card-destaque">
-					<p class="texto texto-center">
-						A primavera chegou e trouxe com ela o florecer de diversar novidades para você!
-					</p>
-					<p class="texto texto-center">
-						Chegou o mês do guaraná, o Guaramês!
-					</p>
-				</div>-->
+				
 			</div>
 		</section>
 		<div class="decoracao">
